@@ -1,0 +1,2 @@
+SSH: git@github.com:NGO-5111-master-niigata/ColorChangedMapForLowVision.git
+HTTPS: https://github.com/NGO-5111-master-niigata/ColorChangedMapForLowVision.git
