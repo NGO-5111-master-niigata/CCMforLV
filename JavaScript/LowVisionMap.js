@@ -43,7 +43,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 			var comlng = 139.70 ;
 			var comlat = 35.68 ;
 
-			<!-- 新宿駅周辺の地図読み込み -->
+			<!-- 現在地周辺の地図読み込み -->
 
 			mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
 			var map = new mapboxgl.Map({
