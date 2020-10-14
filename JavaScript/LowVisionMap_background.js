@@ -33,6 +33,14 @@ navigator.geolocation.getCurrentPosition(success,error);
 				'top-left'
 				);
 
+
+			map.on('load', function() {
+				var big = document.getElementById('big');
+
+				big.addEventListener('click', function() {
+					map.setLayoutProperty('place-labels', 'text-size', 40);
+				},false);
+			});
 		}
 
 
