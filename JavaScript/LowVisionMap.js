@@ -37,7 +37,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 			map.on('load', function() {
 				var large = document.getElementById('large');
 
-				big.addEventListener('click', function() {
+				large.addEventListener('click', function() {
 					map.setLayoutProperty('state-label', 'text-size', 40);
 				},false);
 				
