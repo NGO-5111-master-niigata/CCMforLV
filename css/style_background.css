@@ -36,6 +36,9 @@
 	border: none;
 	padding: 0;
 	margin: 0 0 10px;
+	position: absolute;
+	bottom: 40px;
+	left: 10px;
 }
 
 .map-overlay-inner fieldset:last-child {

@@ -35,10 +35,16 @@ navigator.geolocation.getCurrentPosition(success,error);
 
 
 			map.on('load', function() {
-				var big = document.getElementById('big');
+				var large = document.getElementById('large');
 
 				big.addEventListener('click', function() {
-					map.setLayoutProperty('place-labels', 'text-size', 40);
+					map.setLayoutProperty('state-label', 'text-size', 40);
+				},false);
+				
+				var small = document.getElementById('small');
+
+				small.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 10);
 				},false);
 			});
 		}
@@ -74,4 +80,17 @@ navigator.geolocation.getCurrentPosition(success,error);
 					'top-left'
 					);
 
+				map.on('load', function() {
+					var large = document.getElementById('large');
+		
+					big.addEventListener('click', function() {
+						map.setLayoutProperty('state-label', 'text-size', 40);
+					},false);
+						
+					var small = document.getElementById('small');
+		
+					small.addEventListener('click', function() {
+						map.setLayoutProperty('state-label', 'text-size', 10);
+					},false);
+				});
 		}
