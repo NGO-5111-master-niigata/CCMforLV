@@ -68,29 +68,30 @@ navigator.geolocation.getCurrentPosition(success,error);
 			});
 
 
-				<!-- コントロールボタン、ジオコーダー追加 -->
+			<!-- コントロールボタン、ジオコーダー追加 -->
 
-				map.addControl(new mapboxgl.NavigationControl());
+			map.addControl(new mapboxgl.NavigationControl());
 
-				map.addControl(
-					new MapboxGeocoder({
-						accessToken: mapboxgl.accessToken,
-						mapboxgl: mapboxgl
-					}),
-					'top-left'
-					);
+			map.addControl(
+				new MapboxGeocoder({
+					accessToken: mapboxgl.accessToken,
+					mapboxgl: mapboxgl
+				}),
+				'top-left'
+				);
 
-				map.on('load', function() {
-					var large = document.getElementById('large');
-		
-					large.addEventListener('click', function() {
-						map.setLayoutProperty('state-label', 'text-size', 40);
-					},false);
-						
-					var small = document.getElementById('small');
-		
-					small.addEventListener('click', function() {
-						map.setLayoutProperty('state-label', 'text-size', 10);
-					},false);
-				});
+
+			map.on('load', function() {
+				var large = document.getElementById('large');
+
+				large.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 40);
+				},false);
+				
+				var small = document.getElementById('small');
+
+				small.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 10);
+				},false);
+			});
 		}
