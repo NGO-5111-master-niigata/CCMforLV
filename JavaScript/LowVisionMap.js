@@ -33,7 +33,8 @@ navigator.geolocation.getCurrentPosition(success,error);
 				'top-left'
 				);
 
-
+			<!-- 文字サイズ変更ボタン追加 -->
+	
 			map.on('load', function() {
 				var large = document.getElementById('large');
 
@@ -45,6 +46,23 @@ navigator.geolocation.getCurrentPosition(success,error);
 
 				small.addEventListener('click', function() {
 					map.setLayoutProperty('state-label', 'text-size', 10);
+				},false);
+			});
+
+
+			<!-- 県名の表示非表示切り替えボタン追加 -->
+	
+			map.on('load', function() {
+				var on = document.getElementById('on');
+
+				on.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 60);
+				},false);
+				
+				var off = document.getElementById('off');
+
+				off.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 0);
 				},false);
 			});
 		}
@@ -80,7 +98,8 @@ navigator.geolocation.getCurrentPosition(success,error);
 				'top-left'
 				);
 
-
+			<!-- 文字サイズ変更ボタン追加 -->
+	
 			map.on('load', function() {
 				var large = document.getElementById('large');
 
@@ -92,6 +111,23 @@ navigator.geolocation.getCurrentPosition(success,error);
 
 				small.addEventListener('click', function() {
 					map.setLayoutProperty('state-label', 'text-size', 10);
+				},false);
+			});
+
+
+			<!-- 県名の表示非表示切り替えボタン追加 -->
+	
+			map.on('load', function() {
+				var on = document.getElementById('on');
+
+				on.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 60);
+				},false);
+				
+				var off = document.getElementById('off');
+
+				off.addEventListener('click', function() {
+					map.setLayoutProperty('state-label', 'text-size', 0);
 				},false);
 			});
 		}
