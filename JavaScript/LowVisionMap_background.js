@@ -33,7 +33,6 @@ navigator.geolocation.getCurrentPosition(success,error);
 				'top-left'
 				);
 
-
 			<!-- 文字サイズ変更ボタン追加 -->
 	
 			map.on('load', function() {
@@ -98,7 +97,6 @@ navigator.geolocation.getCurrentPosition(success,error);
 				}),
 				'top-left'
 				);
-
 
 			<!-- 文字サイズ変更ボタン追加 -->
 	
