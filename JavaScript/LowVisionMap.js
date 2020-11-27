@@ -65,6 +65,23 @@ navigator.geolocation.getCurrentPosition(success,error);
 					map.setLayoutProperty('state-label', 'text-size', 0);
 				},false);
 			});
+
+			<!-- 国名の表示非表示切り替えボタン追加 -->
+	
+			map.on('load', function() {
+				var on = document.getElementById('on');
+
+				on.addEventListener('click', function() {
+					map.setLayoutProperty('country-label', 'text-size', 60);
+				},false);
+				
+				var off = document.getElementById('off');
+
+				off.addEventListener('click', function() {
+					map.setLayoutProperty('country-label', 'text-size', 0);
+				},false);
+			});
+
 		}
 
 
