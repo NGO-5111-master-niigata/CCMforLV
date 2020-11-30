@@ -4,31 +4,35 @@
 	<meta charset='utf-8' />
 	<title>弱視者用配色可変オンライン地図</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.js'></script>
-	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.1/mapbox-gl.css' rel='stylesheet' />
 	<link href="css/style_background.css" rel="stylesheet" />
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" rel="stylesheet" type="text/css"/>
+</head>
+	
 <body>
 	<div id="map"></div>
+	<div class="map-overlay top">
 		<div class='map-overlay-inner'>
-			<fieldset  id="country">
-				<label>country label</label>
-					<button id="on">on</button>
-					<button id="off">off</button>
+			<fieldset>
+			<form name="Label">表示する文字の属性<br>
+				<input type="checkbox" name="PlaceLabel" value="country-label">国名<br>
+				<input type="checkbox" name="PlaceLabel" value="state-label">県名<br>
+				<input type="checkbox" name="PlaceLabel" value="airport-label">空港とか自衛隊基地の名前<br>
+				<input type="checkbox" name="PlaceLabel" value="natural-point-label">山とか温泉の名前<br>
+				<input type="checkbox" name="PlaceLabel" value="water-point-label">川とか海の名前<br>
+				<input type="checkbox" name="PlaceLabel" value="road-label-simple">太い道路の名前<br>
+				<input type="checkbox" name="PlaceLabel" value="path-pedestrian-label">細い道路とか歩道の名前<br>
+			</form>
 			</fieldset>
-			<fieldset  id="state">
-				<label>state label</label>
-					<button id="on">on</button>
-					<button id="off">off</button>
+			<fieldset>
+				<label>ラベルの 表示/非表示 切り替え</label>
+					<input type="button" value="表示" onclick="show()"/>
+					<input type="button" value="非表示" onclick="hide()"/>
 			</fieldset>
-
 		</div>
 	</div>
-	</div>
-
 	<script src='JavaScript/LowVisionMap_background.js'></script>
 
 </body>

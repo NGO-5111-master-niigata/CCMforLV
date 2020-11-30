@@ -1,14 +1,3 @@
-<!-- 現在地を取得 -->
-
-navigator.geolocation.getCurrentPosition(success,error);
-
-		<!-- 取得に成功した場合の関数 -->
-
-		function success(position){
-
-			var com = position.coords;
-			var comlng = com.longitude ;
-			var comlat = com.latitude ;
 
 			<!-- 現在地周辺の地図読み込み -->
 
@@ -16,8 +5,8 @@ navigator.geolocation.getCurrentPosition(success,error);
 			var map = new mapboxgl.Map({
 				container: 'map',
 				style: 'mapbox://styles/ngo5111/ckemjqmlv2cyh19rrpe99nr7y',
-				center: [+ comlng , + comlat] ,
-				zoom: 14.5
+				center: [140 , 40] ,
+				zoom: 11.5
 			});
 
 
@@ -33,103 +22,35 @@ navigator.geolocation.getCurrentPosition(success,error);
 				'top-left'
 				);
 
+
+			<!-- 表示ボタン押したらチェックボックス調べて大きくする -->
 			
-			<!-- 県名の表示非表示切り替えボタン追加 -->
-	
-			map.on('load', function() {
-				var on = document.getElementById('on');
-
-				on.addEventListener('click', function() {
-					map.setLayoutProperty('state-label', 'text-size', 60);
-				},false);
-				
-				var off = document.getElementById('off');
-
-				off.addEventListener('click', function() {
-					map.setLayoutProperty('state-label', 'text-size', 0);
-				},false);
-			});
-
-			<!-- 国名の表示非表示切り替えボタン追加 -->
-	
-			map.on('load', function() {
-				var on = document.getElementById('on');
-
-				on.addEventListener('click', function() {
-					map.setLayoutProperty('country-label', 'text-size', 60);
-				},false);
-				
-				var off = document.getElementById('off');
-
-				off.addEventListener('click', function() {
-					map.setLayoutProperty('country-label', 'text-size', 0);
-				},false);
-			});
-
-		}
+			function show(){
+				const PlaceLabel = document.Label.PlaceLabel;
+			
+				for (let i = 0; i < PlaceLabel.length; i++){
+					if(PlaceLabel[i].checked){ 
+						const tmp = [];
+						tmp.push(PlaceLabel[i].value);
+						map.setLayoutProperty(tmp,'text-size',60);
+					}
+				}
+			}
 
 
-		<!-- 取得に失敗した場合の関数 -->
+			<!-- 非表示ボタン押したらチェックボックス調べて消す -->
 
-		function error(err){
-
-			var comlng = 139.70 ;
-			var comlat = 35.68 ;
-
-			<!-- 現在地周辺の地図読み込み -->
-
-			mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
-			var map = new mapboxgl.Map({
-				container: 'map',
-				style: 'mapbox://styles/ngo5111/ckemjqmlv2cyh19rrpe99nr7y',
-				center: [+ comlng , + comlat] ,
-				zoom: 14.5
-			});
+			function hide(){
+				const PlaceLabel = document.Label.PlaceLabel;
+			
+				for (let i = 0; i < PlaceLabel.length; i++){
+					if(PlaceLabel[i].checked){ 
+						const tmp = [];
+						tmp.push(PlaceLabel[i].value);
+						map.setLayoutProperty(tmp,'text-size',0);
+					}
+				}
+			}
 
 
-			<!-- コントロールボタン、ジオコーダー追加 -->
 
-			map.addControl(new mapboxgl.NavigationControl());
-
-			map.addControl(
-				new MapboxGeocoder({
-					accessToken: mapboxgl.accessToken,
-					mapboxgl: mapboxgl
-				}),
-				'top-left'
-				);
-
-
-			<!-- 県名の表示非表示切り替えボタン追加 -->
-	
-			map.on('load', function() {
-				var on = document.getElementById('on');
-
-				on.addEventListener('click', function() {
-					map.setLayoutProperty('state-label', 'text-size', 60);
-				},false);
-				
-				var off = document.getElementById('off');
-
-				off.addEventListener('click', function() {
-					map.setLayoutProperty('state-label', 'text-size', 0);
-				},false);
-			});
-
-			<!-- 国名の表示非表示切り替えボタン追加 -->
-	
-			map.on('load', function() {
-				var on = document.getElementById('on');
-
-				on.addEventListener('click', function() {
-					map.setLayoutProperty('country-label', 'text-size', 60);
-				},false);
-				
-				var off = document.getElementById('off');
-
-				off.addEventListener('click', function() {
-					map.setLayoutProperty('country-label', 'text-size', 0);
-				},false);
-			});
-
-		}
