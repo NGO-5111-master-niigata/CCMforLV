@@ -1,5 +1,6 @@
 <!-- 現在地を取得 -->
 
+navigator.geolocation.getCurrentPosition(success,error); 
 
 		<!-- 取得に成功した場合の関数 -->
 
