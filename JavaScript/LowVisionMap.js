@@ -17,8 +17,6 @@ var map = new mapboxgl.Map({
 
 
 
-
-
 <!-- 取得に成功した場合の関数 -->
 
 function success(position){
