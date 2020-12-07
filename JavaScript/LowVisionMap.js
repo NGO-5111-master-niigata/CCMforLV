@@ -1,4 +1,10 @@
 
+<!-- 現在地を取得 -->
+
+navigator.geolocation.getCurrentPosition(success,error); 
+
+
+
 <!-- 現在地周辺の地図読み込み -->
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
@@ -10,9 +16,7 @@ var map = new mapboxgl.Map({
 });
 
 
-<!-- 現在地を取得 -->
 
-navigator.geolocation.getCurrentPosition(success); 
 
 
 <!-- 取得に成功した場合の関数 -->
