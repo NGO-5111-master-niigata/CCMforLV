@@ -44,36 +44,6 @@ function success(position){
 }
 
 
-<!-- 表示ボタン押したらチェックボックス調べて大きくする -->
-			
-function show(){
-	const PlaceLabel = document.Label.PlaceLabel;
-			
-	for (let i = 0; i < PlaceLabel.length; i++){
-		if(PlaceLabel[i].checked){ 
-			const tmp = [];
-			tmp.push(PlaceLabel[i].value);
-			map.setLayoutProperty(tmp,'text-size',60);
-		}
-	}
-}
-
-
-<!-- 非表示ボタン押したらチェックボックス調べて消す -->
-
-function hide(){
-	const PlaceLabel = document.Label.PlaceLabel;
-			
-	for (let i = 0; i < PlaceLabel.length; i++){
-		if(PlaceLabel[i].checked){ 
-			const tmp = [];
-			tmp.push(PlaceLabel[i].value);
-			map.setLayoutProperty(tmp,'text-size',0);
-		}
-	}
-}
-
-
 <!-- 取得に失敗した場合の関数 -->
 
 function error(err){
@@ -120,6 +90,24 @@ function hide(){
 		}
 	}
 }
+
+
+<!-- リセットボタン押したら文字の大きさ最初の状態に戻す -->
+
+var reset = document.getElementById('reset');
+
+reset.addEventListener('click', function() {
+	map.setLayoutProperty("country-label",'text-size',100);
+	map.setLayoutProperty("state-label",'text-size',100);
+	map.setLayoutProperty("settlement-major-label",'text-size',100);
+	map.setLayoutProperty("settlement-minor-label",'text-size',100);
+	map.setLayoutProperty("airport-label",'text-size',100);
+	map.setLayoutProperty("natural-point-label",'text-size',100);
+	map.setLayoutProperty("water-point-label",'text-size',100);
+	map.setLayoutProperty("road-label-simple",'text-size',100);
+	map.setLayoutProperty("path-pedestrian-label",'text-size',100);
+},false);
+
 
 
 
