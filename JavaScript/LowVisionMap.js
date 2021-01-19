@@ -92,23 +92,6 @@ function hide(){
 }
 
 
-<!-- リセットボタン押したら文字の大きさ最初の状態に戻す -->
-
-var reset = document.getElementById('reset');
-
-reset.addEventListener('click', function() {
-	map.setLayoutProperty("country-label",'text-size',100);
-	map.setLayoutProperty("state-label",'text-size',100);
-	map.setLayoutProperty("settlement-major-label",'text-size',100);
-	map.setLayoutProperty("settlement-minor-label",'text-size',100);
-	map.setLayoutProperty("airport-label",'text-size',100);
-	map.setLayoutProperty("natural-point-label",'text-size',100);
-	map.setLayoutProperty("water-point-label",'text-size',100);
-	map.setLayoutProperty("road-label-simple",'text-size',100);
-	map.setLayoutProperty("path-pedestrian-label",'text-size',100);
-},false);
-
-
 
 
 
