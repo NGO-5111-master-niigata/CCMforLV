@@ -99,6 +99,7 @@ var reset = document.getElementById('reset');
 reset.addEventListener('click', function() {
 	map.setLayoutProperty("country-label",'text-size',100);
 	map.setLayoutProperty("state-label",'text-size',100);
+	map.setLayoutProperty("poi-label",'text-size',100);
 	map.setLayoutProperty("settlement-major-label",'text-size',100);
 	map.setLayoutProperty("settlement-minor-label",'text-size',100);
 	map.setLayoutProperty("airport-label",'text-size',100);
