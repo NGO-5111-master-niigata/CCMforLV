@@ -5,6 +5,7 @@
 	<title>弱視者用配色可変オンライン地図</title>
 	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 	<link href="css/style_background.css" rel="stylesheet" />
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.5.1.min.js"></script>
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
@@ -12,35 +13,8 @@
 </head>
 	
 <body>
-	<div id="map"></div>
-	<div class="map-overlay top">
-		<div class='map-overlay-inner'>
-			<fieldset>
-			<form name="Label">表示する文字の属性<br>
-				<input type="checkbox" name="PlaceLabel" value="country-label">国名<br>
-				<input type="checkbox" name="PlaceLabel" value="state-label">県名<br>
-				<input type="checkbox" name="PlaceLabel" value="poi-label">建物<br>
-				<input type="checkbox" name="PlaceLabel" value="airport-label">空港、自衛隊基地<br>
-				<input type="checkbox" name="PlaceLabel" value="natural-point-label">山、温泉<br>
-				<input type="checkbox" name="PlaceLabel" value="water-point-label">川、海<br>
-				<input type="checkbox" name="PlaceLabel" value="road-label-simple">太い道路<br>
-				<input type="checkbox" name="PlaceLabel" value="path-pedestrian-label">細い道路、歩道<br>
-			</form>
-			</fieldset>
-			<fieldset>
-				<label>ラベルの 表示/非表示 切り替え</label>
-					<input type="button" value="表示" onclick="show()"/>
-					<input type="button" value="非表示" onclick="hide()"/>
-			</fieldset>
-			<fieldset>
-				<label>リセットボタン</label>
-					<button id="reset">リセット</button>
-					<input type="button" value="リセット" onclick="reset()"/>
-			</fieldset>
-		</div>
-	</div>
-	<script src='JavaScript/LowVisionMap_background.js'></script>
-
+	<script src='JavaScript/CheckSPorPC_background.js'></script>
+    <div id="MapOpen"></div>
 </body>
 
 </html>
