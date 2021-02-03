@@ -94,12 +94,9 @@ function hide(){
 
 <!-- 設定画面押したら別のウインドウ開く -->
 
-function ControlPanel(){
-
-
-
+function control(){
+	window.open("MapEdit.html", "設定画面", "top=100,left=100,width=300,height=400");
 }
-
 
 
 
