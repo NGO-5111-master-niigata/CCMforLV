@@ -14,28 +14,68 @@
 	
 <body>
 	<div id="map"></div>
-	<div class="map-overlay top">
-		<div class='map-overlay-inner'>
-			<fieldset>
-			<form name="Label">表示する文字の属性<br>
-				<input type="checkbox" name="PlaceLabel" value="country-label">国名<br>
-				<input type="checkbox" name="PlaceLabel" value="state-label">県名<br>
-				<input type="checkbox" name="PlaceLabel" value="airport-label">空港、自衛隊基地<br>
-				<input type="checkbox" name="PlaceLabel" value="natural-point-label">山、温泉<br>
-				<input type="checkbox" name="PlaceLabel" value="water-point-label">川、海<br>
-				<input type="checkbox" name="PlaceLabel" value="road-label-simple">太い道路<br>
-				<input type="checkbox" name="PlaceLabel" value="path-pedestrian-label">細い道路、歩道<br>
-			</form>
-			</fieldset>
-			<fieldset>
-				<label>ラベルの 表示/非表示 切り替え</label>
-					<input type="button" value="表示" onclick="show()"/>
-					<input type="button" value="非表示" onclick="hide()"/>
-            </fieldset>
-			<input type="button" value="設定画面" onclick="control()"/>
+	<fieldset class="EditPanel_PC">
+		<form name="Label">表示する文字の属性<br>
+			<input type="checkbox" name="PlaceLabel" value="country-label">国名<br>
+			<input type="checkbox" name="PlaceLabel" value="state-label">県名<br>
+			<input type="checkbox" name="PlaceLabel" value="airport-label">空港、自衛隊基地<br>
+			<input type="checkbox" name="PlaceLabel" value="natural-point-label">山、温泉<br>
+			<input type="checkbox" name="PlaceLabel" value="water-point-label">川、海<br>
+			<input type="checkbox" name="PlaceLabel" value="road-label-simple">太い道路<br>
+			<input type="checkbox" name="PlaceLabel" value="path-pedestrian-label">細い道路、歩道<br>
+		</form>
+		<input type="button" value="表示" onclick="show()"/>
+		<input type="button" value="非表示" onclick="hide()"/><br>
+	<input type="button" value="設定画面" onclick="control()"/>
+	</fieldset>
+
+	<div class="main">
+		<div class="CheckBox">
+			<h3>設定</h3>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-1' class="checkbox" checked="checked" name="PlaceLabel" value="country-label" onclick="toggle()" />
+					<label class="switch" for='setting-item-1'></label>
+					<label class="text" for='setting-item-1'>国名</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-2' class="checkbox" checked="checked" name="PlaceLabel" value="state-label" />
+					<label class="switch" for='setting-item-2'></label>
+					<label class="text" for='setting-item-2'>県名</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-3' class="checkbox" checked="checked" name="PlaceLabel" value="airport-label" />
+					<label class="switch" for='setting-item-3'></label>
+					<label class="text" for='setting-item-3'>空港、自衛隊基地</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-4' class="checkbox" checked="checked" name="PlaceLabel" value="natural-point-label" />
+					<label class="switch" for='setting-item-4'></label>
+					<label class="text" for='setting-item-4'>山、温泉</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-5' class="checkbox" checked="checked" name="PlaceLabel" value="water-point-label" />
+					<label class="switch" for='setting-item-5'></label>
+					<label class="text" for='setting-item-5'>川、海</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-6' class="checkbox" checked="checked" name="PlaceLabel" value="road-label-simple" />
+					<label class="switch" for='setting-item-6'></label>
+					<label class="text" for='setting-item-6'>太い道路</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-7' class="checkbox" checked="checked" />
+					<label class="switch" for='setting-item-7'></label>
+					<label class="text" for='setting-item-7'>細い道路、歩道</label>
+				</div>
 		</div>
-    </div>
-    
+	</div>
+
+
+
+
+
+	
+	<span id="check"></span>
 	<script src='JavaScript/LowVisionMap_responsible.js'></script>
 
 </body>

@@ -167,11 +167,111 @@
 
     #map{
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 100px;
+        left: 100px;
+        width: 60%;
+        height: 80%;
     }
+
+    .EditPanel_PC{
+        position: absolute;
+        top: 100px;
+        right: 150px;
+        width: 15%;
+        height: 30%;
+    }
+
+
+
+
+
+    .main .CheckBox {
+        position: absolute;
+        top: 100px;
+        right: 150px;
+    }
+
+    .main h3 {
+        font-size: 1.5rem;
+        border-bottom: 7px double #ccc;
+        text-align: center;
+        margin: 2rem auto;
+    }
+
+    .main .item-frame {
+        margin: 1rem auto;
+    }
+
+    .main .text {
+        vertical-align: middle;
+    }
+
+    .main label {
+        cursor: pointer;
+    }
+
+    .main .switch {
+        position: relative;
+    }
+
+    .main .switch:before, .main .switch:after {
+        content: '';
+        vertical-align: middle;
+        display: inline-block;
+    }
+    
+    .main .switch:before {
+        width: 2em;
+        height: 1em;
+        border: 2px solid #C4C9FF;
+        border-radius: 32px;
+        background: #999;
+    }
+
+    .main .switch:after {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        background: #C4C9FF;
+        border-radius: 50%;
+        left: -2.2em;
+    }
+
+    .main input { 
+        display: none;
+    }
+
+    .main input:checked ~ .switch:before {
+        background: #00b715;
+        border-color: #84ff92;
+    }
+      
+    .main input:checked ~ .switch:after {
+        background: #84ff92;
+        left: -1.1em;
+    }
+
+
+
+    .active {
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     .map-overlay {
         font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -219,25 +319,14 @@
     }
         
     .map-overlay-inner button:focus {
-    outline: none;
-        }
+        outline: none;
+    }
         
     .map-overlay-inner button:hover {
         box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
     }
 
 
-    #reset {
-        display: inline-block;
-        width: 100px;
-        height: 30px;
-        border: none;
-        cursor: pointer;
-        outline: none;
-        box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-    }
-	 
-}
 
 
 

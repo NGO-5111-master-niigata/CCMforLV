@@ -100,5 +100,50 @@ function control(){
 
 
 
+/* ・・・のチェックボックス押したら文字の表示、非表示切り替え */
 
+function onFunc(){
+	$("#check").text("ONの処理を実行するよ！");	
+}
+function offFunc(){
+	$("#check").text("OFFの処理を実行するよ！");	
+}
+
+$(function () {
+    $("setting-item-1").click(function(){
+        $(this).toggleClass("active");
+        var flg = $(this).hasClass("active");
+        if(flg == true){
+            onFunc();
+        }else{
+            offFunc();
+        }
+    });
+});
 	
+
+
+
+/* ・・・のチェックボックス押したら文字の表示、非表示切り替え */
+
+flag = false;
+num = 0;
+function toggle(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("country-label",'text-size',100);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("country-label",'text-size',0);
+	} //条件を満たしていない場合の処理}
+}
+
+
+
+
+
+
+
+
+
