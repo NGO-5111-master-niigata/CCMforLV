@@ -3,40 +3,67 @@
 <head>
 	<meta charset='utf-8' />
 	<title>弱視者用配色可変オンライン地図</title>
-	<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-	<link href="css/style_background.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" rel="stylesheet" type="text/css"/>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<link href="css/style_responsible.css" rel="stylesheet" />
+	<script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?602b606aff0c440ca9be6b2eac1e02e5" charset="utf-8"></script>
 </head>
 	
 <body>
 	<div id="map"></div>
-	<div class="map-overlay top">
-		<div class='map-overlay-inner'>
-			<fieldset>
-			<form name="Label">表示する文字の属性<br>
-				<input type="checkbox" name="PlaceLabel" value="country-label">国名<br>
-				<input type="checkbox" name="PlaceLabel" value="state-label">県名<br>
-				<input type="checkbox" name="PlaceLabel" value="airport-label">空港、自衛隊基地<br>
-				<input type="checkbox" name="PlaceLabel" value="natural-point-label">山、温泉<br>
-				<input type="checkbox" name="PlaceLabel" value="water-point-label">川、海<br>
-				<input type="checkbox" name="PlaceLabel" value="road-label-simple">太い道路<br>
-				<input type="checkbox" name="PlaceLabel" value="path-pedestrian-label">細い道路、歩道<br>
-			</form>
-			</fieldset>
-			<fieldset>
-				<label>ラベルの 表示/非表示 切り替え</label>
-					<input type="button" value="表示" onclick="show()"/>
-					<input type="button" value="非表示" onclick="hide()"/>
-			</fieldset>
-				<label>お試しのリンク</label>
-				<li><a href="index_background.html">開発者用ページです。開かないでください。</a></li>
+	<div class="main">
+		<div class="CheckBox">
+			<h3>設定</h3>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-1' class="checkbox" checked="checked" name="PlaceLabel" value="country-label" onclick="toggle()" />
+					<label class="switch" for='setting-item-1'></label>
+					<label class="text" for='setting-item-1'>国名</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-2' class="checkbox" checked="checked" name="PlaceLabel" value="state-label" />
+					<label class="switch" for='setting-item-2'></label>
+					<label class="text" for='setting-item-2'>県名</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-3' class="checkbox" checked="checked" name="PlaceLabel" value="airport-label" />
+					<label class="switch" for='setting-item-3'></label>
+					<label class="text" for='setting-item-3'>空港、自衛隊基地</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-4' class="checkbox" checked="checked" name="PlaceLabel" value="natural-point-label" />
+					<label class="switch" for='setting-item-4'></label>
+					<label class="text" for='setting-item-4'>山、温泉</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-5' class="checkbox" checked="checked" name="PlaceLabel" value="water-point-label" />
+					<label class="switch" for='setting-item-5'></label>
+					<label class="text" for='setting-item-5'>川、海</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-6' class="checkbox" checked="checked" name="PlaceLabel" value="road-label-simple" />
+					<label class="switch" for='setting-item-6'></label>
+					<label class="text" for='setting-item-6'>太い道路</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-7' class="checkbox" checked="checked" />
+					<label class="switch" for='setting-item-7'></label>
+					<label class="text" for='setting-item-7'>細い道路、歩道</label>
+				</div>
 		</div>
 	</div>
-	<script src='JavaScript/LowVisionMap_background.js'></script>
+
+	<input type="button" value="設定画面" onclick="control()"/>
+
+
+
+
+	
+	<span id="check"></span>
+	<script src='JavaScript/LowVisionMap_responsible.js'></script>
 
 </body>
 

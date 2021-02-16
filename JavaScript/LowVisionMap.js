@@ -62,37 +62,33 @@ function error(err){
 }
 
 
-<!-- 表示ボタン押したらチェックボックス調べて大きくする -->
-			
-function show(){
-	const PlaceLabel = document.Label.PlaceLabel;
-			
-	for (let i = 0; i < PlaceLabel.length; i++){
-		if(PlaceLabel[i].checked){ 
-			const tmp = [];
-			tmp.push(PlaceLabel[i].value);
-			map.setLayoutProperty(tmp,'text-size',60);
-		}
-	}
+/* ・・・設定画面押したら別のウインドウ開く */
+
+function control(){
+	window.open("MapEdit.html", "設定画面", "top=100,left=100,width=300,height=400");
 }
 
 
-<!-- 非表示ボタン押したらチェックボックス調べて消す -->
+/* ・・・のチェックボックス押したら文字の表示、非表示切り替え */
 
-function hide(){
-	const PlaceLabel = document.Label.PlaceLabel;
-			
-	for (let i = 0; i < PlaceLabel.length; i++){
-		if(PlaceLabel[i].checked){ 
-			const tmp = [];
-			tmp.push(PlaceLabel[i].value);
-			map.setLayoutProperty(tmp,'text-size',0);
-		}
-	}
+flag = false;
+num = 0;
+function toggle(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("country-label",'text-size',100);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("country-label",'text-size',0);
+	} //条件を満たしていない場合の処理}
 }
 
 
 
 
 
-	
+
+
+
+
