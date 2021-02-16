@@ -62,66 +62,11 @@ function error(err){
 }
 
 
-<!-- 表示ボタン押したらチェックボックス調べて大きくする -->
-			
-function show(){
-	const PlaceLabel = document.Label.PlaceLabel;
-			
-	for (let i = 0; i < PlaceLabel.length; i++){
-		if(PlaceLabel[i].checked){ 
-			const tmp = [];
-			tmp.push(PlaceLabel[i].value);
-			map.setLayoutProperty(tmp,'text-size',60);
-		}
-	}
-}
-
-
-<!-- 非表示ボタン押したらチェックボックス調べて消す -->
-
-function hide(){
-	const PlaceLabel = document.Label.PlaceLabel;
-			
-	for (let i = 0; i < PlaceLabel.length; i++){
-		if(PlaceLabel[i].checked){ 
-			const tmp = [];
-			tmp.push(PlaceLabel[i].value);
-			map.setLayoutProperty(tmp,'text-size',0);
-		}
-	}
-}
-
-
-<!-- 設定画面押したら別のウインドウ開く -->
+/* ・・・設定画面押したら別のウインドウ開く */
 
 function control(){
 	window.open("MapEdit.html", "設定画面", "top=100,left=100,width=300,height=400");
 }
-
-
-
-/* ・・・のチェックボックス押したら文字の表示、非表示切り替え */
-
-function onFunc(){
-	$("#check").text("ONの処理を実行するよ！");	
-}
-function offFunc(){
-	$("#check").text("OFFの処理を実行するよ！");	
-}
-
-$(function () {
-    $("setting-item-1").click(function(){
-        $(this).toggleClass("active");
-        var flg = $(this).hasClass("active");
-        if(flg == true){
-            onFunc();
-        }else{
-            offFunc();
-        }
-    });
-});
-	
-
 
 
 /* ・・・のチェックボックス押したら文字の表示、非表示切り替え */

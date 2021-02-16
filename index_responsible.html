@@ -10,25 +10,11 @@
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" rel="stylesheet" type="text/css"/>
 	<link href="css/style_responsible.css" rel="stylesheet" />
+	<script type="text/javascript" src="//typesquare.com/3/tsst/script/ja/typesquare.js?602b606aff0c440ca9be6b2eac1e02e5" charset="utf-8"></script>
 </head>
 	
 <body>
 	<div id="map"></div>
-	<fieldset class="EditPanel_PC">
-		<form name="Label">表示する文字の属性<br>
-			<input type="checkbox" name="PlaceLabel" value="country-label">国名<br>
-			<input type="checkbox" name="PlaceLabel" value="state-label">県名<br>
-			<input type="checkbox" name="PlaceLabel" value="airport-label">空港、自衛隊基地<br>
-			<input type="checkbox" name="PlaceLabel" value="natural-point-label">山、温泉<br>
-			<input type="checkbox" name="PlaceLabel" value="water-point-label">川、海<br>
-			<input type="checkbox" name="PlaceLabel" value="road-label-simple">太い道路<br>
-			<input type="checkbox" name="PlaceLabel" value="path-pedestrian-label">細い道路、歩道<br>
-		</form>
-		<input type="button" value="表示" onclick="show()"/>
-		<input type="button" value="非表示" onclick="hide()"/><br>
-	<input type="button" value="設定画面" onclick="control()"/>
-	</fieldset>
-
 	<div class="main">
 		<div class="CheckBox">
 			<h3>設定</h3>
@@ -70,6 +56,7 @@
 		</div>
 	</div>
 
+	<input type="button" value="設定画面" onclick="control()"/>
 
 
 
