@@ -16,7 +16,7 @@
 <body>
 	<div id="map"></div>
 	<div class="main">
-		<div class="CheckBox">
+		<div class="EditPanel_PC">
 			<h3>設定</h3>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-1' class="checkbox" checked="checked" name="PlaceLabel" value="country-label" onclick="toggle1()" />
@@ -55,14 +55,13 @@
 				</div>
 		</div>
 	</div>
+	
+	<input type="range" id="Label-Size-Slider" min="0" max="30" step="0.1">
+	<p>現在の値は<span id="current-value"></span>です</p>
 
 	<input type="button" value="設定画面" onclick="control()"/>
 
 
-
-
-	
-	<span id="check"></span>
 	<script src='JavaScript/LowVisionMap_responsible.js'></script>
 
 </body>

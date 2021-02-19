@@ -62,32 +62,144 @@ function error(err){
 }
 
 
-/* ・・・設定画面押したら別のウインドウ開く */
+/* 設定画面押したら別のウインドウ開く */
 
 function control(){
 	window.open("MapEdit.html", "設定画面", "top=100,left=100,width=300,height=400");
 }
 
 
-/* ・・・のチェックボックス押したら文字の表示、非表示切り替え */
+/* 国名のトグルスイッチで文字表示、非表示切り替え */
 
 flag = false;
 num = 0;
-function toggle(){
+function toggle1(){
 	flag = !flag; // trueとfalseの切り替え ! 否定演算子
 	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
 	if(flag == true){
-		map.setLayoutProperty("country-label",'text-size',100);
+		map.setLayoutProperty("country-label",'text-size',0);
 	} //条件を満たした場合の処理
 	else{  
-		map.setLayoutProperty("country-label",'text-size',0);
+		map.setLayoutProperty("country-label",'text-size',50);
 	} //条件を満たしていない場合の処理}
 }
 
 
+/* 県名のトグルスイッチで文字表示、非表示切り替え */
+
+flag = false;
+num = 0;
+function toggle2(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("state-label",'text-size',0);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("state-label",'text-size',50);
+	} //条件を満たしていない場合の処理}
+}
 
 
+/* 空港、自衛隊基地のトグルスイッチで文字表示、非表示切り替え */
 
+flag = false;
+num = 0;
+function toggle3(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("airport-label",'text-size',0);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("airport-label",'text-size',50);
+	} //条件を満たしていない場合の処理}
+}
+
+
+/* 山、温泉のトグルスイッチで文字表示、非表示切り替え */
+
+flag = false;
+num = 0;
+function toggle4(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("natural-point-label",'text-size',0);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("natural-point-label",'text-size',50);
+	} //条件を満たしていない場合の処理}
+}
+
+
+/* 川、海のトグルスイッチで文字表示、非表示切り替え */
+
+flag = false;
+num = 0;
+function toggle5(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("water-point-label",'text-size',0);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("water-point-label",'text-size',50);
+	} //条件を満たしていない場合の処理}
+}
+
+
+/* 太い道路のトグルスイッチで文字表示、非表示切り替え */
+
+flag = false;
+num = 0;
+function toggle6(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("road-label-simple",'text-size',0);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("road-label-simple",'text-size',50);
+	} //条件を満たしていない場合の処理}
+}
+
+
+/* 細い道路、歩道のトグルスイッチで文字表示、非表示切り替え */
+
+flag = false;
+num = 0;
+function toggle7(){
+	flag = !flag; // trueとfalseの切り替え ! 否定演算子
+	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
+	if(flag == true){
+		map.setLayoutProperty("road-pedestrian-label",'text-size',0);
+	} //条件を満たした場合の処理
+	else{  
+		map.setLayoutProperty("road-pedestrian-label",'text-size',50);
+	} //条件を満たしていない場合の処理}
+}
+
+
+/* 文字サイズ調節用のスライダー表示 */
+
+const inputElem = document.getElementById('Label-Size-Slider'); // input要素
+const currentValueElem = document.getElementById('current-value'); // 埋め込む先のspan要素
+
+// 現在の値をspanに埋め込む関数
+const setCurrentValue = (val) => {
+  currentValueElem.innerText = val;
+}
+
+// inputイベント時に値をセットする関数
+const rangeOnChange = (e) =>{
+  setCurrentValue(e.target.value);
+}
+
+window.onload = () => {
+  inputElem.addEventListener('input', rangeOnChange); // スライダー変化時にイベントを発火
+  setCurrentValue(inputElem.value); // ページ読み込み時に値をセット
+}
 
 
 
