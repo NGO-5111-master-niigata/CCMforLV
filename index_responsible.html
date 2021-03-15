@@ -18,50 +18,66 @@
 		<div class="EditPanel1_PC">
 			<h3>文字の表示/非表示</h3>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-1' class="checkbox" checked="checked" name="PlaceLabel" value="country-label" onclick="toggle1()" />
+					<input type='checkbox' id='setting-item-1' class="checkbox" checked="checked" name="PlaceLabel" value="country-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-1'></label>
 					<label class="text" for='setting-item-1'>国名</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-2' class="checkbox" checked="checked" name="PlaceLabel" value="state-label" onclick="toggle2()"/>
+					<input type='checkbox' id='setting-item-2' class="checkbox" checked="checked" name="PlaceLabel" value="state-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-2'></label>
 					<label class="text" for='setting-item-2'>県名</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-3' class="checkbox" checked="checked" name="PlaceLabel" value="settlement-major-label" onclick="toggle3()"/>
+					<input type='checkbox' id='setting-item-3' class="checkbox" checked="checked" name="PlaceLabel" value="settlement-major-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-3'></label>
 					<label class="text" for='setting-item-3'>市の名前</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-4' class="checkbox" checked="checked" name="PlaceLabel" value="airport-label" onclick="toggle4()"/>
+					<input type='checkbox' id='setting-item-4' class="checkbox" checked="checked" name="PlaceLabel" value="settlement-subdivision-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-4'></label>
-					<label class="text" for='setting-item-4'>空港、自衛隊基地</label>
+					<label class="text" for='setting-item-4'>町の名前</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-5' class="checkbox" checked="checked" name="PlaceLabel" value="natural-point-label" onclick="toggle5()"/>
+					<input type='checkbox' id='setting-item-5' class="checkbox" checked="checked" name="PlaceLabel" value="settlement-minor-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-5'></label>
-					<label class="text" for='setting-item-5'>山、温泉</label>
+					<label class="text" for='setting-item-5'>地方、地域の名前</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-6' class="checkbox" checked="checked" name="PlaceLabel" value="water-point-label" onclick="toggle6()"/>
+					<input type='checkbox' id='setting-item-6' class="checkbox" checked="checked" name="PlaceLabel" value="poi-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-6'></label>
-					<label class="text" for='setting-item-6'>川、海</label>
+					<label class="text" for='setting-item-6'>建物名</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-7' class="checkbox" checked="checked" name="PlaceLabel" value="road-label-simple" onclick="toggle7()"/>
+					<input type='checkbox' id='setting-item-7' class="checkbox" checked="checked" name="PlaceLabel" value="airport-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-7'></label>
-					<label class="text" for='setting-item-7'>太い道路</label>
+					<label class="text" for='setting-item-7'>空港、自衛隊基地</label>
 				</div>
 				<div class="item-frame">
-					<input type='checkbox' id='setting-item-8' class="checkbox" checked="checked" name="PlaceLabel" value="path-pedestrian-label" onclick="toggle8()"/>
+					<input type='checkbox' id='setting-item-8' class="checkbox" checked="checked" name="PlaceLabel" value="natural-point-label" onchange="toggle()"/>
 					<label class="switch" for='setting-item-8'></label>
-					<label class="text" for='setting-item-8'>細い道路、歩道</label>
+					<label class="text" for='setting-item-8'>島、山、温泉</label>
 				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-9' class="checkbox" checked="checked" name="PlaceLabel" value="water-point-label" onchange="toggle()"/>
+					<label class="switch" for='setting-item-9'></label>
+					<label class="text" for='setting-item-9'>川、海</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-10' class="checkbox" checked="checked" name="PlaceLabel" value="road-label-simple" onchange="toggle()"/>
+					<label class="switch" for='setting-item-10'></label>
+					<label class="text" for='setting-item-10'>太い道路</label>
+				</div>
+				<div class="item-frame">
+					<input type='checkbox' id='setting-item-11' class="checkbox" checked="checked" name="PlaceLabel" value="path-pedestrian-label" onchange="toggle()"/>
+					<label class="switch" for='setting-item-11'></label>
+					<label class="text" for='setting-item-11'>細い道路、歩道</label>
+				</div>
+
 		</div>
 
 		<div class="EditPanel2_PC">
 			<h3>文字サイズ変更</h3>
-				<input type="range" id="Label-Size-Slider" min="0" max="100" step="0.1" value="10">
+				<input type="range" id="Label-Size-Slider" min="0" max="50" step="0.1" value="10">
 				<span id="value">10</span>
 		</div>
 	</div>
