@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
 var map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/ngo5111/ckemjqmlv2cyh19rrpe99nr7y',
+	style: 'mapbox://styles/ngo5111/ckmcvlvu00gzq17rq5fcfj4je',
 	localIdeographFontFamily: false,
 	center: [139.70 , 35.68] ,
 	zoom: 11.5
