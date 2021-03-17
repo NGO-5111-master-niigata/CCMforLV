@@ -10,7 +10,7 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuN
 var map = new mapboxgl.Map({
 	container: 'map',
 	style: 'mapbox://styles/ngo5111/ckmcvlvu00gzq17rq5fcfj4je',
-	localIdeographFontFamily: "'Noto Sans', 'Noto Sans CJK SC', sans-serif",
+	localIdeographFontFamily: false,
 	center: [139.70 , 35.68] ,
 	zoom: 11.5
 });
