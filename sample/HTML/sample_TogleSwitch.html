@@ -1,0 +1,226 @@
+
+/* HTML */
+
+<div class="main">
+    <h3>設定</h3>
+    <div class="item-frame">
+        <input type='checkbox' id='setting-item-1' class="checkbox" checked="checked" />
+        <label class="switch" for='setting-item-1'></label>
+        <label class="text" for='setting-item-1'>メールマガジンを配信する。</label>
+    </div>
+    <div class="item-frame">
+        <input type='checkbox' id='setting-item-2' class="checkbox" checked="checked" />
+        <label class="switch" for='setting-item-2'></label>
+        <label class="text" for='setting-item-2'>Twitterで配信する。</label>
+    </div>
+    <div class="item-frame">
+        <input type='checkbox' id='setting-item-3' class="checkbox" checked="checked" />
+        <label class="switch" for='setting-item-3'></label>
+        <label class="text" for='setting-item-3'>Facebookで配信する。</label>
+    </div>
+</div>
+
+
+/* CSS */
+
+.main {
+
+    h3 {
+      font-size:1.5rem;
+      border-bottom: 7px double #ccc;
+      text-align:center;
+      margin: 2rem auto;
+    }
+
+    .item-frame {
+      margin: 1rem auto;
+    } 
+
+    .text {
+        vertical-align: middle;    
+    }
+
+    label {
+      cursor: pointer;
+    }
+
+    $color-off: #C4C9FF;
+    $color-on: #84FF92;
+
+    .switch {
+      position: relative;
+      &:before, &:after {
+        content:'';
+        vertical-align: middle;
+        display: inline-block;
+      }
+      &:before {
+        width: 2em;
+        height: 1em;
+        border: 2px solid $color-off;
+        border-radius: 32px;
+        background: #999;
+      }
+      &:after {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        background: $color-off;
+        border-radius: 50%;
+        left: -2.2em;
+      }
+    }
+
+    input {
+      display:none;
+      &:checked {
+        ~ .switch {
+          &:before {
+            background: darken($color-on, 40%);
+            border-color:$color-on;
+          }
+          &:after {
+            background: $color-on;
+            left: -1.15em;
+          }
+        }
+      }
+    }
+  }
+
+
+  /* CSS別の記述 */
+
+  // タイトル
+  .main h3 {
+    font-size: 1.5rem;
+    border-bottom: 7px double #ccc;
+    text-align: center;
+    margin: 2rem auto;
+  }
+
+  // 設定項目のフレーム
+  .main .item-frame {
+    margin: 1rem auto;
+  }
+
+  // 設定項目のラベル・テキスト
+  .main .text {
+    vertical-align: middle;
+  }
+
+  // カーソルをポインタに
+  .main label {
+    cursor: pointer;
+  }
+
+  .main .switch {
+    position: relative;
+  }
+
+  // スイッチの共通部
+  .main .switch:before, .main .switch:after {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  // スイッチの背景
+  .main .switch:before {
+    width: 2em;
+    height: 1em;
+    border: 2px solid #c4c9ff;
+    border-radius: 32px;
+    background: #999;
+  }
+
+  // スイッチの動くところ（◯の部分）
+  .main .switch:after {
+    width: 1em;
+    height: 1em;
+    background: #c4c9ff;
+    border-radius: 50%;
+  }
+
+  .main input { // <--- ※追加
+    display: none;
+  }
+
+  .main input:checked ~ .switch:before {
+    background: #00b715;
+    border-color: #84ff92;
+  }
+  
+  .main input:checked ~ .switch:after {
+    background: #84ff92;
+    left: -1.1em;
+  }
+
+
+
+
+
+
+
+  /* 今俺が使ってるコード */
+
+  .EditPanel1 h3 {
+    font-size: 1.5rem;
+    border-bottom: 7px double #ccc;
+    text-align: center;
+    margin: 2rem auto;
+  }
+
+  .EditPanel1 .item-frame {
+    margin: 1rem auto;
+  }
+
+  .EditPanel1 .text {
+    vertical-align: middle;
+  }
+
+  // カーソルをポインタに
+  .EditPanel1 label {
+    cursor: pointer;
+  }
+
+  .EditPanel1 .switch {
+    position: relative;
+  }
+
+  .EditPanel1 .switch:before, .EditPanel1 .switch:after {
+    content: "";
+    vertical-align: middle;
+    display: inline-block;
+  }
+
+  .EditPanel1 .switch:before {
+    width: 2em;
+    height: 1em;
+    border: 2px solid #c4c9ff;
+    border-radius: 32px;
+    background: #999;
+  }
+
+  .EditPanel1 .switch:after {
+      position: relative;
+      width: 1em;
+      height: 1em;
+      background: #c4c9ff;
+      border-radius: 50%;
+      left: -2.2em;
+  }
+
+  .EditPanel1 input { 
+    display: none;
+  }
+
+  .EditPanel1 input:checked ~ .switch:before {
+    background: #00b715;
+    border-color: #84ff92;
+  }
+  
+  .EditPanel1 input:checked ~ .switch:after {
+    background: #84ff92;
+    left: -1.1em;
+  }

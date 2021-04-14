@@ -94,7 +94,7 @@ function toggle(){
 }
 
 
-/* ボックス押したらスライドで操作パネル出現 */
+/* 右上の「≡」押したらスライドで操作パネル出現 */
 
 $('.menu-trigger').on('click',function(){
 	if($(this).hasClass('active')){
