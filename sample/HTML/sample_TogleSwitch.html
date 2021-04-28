@@ -1,5 +1,4 @@
-
-/* HTML */
+<!-- HTML -->
 
 <div class="main">
     <h3>設定</h3>
@@ -21,7 +20,7 @@
 </div>
 
 
-/* CSS */
+<!-- CSS -->
 
 .main {
 
@@ -89,7 +88,7 @@
   }
 
 
-  /* CSS別の記述 */
+<!-- CSS別の記述 -->
 
   // タイトル
   .main h3 {
@@ -162,7 +161,7 @@
 
 
 
-  /* 今俺が使ってるコード */
+  <!-- 今俺が使ってるコード -->
 
   .EditPanel1 h3 {
     font-size: 1.5rem;
@@ -224,3 +223,180 @@
     background: #84ff92;
     left: -1.1em;
   }
+
+
+
+
+  <!-- JavaScript -->
+  <!-- 上からトグルスイッチのどこがオフかをif分で検索かけてるけどelseの挙動がどうやっても上手くいかないので没 -->
+
+  function toggle(){
+
+    const tmp = [];
+    const PlaceLabel = document.getElementsByName("PlaceLabel");
+  
+    for (let i = 0; i < PlaceLabel.length; i++){
+  
+        if(PlaceLabel[i].checked === false){ 
+          tmp.splice(0,i);
+          tmp.push(PlaceLabel[i].value);
+      
+          console.log(i);
+      
+          console.log(tmp);
+      
+          map.setLayoutProperty(tmp,'text-size',0);
+        }
+        else{
+          tmp.splice(0,i);
+          tmp.push(PlaceLabel[i].value);
+      
+          console.log(i);
+      
+          console.log(tmp);
+      
+          map.setLayoutProperty(tmp,'text-size',50);
+        }
+      }
+  }
+  
+
+
+
+
+
+  
+
+
+/* 1つ1つ書いてあるやつ */
+
+/* 国名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle1(){
+    const CountryLabel = document.getElementsByName("PlaceLabel");
+			if(CountryLabel.checked===true){ 
+				console.log("aaaaa");
+				map.setLayoutProperty("country-label",'text-size',30);
+			}
+}
+
+/* 県名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle2(){
+    const StateLabel = document.getElementsByName("PlaceLabel");
+			if(StateLabel.checked){ 
+				map.setLayoutProperty("state-label",'text-size',30);
+			}
+			else{
+				map.setLayoutProperty("state-label",'text-size',0);
+			}
+}
+
+/* 市の名前のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle3(){
+    const SettlementMajorLabel = document.getElementsByName("PlaceLabel");
+			if(SettlementMajorLabel.checked){ 
+				map.setLayoutProperty(settlement-major-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(settlement-major-label,'text-size',0);
+			}
+}
+
+/* 町名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle4(){
+    const SettlementSubdivisionLabel = document.getElementsByName("PlaceLabel");
+			if(SettlementSubdivisionLabel.checked){ 
+				map.setLayoutProperty(settlement-subdivision-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(settlement-subdivision-label,'text-size',0);
+			}
+}
+
+/* 地方、地域の名前のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle5(){
+    const SettlementMinorLabel = document.getElementsByName("PlaceLabel");
+			if(SettlementMinorLabel.checked){ 
+				map.setLayoutProperty(settlement-minor-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(settlement-minor-label,'text-size',0);
+			}
+}
+
+/* 建物名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle6(){
+    const PoiLabel = document.getElementsByName("PlaceLabel");
+			if(PoiLabel.checked){ 
+				map.setLayoutProperty(poi-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(poi-label,'text-size',0);
+			}
+}
+
+/* 空港、自衛隊基地のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle7(){
+    const AirportLabel = document.getElementsByName("PlaceLabel");
+			if(AirportLabel.checked){ 
+				map.setLayoutProperty(airport-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(airport-label,'text-size',0);
+			}
+}
+
+/* 島、山、温泉のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle8(){
+    const NaturalPointLabel = document.getElementsByName("PlaceLabel");
+			if(NaturalPointLabel.checked){ 
+				map.setLayoutProperty(natural-point-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(natural-point-label,'text-size',0);
+			}
+}
+
+/* 川、海のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle9(){
+    const WaterPointLabel = document.getElementsByName("PlaceLabel");
+			if(WaterPointLabel.checked){ 
+				map.setLayoutProperty(water-point-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(water-point-label,'text-size',0);
+			}
+}
+
+/* 太い道路のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle10(){
+    const RoadLabelSimple = document.getElementsByName("PlaceLabel");
+			if(RoadLabelSimple.checked){ 
+				map.setLayoutProperty(road-label-simple,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(road-label-simple,'text-size',0);
+			}
+}
+
+/* 細い道路、歩道のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+
+function toggle11(){
+    const PathPedestrianLabel = document.getElementsByName("PlaceLabel");
+			if(PathPedestrianLabel.checked){ 
+				map.setLayoutProperty(path-pedestrian-label,'text-size',30);
+			}
+			else{
+				map.setLayoutProperty(path-pedestrian-label,'text-size',0);
+			}
+}
+

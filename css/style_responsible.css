@@ -133,7 +133,7 @@ body {
         left: 0;
         width: 100%;
         height: 4px;
-        background-color: #000;
+        background-color: rgb(255, 255, 255);
     }
 
     .menu-trigger.active span {
@@ -200,45 +200,45 @@ body {
 
     /* スライドメニュー内の設定パネルについて */
     
-    .EditPanel3_PC {
+    .EditPanel_SP {
         position: absolute;
-        top: 100px;
-        right: 150px;
     }
 
     /* スライドメニュー内のトグルスイッチについて */
 
-    .EditPanel3_PC h3 {
+    .EditPanel_SP h3 {
         font-family: 'M PLUS Rounded 1c', sans-serif;
         font-size: 1.5rem;
         border-bottom: 7px double #ccc;
         text-align: center;
         margin: 2rem auto;
+        color: white;
     }
 
-    .EditPanel3_PC .item-frame {
+    .EditPanel_SP .item-frame {
         margin: 1rem auto;
     }
 
-    .EditPanel3_PC .text {
+    .EditPanel_SP .text {
         vertical-align: middle;
     }
 
-    .EditPanel3_PC label {
+    .EditPanel_SP label {
         cursor: pointer;
+        color: white;
     }
 
-    .EditPanel3_PC .switch {
+    .EditPanel_SP .switch {
         position: relative;
     }
 
-    .EditPanel3_PC .switch:before, .EditPanel3_PC .switch:after {
+    .EditPanel_SP .switch:before, .EditPanel_SP .switch:after {
         content: '';
         vertical-align: middle;
         display: inline-block;
     }
     
-    .EditPanel3_PC .switch:before {
+    .EditPanel_SP .switch:before {
         width: 2em;
         height: 1em;
         border: 2px solid #C4C9FF;
@@ -246,7 +246,7 @@ body {
         background: #999;
     }
 
-    .EditPanel3_PC .switch:after {
+    .EditPanel_SP .switch:after {
         position: relative;
         width: 1em;
         height: 1em;
@@ -255,16 +255,16 @@ body {
         left: -2.2em;
     }
 
-    .EditPanel3_PC input { 
+    .EditPanel_SP input { 
         display: none;
     }
 
-    .EditPanel3_PC input:checked ~ .switch:before {
+    .EditPanel_SP input:checked ~ .switch:before {
         background: #00b715;
         border-color: #84ff92;
     }
       
-    .EditPanel3_PC input:checked ~ .switch:after {
+    .EditPanel_SP input:checked ~ .switch:after {
         background: #84ff92;
         left: -1.1em;
     }
@@ -272,7 +272,7 @@ body {
 
     /* スライダーについて */
 
-    .EditPanel3_PC .Label-Size-Slider {
+    .EditPanel_SP .Label-Size-Slider {
         -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
         appearance: none;
         cursor: pointer; /* カーソルを分かりやすく */
@@ -506,11 +506,11 @@ body {
       font-size: 1.5rem;
       border-bottom: 7px double #ccc;
       text-align: center;
-      margin: 2rem auto;
+      margin: 0.5rem auto;
     }
   
     .EditPanel1 .item-frame {
-      margin: 1rem auto;
+      margin: 0.5rem auto;
     }
   
     .EditPanel1 .text {
@@ -575,7 +575,7 @@ body {
         font-size: 1.5rem;
         border-bottom: 7px double #ccc;
         text-align: center;
-        margin: 2rem auto;
+        margin: 0.5rem auto;
     }
 
     .EditPanel2 .text {
