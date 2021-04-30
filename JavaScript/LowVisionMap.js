@@ -4,19 +4,21 @@
 navigator.geolocation.getCurrentPosition(success,error); 
 
 
-/* 現在地周辺の地図読み込み */
+/* 新宿周辺の地図読み込み */
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
 var map = new mapboxgl.Map({
 	container: 'map',
-	style: 'mapbox://styles/ngo5111/ckmcvlvu00gzq17rq5fcfj4je',
+	style: 'mapbox://styles/ngo5111/ckmyhpfws07pd17ryugc8nw0v',
 	localIdeographFontFamily: false,
 	center: [139.70 , 35.68] ,
-	zoom: 11.5
+	zoom:15.5
 });
 
 
 /* 取得に成功した場合の関数 */
+
+/* 現在地の周辺地図表示しながらコントロールボタン追加 */
 
 function success(position){
 	var com = position.coords;
@@ -24,20 +26,10 @@ function success(position){
 	var comlat = com.latitude ;
 	map.setCenter([+ comlng , + comlat]);
 
-	/* コントロールボタン、ジオコーダー追加 */
-
 	map.addControl(
 		new mapboxgl.NavigationControl({
 		}),
 		'bottom-right'
-	);
-
-	map.addControl(
-		new MapboxGeocoder({
-			accessToken: mapboxgl.accessToken,
-			mapboxgl: mapboxgl
-		}),
-		'top-right'
 	);
 }
 
@@ -46,291 +38,219 @@ function success(position){
 
 function error(err){
 
-	/* コントロールボタン、ジオコーダー追加 */
-
-	map.addControl(new mapboxgl.NavigationControl());
+/* コントロールボタン追加（新宿周辺表示） */
 
 	map.addControl(
-		new MapboxGeocoder({
-			accessToken: mapboxgl.accessToken,
-			mapboxgl: mapboxgl
+		new mapboxgl.NavigationControl({
 		}),
 		'bottom-right'
 	);
 }
 
 
-/* 設定画面押したら別のウインドウ開く */
+/* 国名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 
-function control(){
-	window.open("MapEdit.html", "設定画面", "top=100,left=100,width=300,height=400");
-}
+/* スイッチの初期状態定義。判定時に使用 */
+flag1 = true;
 
-
-/* 国名のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
 function toggle1(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
+	flag1 = !flag1; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-1").value = flag1; /* ラベルの変更 */
+	if(flag1==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("country-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
 		map.setLayoutProperty("country-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("country-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	}
 }
 
-/* 国名のラベルをクリックしたら選択状態に移行 */
+/* 県名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 
-map.on('click', 'country-label', function() {
+/* スイッチの初期状態定義。判定時に使用 */
+flag2 = true;
 
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('country-label','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 県名のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
 function toggle2(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
+	flag2 = !flag2; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-2").value = flag2; /* ラベルの変更 */
+	if(flag2==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("state-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
 		map.setLayoutProperty("state-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("state-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	}
 }
 
-/* 県名のラベルをクリックしたら選択状態に移行 */
+/* 市の名前のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 
-map.on('click', 'state-label', function() {
+/* スイッチの初期状態定義。判定時に使用 */
+flag3 = true;
 
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('state-label','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 市の名前のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
 function toggle3(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
-		map.setLayoutProperty("state-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("state-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	flag3 = !flag3; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-3").value = flag3; /* ラベルの変更 */
+	if(flag3==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("settlement-major-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("settlement-major-label",'text-size',0);
+	}
 }
 
-/* 市の名前のラベルをクリックしたら選択状態に移行 */
+/* 町名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 
-map.on('click', 'settlement-major-label', function() {
+/* スイッチの初期状態定義。判定時に使用 */
+flag4 = true;
 
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('settlement-major-label','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 空港、自衛隊基地の名前のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
 function toggle4(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
-		map.setLayoutProperty("airport-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("airport-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	flag4 = !flag4; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-4").value = flag4; /* ラベルの変更 */
+	if(flag4==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("settlement-subdivision-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("settlement-subdivision-label",'text-size',0);
+	}
 }
 
-/* 空港、自衛隊基地のラベルをクリックしたら選択状態に移行 */
+/* 地方、地域の名前のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 
-map.on('click', 'airport-label', function() {
+/* スイッチの初期状態定義。判定時に使用 */
+flag5 = true;
 
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('airport-label','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 山、温泉のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
 function toggle5(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
-		map.setLayoutProperty("natural-point-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("natural-point-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	flag5 = !flag5; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-5").value = flag5; /* ラベルの変更 */
+	if(flag5==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("settlement-minor-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("settlement-minor-label",'text-size',0);
+	}
 }
 
-/* 山、温泉のラベルをクリックしたら選択状態に移行 */
+/* 建物名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 
-map.on('click', 'natural-point-label', function() {
+/* スイッチの初期状態定義。判定時に使用 */
+flag6 = true;
 
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('natural-point-label','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 川、海のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
 function toggle6(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
-		map.setLayoutProperty("water-point-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("water-point-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	flag6 = !flag6; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-6").value = flag6; /* ラベルの変更 */
+	if(flag6==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("poi-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("poi-label",'text-size',0);
+	}
 }
 
-/* 川、海のラベルをクリックしたら選択状態に移行 */
-
-map.on('click', 'water-point-label', function() {
-
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('water-point-label','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 太い道路のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
+/* 空港、自衛隊基地のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 function toggle7(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
-		map.setLayoutProperty("road-label-simple",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("road-label-simple",'text-size',50);
-	} //条件を満たしていない場合の処理}
+
+/* スイッチの初期状態定義。判定時に使用 */
+flag7 = true;
+
+	flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-7").value = flag7; /* ラベルの変更 */
+	if(flag7==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("airport-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("airport-label",'text-size',0);
+	}
 }
 
-/* 太い道路のラベルをクリックしたらスライダーでのサイズ変更に移行 */
-
-map.on('click', 'road-label-simple', function() {
-
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('road-label-simple','text-size',+ tmp);
-		}
-	}
-	elem.addEventListener('input', rangeValue(elem, target));
-});
-
-
-/* 細い道路、歩道のトグルスイッチ、スライダーの制御 */
-
-flag = false;
-num = 0;
+/* 島、山、温泉のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 function toggle8(){
-	flag = !flag; // trueとfalseの切り替え ! 否定演算子
-	document.getElementById("setting-item-1").value = flag; // ボタンのラベルの変更
-	if(flag == true){
-		map.setLayoutProperty("path-pedestrian-label",'text-size',0);
-	} //条件を満たした場合の処理
-	else{  
-		map.setLayoutProperty("path-pedestrian-label",'text-size',50);
-	} //条件を満たしていない場合の処理}
+	flag8 = !flag8; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-8").value = flag8; /* ラベルの変更 */
+	if(flag8==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("natural-point-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("natural-point-label",'text-size',0);
+	}
 }
 
-/* 細い道路、歩道のラベルをクリックしたらスライダーでのサイズ変更に移行 */
-
-map.on('click', 'path-pedestrian-label', function() {
-
-	const elem = document.getElementById('Label-Size-Slider');
-	const target = document.getElementById('value');
-	
-	const rangeValue = function (elem, target) {
-		return function(evt){
-			const tmp = document.getElementById('Label-Size-Slider').value;
-			target.innerHTML = elem.value;
-			map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
-		}
+/* 川、海のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+function toggle9(){
+	flag9 = !flag9; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-9").value = flag9; /* ラベルの変更 */
+	if(flag9==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("water-point-label",'text-size',30);
 	}
-	elem.addEventListener('input', rangeValue(elem, target));
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("water-point-label",'text-size',0);
+	}
+}
+
+/* 太い道路のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+function toggle10(){
+	flag10 = !flag10; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-10").value = flag10; /* ラベルの変更 */
+	if(flag10==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("road-label-simple",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("road-label-simple",'text-size',0);
+	}
+}
+
+/* 細い道路、歩道のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
+function toggle11(){
+	flag11 = !flag11; /* trueとfalseの切り替え ! 否定演算子 */
+	document.getElementById("setting-item-11").value = flag11; /* ラベルの変更 */
+	if(flag11==true){
+		console.log("aaaaa");
+		map.setLayoutProperty("path-pedestrian-label",'text-size',30);
+	}
+	else{
+		console.log("bbbbb");
+		map.setLayoutProperty("path-pedestrian-label",'text-size',0);
+	}
+}
+
+
+/* 右上の「≡」押したらスライドで操作パネル出現 */
+
+$('.menu-trigger').on('click',function(){
+	if($(this).hasClass('active')){
+		$(this).removeClass('active');
+		$('nav').removeClass('open');
+		$('.overlay').removeClass('open');
+	}
+	else {
+		$(this).addClass('active');
+    	$('nav').addClass('open');
+		$('.overlay').addClass('open');
+    }
 });
 
-
-
-
+$('.overlay').on('click',function(){
+	if($(this).hasClass('open')){
+		$(this).removeClass('open');
+		$('.menu-trigger').removeClass('active');
+		$('nav').removeClass('open');      
+	}
+});
 
