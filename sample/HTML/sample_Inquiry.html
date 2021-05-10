@@ -1,0 +1,336 @@
+
+
+<!-- HTML -->
+
+<!-- head内 -->
+
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
+
+
+
+<!-- body内 -->
+
+<<div id="contact_form">
+  <form method="post" name="demo_form">
+    <div class="input_item">
+      <dl class="clearfix">
+        <dt><span class="req">必須</span>名前</dt>
+        <dd>
+          <input type="text" id="name" name="name">
+          <span id="name_error" class="error_m"></span>
+        </dd>
+      </dl>
+  
+      <dl class="clearfix">
+        <dt><span class="req">必須</span>フリガナ</dt>
+        <dd>
+          <input type="text" id="furigana" name="furigana">
+          <span id="furigana_error" class="error_m"></span>
+        </dd>
+      </dl>
+  
+      <dl class="clearfix">
+        <dt><span class="any">任意</span>ユーザー名</dt>
+        <dd>
+          <input type="text" id="username" name="username">
+          <span id="username_error" class="error_m"></span>
+        </dd>
+      </dl>
+  
+      <dl class="clearfix">
+        <dt><span class="req">必須</span>メールアドレス<br>（半角英数字）</dt>
+        <dd>
+          <input type="text" id="mailaddress" name="mail_address">
+          <span id="mailaddress_error" class="error_m"></span>
+          <p class="mail_caution">※記入されたメールアドレス宛に、自動返信で確認メールが届きます。確認メールが届かない場合は、メールアドレスを確認のうえ再度お問い合わせください。</p>
+        </dd>
+      </dl>
+  
+      <dl class="clearfix">
+        <dt><span class="req">必須</span>電話番号（半角数字）</dt>
+        <dd>
+          <input type="tel" id="tel" name="tel">
+          <span id="tel_error" class="error_m"></span>
+        </dd>
+      </dl>
+  
+      <dl class="clearfix">
+        <dt><span class="req">必須</span>備考・お問い合わせ<br>（500文字以内）</dt>
+        <dd>
+          <textarea name="remarks" id="remarks" rows="4" cols="50" maxlength="500" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 170px;"></textarea>
+          <span id="remarks_error" class="error_m"></span>
+        </dd>
+      </dl>
+  
+      <div class="transmission">
+        <input class="btn_submit" id="btn_submit" type="submit" value="内容を送信する">
+      </div>
+      <p>※デモページなので実際には送信されません</p>
+      <div id="send_status"></div>
+  
+    </div>
+  </form>
+  </div>
+
+
+
+
+
+<!-- CSS -->
+
+#contact_form .input_item dl {
+	margin: 0 0 20px 0;
+    width: 820px;
+}
+
+#contact_form .input_item dl dt {
+    float: left;
+    width: 250px;
+    font-size: 18px;
+    line-height: 30px;
+    height: 30px;
+    padding: 3px 0 3px 0;
+    text-indent: -48px;
+    margin: 0 0 0 48px;
+}
+
+#contact_form .input_item dl dt span {
+	font-size: 14px;
+	margin: 0 10px 0 0;
+	display: inline;
+	line-height: 20px;
+	padding: 3px 10px;
+	color: #ffffff;
+	height: 18px;
+	border-radius: 4px;
+}
+
+#contact_form .input_item dl dt span.req {
+	background: #FF1515;
+}
+
+#contact_form .input_item dl dt span.any {
+	background: #cccccc;
+}
+
+#contact_form .input_item dl dd {
+    float: right;
+    width: 482px;
+    font-size: 18px;
+    line-height:30px;
+    height:auto;
+}
+
+#contact_form .input_item dl dd li {
+    display: inline-block;
+    margin: 0 15px 0 0;
+    line-height: 30px;
+    height: 30px;
+    padding: 3px 0;
+}
+
+#contact_form .input_item dl dd p.mail_caution {
+    font-size: 12px;
+    line-height: 19px;
+    color: #313131;
+    margin: 5px 0 0 0;
+}
+
+#contact_form .input_item dl dd input[type="text"],
+#contact_form .input_item dl dd input[type="number"],
+#contact_form .input_item dl dd input[type="email"],
+#contact_form .input_item dl dd input[type="tel"]{
+    width: 470px;
+    font-size: 18px;
+    height:30px;
+    padding: 3px 0 3px 10px;
+    margin:0;
+}
+
+#contact_form .input_item .transmission input[type="submit"] {
+	border: 3px double #FFFFFF;
+	background: #F4D4D4;
+	font-size: 25px;
+	text-shadow: none;
+	color: #ffffff;
+	width: 400px;
+	padding: 30px 0;
+	margin: 25px 0;
+	display: block;
+	opacity: 1.0;
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	-o-transition: 0.5s;
+	-ms-transition: 0.5s;
+	transition: 0.5s;
+}
+
+#contact_form .input_item .transmission input[type="submit"]:hover {
+    background: #FF1515;
+	opacity:0.85;
+	-webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#contact_form .input_item dl dd input[type="text"].inp_error,
+#contact_form .input_item dl dd input[type="number"].inp_error,
+#contact_form .input_item dl dd input[type="tel"].inp_error,
+#contact_form .input_item dl dd textarea.inp_error {
+    border: 1px solid #F88A8A;
+    background: #F4D4D4;
+}
+
+#contact_form .input_item dl dd textarea {
+    width: 470px;
+    padding: 10px 3px 10px 10px;
+}
+
+#energy_contact #send_status{
+	padding: 5px 0 25px;
+    text-align: center;
+}
+
+#energy_contact #send_status p{
+	width: 480px;
+	margin: 0 auto;
+    padding: 0 15px;
+    line-height: 50px;
+    font-size: 25px;
+    border: 1px solid #3c763d;
+    border-radius: 4px;
+    background-color: #dff0d8;
+    color: #3c763d;
+}
+
+span.error_m {
+	font-size: 15px;
+	font-weight: normal;
+	color: #FF4040;
+	display: block;
+	margin: 0;
+}
+
+
+
+
+
+
+  <!-- JavaScript -->
+
+$(function(){
+	$('input:submit[id="btn_submit"]').click(function(){
+		if(!input_check()){
+			return false;
+		}
+	});
+});
+
+// 入力内容チェックのための関数
+function input_check(){
+	var result = true;
+
+	// エラー用装飾のためのクラスリセット
+	$('#name').removeClass("inp_error");
+	$('#furigana').removeClass("inp_error");
+	$('#username').removeClass("inp_error");
+	$('#mailaddress').removeClass("inp_error");
+	$('#tel').removeClass("inp_error");
+	$('#remarks').removeClass("inp_error");
+
+	// 入力エラー文をリセット
+	$("#name_error").empty();
+	$("#furigana_error").empty();
+	$("#username_error").empty();
+	$("#mailaddress_error").empty();
+	$("#tel_error").empty();
+	$("#remarks_error").empty();
+
+	// 入力内容セット
+	var name   = $("#name").val();
+	var furigana  = $("#furigana").val();
+	var username = $("#username").val();
+	var mailaddress  = $("#mailaddress").val();
+	var tel  = $("#tel").val().replace(/[━.*‐.*―.*－.*\–.*ー.*\-]/gi,'');
+	var remarks  = $("#remarks").val();
+
+	// 入力内容チェック
+
+	// お名前
+	if(name == ""){
+		$("#name_error").html(" お名前は必須です。");
+		$("#name").addClass("inp_error");
+		result = false;
+	}else if(name.length > 25){
+		$("#name_error").html(" お名前は25文字以内で入力してください。");
+		$("#name").addClass("inp_error");
+		result = false;
+	}
+	// フリガナ
+	if(furigana == ""){
+		$("#furigana_error").html(" フリガナは必須です。");
+		$("#furigana").addClass("inp_error");
+		result = false;
+	}else if(!furigana.match(/^[ァ-ロワヲンー 　\r\n\t]*$/)){
+		$("#furigana_error").html(" フリガナは全角カタカナで入力してください。");
+		$("#furigana").addClass("inp_error");
+		result = false;
+	}else if(furigana.length > 25){
+		$("#furigana_error").html(" フリガナは25文字以内入力してください。");
+		$("#furigana").addClass("inp_error");
+		result = false;
+	}
+	// ユーザー名
+	if(username.length > 25){
+		$("#username_error").html(" ユーザー名は25文字以内入力してください。");
+		$("#username").addClass("inp_error");
+		result = false;
+	}
+	// メールアドレス
+	if(mailaddress == ""){
+		$("#mailaddress_error").html(" メールアドレスは必須です。");
+		$("#mailaddress").addClass("inp_error");
+		result = false;
+	}else if(!mailaddress.match(/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/)){
+		$('#mailaddress_error').html(" 正しいメールアドレスを入力してください。");
+		$("#mailaddress").addClass("inp_error");
+		result = false;
+	}else if(mailaddress.length > 255){
+		$('#mailaddress_error').html(" 正しいメールアドレスを入力してください。");
+		$("#mailaddress").addClass("inp_error");
+		result = false;
+	}
+	// 電話番号
+	if(tel == ""){
+		$("#tel_error").html(" 電話番号は必須です。");
+		$("#tel").addClass("inp_error");
+	result = false;
+	}else if((!tel.match(/^[0-9]+$/)) || (tel.length < 10)){
+		$('#tel_error').html(" 正しい電話番号を入力してください。");
+		$("#tel").addClass("inp_error");
+		result = false;
+	}
+	// お問い合わせ内容
+	if(remarks == ""){
+		$("#remarks_error").html(" お問い合わせ内容は必須です。");
+		$("#remarks").addClass("inp_error");
+		result = false;
+	}else if(remarks.match(/[<(.*)>.*<\/\1>]/)){
+		$('#remarks_error').html(" HTML、URLの貼りつけは禁止しています。");
+		$("#remarks").addClass("inp_error");
+		result = false;
+	}else if(remarks.match(/^[ 　\r\n\t]*$/)){
+		$('#remarks_error').html(" お問い合わせ内容は必須です。");
+		$("#remarks").addClass("inp_error");
+		result = false;
+	}
+
+	return result;
+}
+
+
+
+

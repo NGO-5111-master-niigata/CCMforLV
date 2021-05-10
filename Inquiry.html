@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8' />
+	<title>弱視者用配色可変オンライン地図</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
+	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
+	<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" rel="stylesheet" type="text/css"/>
+	<link href="css/style_responsible.css" rel="stylesheet" />
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+	
+<body>
+    <<div id="contact_form">
+        <form method="post" name="demo_form">
+          <div class="input_item">
+            <dl class="clearfix">
+              <dt><span class="req">必須</span>名前</dt>
+              <dd>
+                <input type="text" id="name" name="name">
+                <span id="name_error" class="error_m"></span>
+              </dd>
+            </dl>
+        
+            <dl class="clearfix">
+              <dt><span class="req">必須</span>フリガナ</dt>
+              <dd>
+                <input type="text" id="furigana" name="furigana">
+                <span id="furigana_error" class="error_m"></span>
+              </dd>
+            </dl>
+        
+            <dl class="clearfix">
+              <dt><span class="any">任意</span>ユーザー名</dt>
+              <dd>
+                <input type="text" id="username" name="username">
+                <span id="username_error" class="error_m"></span>
+              </dd>
+            </dl>
+        
+            <dl class="clearfix">
+              <dt><span class="req">必須</span>メールアドレス<br>（半角英数字）</dt>
+              <dd>
+                <input type="text" id="mailaddress" name="mail_address">
+                <span id="mailaddress_error" class="error_m"></span>
+                <p class="mail_caution">※記入されたメールアドレス宛に、自動返信で確認メールが届きます。確認メールが届かない場合は、メールアドレスを確認のうえ再度お問い合わせください。</p>
+              </dd>
+            </dl>
+        
+            <dl class="clearfix">
+              <dt><span class="req">必須</span>電話番号（半角数字）</dt>
+              <dd>
+                <input type="tel" id="tel" name="tel">
+                <span id="tel_error" class="error_m"></span>
+              </dd>
+            </dl>
+        
+            <dl class="clearfix">
+              <dt><span class="req">必須</span>備考・お問い合わせ<br>（500文字以内）</dt>
+              <dd>
+                <textarea name="remarks" id="remarks" rows="4" cols="50" maxlength="500" style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 170px;"></textarea>
+                <span id="remarks_error" class="error_m"></span>
+              </dd>
+            </dl>
+        
+            <div class="transmission">
+              <input class="btn_submit" id="btn_submit" type="submit" value="内容を送信する">
+            </div>
+            <p>※デモページなので実際には送信されません</p>
+            <div id="send_status"></div>
+        
+          </div>
+        </form>
+    </div>
+</body>
+
+<script src='JavaScript/LowVisionMap_Inquiry.js'></script>
+
+</html>
