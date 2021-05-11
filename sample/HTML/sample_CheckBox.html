@@ -1,0 +1,69 @@
+
+
+
+<p>選択した色<!-- HTML -->
+ <span id="span8"></span></p>
+<form name="form8">
+<input type="checkbox" name="c8" value="red" onchange="chk1(this.value)"> 赤
+<input type="checkbox" name="c8" value="blue" onchange="chk1(this.value)"> 青
+</form>
+
+<!-- HTMLここまで -->
+
+
+
+
+<!-- Javascript -->
+
+<script>
+function chk1(val){
+
+	document.getElementById("span8").textContent = val;
+
+	if(val=== "red"){
+		document.form8.c8[1].checked = false;
+	}else{
+		document.form8.c8[0].checked = false;
+	}
+}
+</script>
+
+<!-- Javascriptここまで -->
+
+
+
+
+
+
+
+<!-- Javascript別パターン -->
+
+<!-- 表示ボタン押したらチェックボックス調べて大きくする -->	
+function show(){
+	const PlaceLabel = document.Label.PlaceLabel;
+			
+	for (let i = 0; i < PlaceLabel.length; i++){
+		if(PlaceLabel[i].checked){ 
+			const tmp = [];
+			tmp.push(PlaceLabel[i].value);
+			map.setLayoutProperty(tmp,'text-size',60);
+		}
+	}
+}
+
+
+<!-- 非表示ボタン押したらチェックボックス調べて消す -->
+
+function hide(){
+	const PlaceLabel = document.Label.PlaceLabel;
+			
+	for (let i = 0; i < PlaceLabel.length; i++){
+		if(PlaceLabel[i].checked){ 
+			const tmp = [];
+			tmp.push(PlaceLabel[i].value);
+			map.setLayoutProperty(tmp,'text-size',0);
+		}
+	}
+}
+
+<!-- Javascript別パターンここまで -->
