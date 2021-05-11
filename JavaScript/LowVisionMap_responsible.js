@@ -249,7 +249,8 @@ $('.overlay').on('click',function(){
 	if($(this).hasClass('open')){
 		$(this).removeClass('open');
 		$('.menu-trigger').removeClass('active');
-		$('nav').removeClass('open');      
+		$('nav').removeClass('open');
 	}
 });
+
 
