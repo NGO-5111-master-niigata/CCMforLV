@@ -299,142 +299,157 @@ body {
     }
 
 
-/*  お問い合わせ */
 
-#contact_form .input_item dl {
-	margin: 0 0 20px 0;
-    width: 820px;
-}
+    
+    /*  お問い合わせ */
 
-#contact_form .input_item dl dt {
-    float: left;
-    width: 250px;
-    font-size: 18px;
-    line-height: 30px;
-    height: 30px;
-    padding: 3px 0 3px 0;
-    text-indent: -48px;
-    margin: 0 0 0 48px;
-}
+    .Form {
+        margin-top: 80px;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+      }
+      @media screen and (max-width: 480px) {
+        .Form {
+          margin-top: 40px;
+        }
+      }
+      .Form-Item {
+        border-top: 1px solid #ddd;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Item {
+          padding-left: 14px;
+          padding-right: 14px;
+          padding-top: 16px;
+          padding-bottom: 16px;
+          flex-wrap: wrap;
+        }
+      }
+      .Form-Item:nth-child(5) {
+        border-bottom: 1px solid #ddd;
+      }
+      .Form-Item-Label {
+        width: 100%;
+        max-width: 248px;
+        letter-spacing: 0.05em;
+        font-weight: bold;
+        font-size: 18px;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Item-Label {
+          max-width: inherit;
+          display: flex;
+          align-items: center;
+          font-size: 15px;
+        }
+      }
+      .Form-Item-Label.isMsg {
+        margin-top: 8px;
+        margin-bottom: auto;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Item-Label.isMsg {
+          margin-top: 0;
+        }
+      }
+      .Form-Item-Label-Required {
+        border-radius: 6px;
+        margin-right: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 48px;
+        display: inline-block;
+        text-align: center;
+        background: #5bc8ac;
+        color: #fff;
+        font-size: 14px;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Item-Label-Required {
+          border-radius: 4px;
+          padding-top: 4px;
+          padding-bottom: 4px;
+          width: 32px;
+          font-size: 10px;
+        }
+      }
+      .Form-Item-Input {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-left: 40px;
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 48px;
+        flex: 1;
+        width: 100%;
+        max-width: 410px;
+        background: #eaedf2;
+        font-size: 18px;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Item-Input {
+          margin-left: 0;
+          margin-top: 18px;
+          height: 40px;
+          flex: inherit;
+          font-size: 15px;
+        }
+      }
+      .Form-Item-Textarea {
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        margin-left: 40px;
+        padding-left: 1em;
+        padding-right: 1em;
+        height: 216px;
+        flex: 1;
+        width: 100%;
+        max-width: 410px;
+        background: #eaedf2;
+        font-size: 18px;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Item-Textarea {
+          margin-top: 18px;
+          margin-left: 0;
+          height: 200px;
+          flex: inherit;
+          font-size: 15px;
+        }
+      }
+      .Form-Btn {
+        border-radius: 6px;
+        margin-top: 32px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        width: 280px;
+        display: block;
+        letter-spacing: 0.05em;
+        background: #5bc8ac;
+        color: #fff;
+        font-weight: bold;
+        font-size: 20px;
+      }
+      @media screen and (max-width: 480px) {
+        .Form-Btn {
+          margin-top: 24px;
+          padding-top: 8px;
+          padding-bottom: 8px;
+          width: 160px;
+          font-size: 16px;
+        }
+      }
 
-#contact_form .input_item dl dt span {
-	font-size: 14px;
-	margin: 0 10px 0 0;
-	display: inline;
-	line-height: 20px;
-	padding: 3px 10px;
-	color: #ffffff;
-	height: 18px;
-	border-radius: 4px;
-}
 
-#contact_form .input_item dl dt span.req {
-	background: #FF1515;
-}
 
-#contact_form .input_item dl dt span.any {
-	background: #cccccc;
-}
-
-#contact_form .input_item dl dd {
-    float: right;
-    width: 482px;
-    font-size: 18px;
-    line-height:30px;
-    height:auto;
-}
-
-#contact_form .input_item dl dd li {
-    display: inline-block;
-    margin: 0 15px 0 0;
-    line-height: 30px;
-    height: 30px;
-    padding: 3px 0;
-}
-
-#contact_form .input_item dl dd p.mail_caution {
-    font-size: 12px;
-    line-height: 19px;
-    color: #313131;
-    margin: 5px 0 0 0;
-}
-
-#contact_form .input_item dl dd input[type="text"],
-#contact_form .input_item dl dd input[type="number"],
-#contact_form .input_item dl dd input[type="email"],
-#contact_form .input_item dl dd input[type="tel"]{
-    width: 470px;
-    font-size: 18px;
-    height:30px;
-    padding: 3px 0 3px 10px;
-    margin:0;
-}
-
-#contact_form .input_item .transmission input[type="submit"] {
-	border: 3px double #FFFFFF;
-	background: #F4D4D4;
-	font-size: 25px;
-	text-shadow: none;
-	color: #ffffff;
-	width: 400px;
-	padding: 30px 0;
-	margin: 25px 0;
-	display: block;
-	opacity: 1.0;
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	-o-transition: 0.5s;
-	-ms-transition: 0.5s;
-	transition: 0.5s;
-}
-
-#contact_form .input_item .transmission input[type="submit"]:hover {
-    background: #FF1515;
-	opacity:0.85;
-	-webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-    transition: 0.5s;
-}
-
-#contact_form .input_item dl dd input[type="text"].inp_error,
-#contact_form .input_item dl dd input[type="number"].inp_error,
-#contact_form .input_item dl dd input[type="tel"].inp_error,
-#contact_form .input_item dl dd textarea.inp_error {
-    border: 1px solid #F88A8A;
-    background: #F4D4D4;
-}
-
-#contact_form .input_item dl dd textarea {
-    width: 470px;
-    padding: 10px 3px 10px 10px;
-}
-
-#energy_contact #send_status{
-	padding: 5px 0 25px;
-    text-align: center;
-}
-
-#energy_contact #send_status p{
-	width: 480px;
-	margin: 0 auto;
-    padding: 0 15px;
-    line-height: 50px;
-    font-size: 25px;
-    border: 1px solid #3c763d;
-    border-radius: 4px;
-    background-color: #dff0d8;
-    color: #3c763d;
-}
-
-span.error_m {
-	font-size: 15px;
-	font-weight: normal;
-	color: #FF4040;
-	display: block;
-	margin: 0;
-}
 
 
 

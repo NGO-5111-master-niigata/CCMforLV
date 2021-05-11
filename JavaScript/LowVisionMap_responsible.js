@@ -161,7 +161,6 @@ function toggle7(){
 
 /* スイッチの初期状態定義。判定時に使用 */
 flag7 = true;
-
 	flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
 	document.getElementById("setting-item-7").value = flag7; /* ラベルの変更 */
 	if(flag7==true){
