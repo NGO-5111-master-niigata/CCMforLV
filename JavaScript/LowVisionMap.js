@@ -55,6 +55,7 @@ function error(err){
 		}
 	}
 
+
 /* 県名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 	/* スイッチの初期状態定義。判定時に使用 */
 	flag2 = true;
@@ -218,4 +219,45 @@ $('.overlay').on('click',function(){
 	}
 });
 
+
+
+/* 文字サイズ変更スライダーの挙動制御 */
+/* スライダーの値が変更されたときにイベントを発火 */
+const inputElem = document.getElementById('Label-Size-Slider'); // input要素
+const currentValueElem = document.getElementById('current-value'); // 埋め込む先のspan要素
+
+// 現在の値をspanに埋め込む関数
+const setCurrentValue = (val) => {
+  currentValueElem.innerText = val;
+}
+
+// inputイベント時に値をセットする関数
+const rangeOnChange = (e) =>{
+  setCurrentValue(e.target.value);
+}
+
+window.onload = () => {
+  inputElem.addEventListener('input', rangeOnChange); // スライダー変化時にイベントを発火
+  setCurrentValue(inputElem.value); // ページ読み込み時に値をセット
+}
+
+
+
+
+	/* 国名のラベルをクリックしたら選択状態に移行 */
+
+	map.on('click', 'country-label', function() {
+
+		const elem = document.getElementById('Label-Size-Slider');
+		const target = document.getElementById('value');
+		
+		const rangeValue = function (elem, target) {
+			return function(evt){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty('country-label','text-size',+ tmp);
+			}
+		}
+		elem.addEventListener('input', rangeValue(elem, target));
+	});
 
