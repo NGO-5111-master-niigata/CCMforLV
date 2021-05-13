@@ -129,3 +129,27 @@ function html5_slider(node){
       }
     }
     }
+
+
+
+
+
+  /* ラベルをクリックしたら選択状態に移行してスライダーがトリガーするやつ */
+
+	map.on('click', 'country-label', function() {
+
+		console.log("触りましたね？");
+
+		const elem = document.getElementById('Label-Size-Slider');
+		const target = document.getElementById('value');
+		
+		const rangeValue = function (elem, target) {
+			return function(evt){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty('country-label','text-size',+ tmp);
+			}
+		}
+		elem.addEventListener('input', rangeValue(elem, target));
+	});
+
