@@ -175,6 +175,7 @@ body {
         z-index: 10;
         transform: translate(250px);
         transition: all .5s;
+        overflow-y: scroll;
     }
 
     nav.open {
