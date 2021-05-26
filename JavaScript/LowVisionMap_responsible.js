@@ -74,6 +74,7 @@ function toggle1(){
 
 
 
+
 /* 県名のトグルスイッチのON/OFF調べて文字の表示/非表示制御 */
 /* スイッチの初期状態定義。判定時に使用 */
 flag2 = true;
@@ -413,24 +414,25 @@ function ChoosingLayer(){
 
 	console.log("オプションいじってますよね？");
 
-	console.log(EditLabel);
-
-	tmp.splice(0,10);
-
-	const EditLabel = document.getElementById('ChoosedLayer').value;
-
-
-	console.log(EditLabel);
-
-
 	const elem = document.getElementById('Label-Size-Slider');
 	const target = document.getElementById('current-value');
 
+	const SizeEditingLabel = document.getElementsByName("ChoosedLayer");
+
+	console.log(elem);
+
+	console.log(target);
+
+	console.log(SizeEditingLabel);
+
 	const rangeValue = function (elem,target) {
 		return function(evt){
+
+			const EditLabel = [];
 			const tmp = document.getElementById('Label-Size-Slider').value;
 
-			console.log(EditLabel);
+			EditLabel.splice(0,100);
+			EditLabel.push(SizeEditingLabel.value);
 
 			if(EditLabel=="NowChoosedCountry"){
 				map.setLayoutProperty('country-label','text-size',+ tmp);
@@ -517,3 +519,16 @@ window.onload = () => {
 }
 
 
+
+
+var elem = document.getElementsByClassName('range');
+var rangeValue = function (elem, target) {
+	return function(evt){
+		target.innerHTML = elem.value;
+ 	}
+}
+for(var i = 0, max = elem.length; i < max; i++){
+	bar = elem[i].getElementsByTagName('input')[0];
+	target = elem[i].getElementsByTagName('span')[0];
+	bar.addEventListener('input', rangeValue(bar, target));
+}

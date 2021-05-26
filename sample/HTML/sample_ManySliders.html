@@ -1,0 +1,55 @@
+
+
+<!-- スライダーが1つのときのHTML -->
+
+<input type="range" id="range" min="0" max="10" step="1" value="5">
+<span id="value">5</span>
+
+
+
+<!-- スライダーが1つのときのJavaScript -->
+
+var elem = document.getElementById('range');
+var target = document.getElementById('value');
+var rangeValue = function (elem, target) {
+    return function(evt){
+        target.innerHTML = elem.value;
+    }
+}
+elem.addEventListener('input', rangeValue(elem, target));
+
+
+
+
+<!-- スライダーが2つのときのJavaScript -->
+
+var elem2 = document.getElementById('range2');
+var target2 = document.getElementById('value2');
+elem2.addEventListener('input', rangeValue(elem2, target2));
+
+
+
+
+<!-- スライダーが複数ある時のHTML -->
+
+<div class="range">
+    <input type="range" min="0" max="10" value="5">
+    <span>5</span>
+</div>
+
+
+<!-- スライダーが複数ある時のJavaScript -->
+
+var elem = document.getElementsByClassName('range');
+var rangeValue = function (elem, target) {
+    return function(evt){
+        target.innerHTML = elem.value;
+    }
+}
+for(var i = 0, max = elem.length; i < max; i++){
+    bar = elem[i].getElementsByTagName('input')[0];
+    target = elem[i].getElementsByTagName('span')[0];
+    bar.addEventListener('input', rangeValue(bar, target));
+}
+
+
