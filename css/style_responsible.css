@@ -637,6 +637,7 @@ body {
       border-bottom: 7px double #ccc;
       text-align: center;
       margin: 0.5rem auto;
+      color: black;
     }
   
     .EditPanel1 .item-frame {
@@ -645,6 +646,7 @@ body {
   
     .EditPanel1 .text {
       vertical-align: middle;
+      color: black;
     }
   
     .EditPanel1 label {
@@ -706,6 +708,7 @@ body {
         border-bottom: 7px double #ccc;
         text-align: center;
         margin: 0.5rem auto;
+        color: black;
     }
 
     .EditPanel2 .text {
