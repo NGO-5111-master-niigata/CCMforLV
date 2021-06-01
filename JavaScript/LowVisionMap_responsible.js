@@ -278,18 +278,18 @@ function ChoosingLayer(){
 							}
 									/* オプションでその他道路、歩道などのラベル選択時 */
 									if(EditLabel=="NowChosedMinorRoads"){
-									const elem = document.getElementById('Label-Size-Slider'); // input要素
-									const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-								
-									const rangeValue = function (elem, target) {
-										return function(evt){
-											const tmp = document.getElementById('Label-Size-Slider').value;
-											target.innerHTML = elem.value;
-											map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
+										const elem = document.getElementById('Label-Size-Slider'); // input要素
+										const target = document.getElementById('current-value'); // 埋め込む先のspan要素
+									
+										const rangeValue = function (elem, target) {
+											return function(evt){
+												const tmp = document.getElementById('Label-Size-Slider').value;
+												target.innerHTML = elem.value;
+												map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
+											}
 										}
+										elem.addEventListener('input', rangeValue(elem, target));
 									}
-									elem.addEventListener('input', rangeValue(elem, target));
-								}
 }
 
 
