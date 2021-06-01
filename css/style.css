@@ -8,9 +8,7 @@ body {
 
 
 /*  全環境に共通の設定（モバイルファースト） */
-
     /*  地図について */
-
     #map{
         position: absolute;
         top: 0;
@@ -74,14 +72,12 @@ body {
 
 
     /* 設定パネルについて */
-
     .EditPanel_PC {
         display: none;
     }
 
 
     /*  ドロワーメニューについて */
-
     .wrapper {
         height: 100%;
         width: 100%;
@@ -204,8 +200,7 @@ body {
 
 
     /* スライドメニュー内の設定パネルについて */
-    
-    .EditPanel1 h3 {
+        .EditPanel1 h3 {
       font-size: 1.5rem;
       border-bottom: 7px double #ccc;
       text-align: center;
@@ -227,7 +222,6 @@ body {
     }
 
     /* スライドメニュー内のスライダーについて */
-
     .EditPanel2 h3 {
       font-family: 'M PLUS Rounded 1c', sans-serif;
       font-size: 1.5rem;
@@ -258,10 +252,13 @@ body {
         border: solid 3px #dff1ff; /* バー周囲の線 */
     }
 
+    /* お問い合わせ */
+    .Confirm {
+      display: none;
+    }
 
 
     /*  フロート時の回り込み防止のための記述 */
-
     .clearfix::after {
         content: "";
         display: block;
@@ -269,169 +266,10 @@ body {
     }
 
 
-
-    
-    /*  お問い合わせ */
-
-    .Form {
-        margin-top: 80px;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 720px;
-      }
-      @media screen and (max-width: 480px) {
-        .Form {
-          margin-top: 40px;
-        }
-      }
-      .Form-Item {
-        border-top: 1px solid #ddd;
-        padding-top: 24px;
-        padding-bottom: 24px;
-        width: 100%;
-        display: flex;
-        align-items: center;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Item {
-          padding-left: 14px;
-          padding-right: 14px;
-          padding-top: 16px;
-          padding-bottom: 16px;
-          flex-wrap: wrap;
-        }
-      }
-      .Form-Item:nth-child(5) {
-        border-bottom: 1px solid #ddd;
-      }
-      .Form-Item-Label {
-        width: 100%;
-        max-width: 248px;
-        letter-spacing: 0.05em;
-        font-weight: bold;
-        font-size: 18px;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Item-Label {
-          max-width: inherit;
-          display: flex;
-          align-items: center;
-          font-size: 15px;
-        }
-      }
-      .Form-Item-Label.isMsg {
-        margin-top: 8px;
-        margin-bottom: auto;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Item-Label.isMsg {
-          margin-top: 0;
-        }
-      }
-      .Form-Item-Label-Required {
-        border-radius: 6px;
-        margin-right: 8px;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        width: 48px;
-        display: inline-block;
-        text-align: center;
-        background: #5bc8ac;
-        color: #fff;
-        font-size: 14px;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Item-Label-Required {
-          border-radius: 4px;
-          padding-top: 4px;
-          padding-bottom: 4px;
-          width: 32px;
-          font-size: 10px;
-        }
-      }
-      .Form-Item-Input {
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        margin-left: 40px;
-        padding-left: 1em;
-        padding-right: 1em;
-        height: 48px;
-        flex: 1;
-        width: 100%;
-        max-width: 410px;
-        background: #eaedf2;
-        font-size: 18px;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Item-Input {
-          margin-left: 0;
-          margin-top: 18px;
-          height: 40px;
-          flex: inherit;
-          font-size: 15px;
-        }
-      }
-      .Form-Item-Textarea {
-        border: 1px solid #ddd;
-        border-radius: 6px;
-        margin-left: 40px;
-        padding-left: 1em;
-        padding-right: 1em;
-        height: 216px;
-        flex: 1;
-        width: 100%;
-        max-width: 410px;
-        background: #eaedf2;
-        font-size: 18px;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Item-Textarea {
-          margin-top: 18px;
-          margin-left: 0;
-          height: 200px;
-          flex: inherit;
-          font-size: 15px;
-        }
-      }
-      .Form-Btn {
-        border-radius: 6px;
-        margin-top: 32px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        width: 280px;
-        display: block;
-        letter-spacing: 0.05em;
-        background: #5bc8ac;
-        color: #fff;
-        font-weight: bold;
-        font-size: 20px;
-      }
-      @media screen and (max-width: 480px) {
-        .Form-Btn {
-          margin-top: 24px;
-          padding-top: 8px;
-          padding-bottom: 8px;
-          width: 160px;
-          font-size: 16px;
-        }
-      }
-
-
-
-
-
-
-
-
-
 /* タブレット用、ウィンドウサイズが600px以上のときはここを読み込む */
-
 @media screen and (min-width:480px){
 
 /* 現状はパソコン版のやつコピペしただけ */
-
     main{
         width: 1050px;
         height: 550px;
@@ -441,7 +279,6 @@ body {
 
 
     /* 地図について */
-
     .ShadowBox {
         position: relative;
         width: 70%;
@@ -468,8 +305,6 @@ body {
     
     /* パソコン版画面右側の設定パネルについて */
     /* パソコン版でだけEditPanel1表示 */
-
-
     #EditPanel_PC {
         display: block;
         width: 700px;
@@ -479,7 +314,6 @@ body {
     }
 
     /* トグルスイッチについて */
-
     .EditPanel1 h3 {
       font-size: 1.5rem;
       border-bottom: 7px double #ccc;
@@ -495,7 +329,6 @@ body {
       vertical-align: middle;
     }
   
-    // カーソルをポインタに
     .EditPanel1 label {
       cursor: pointer;
     }
@@ -543,7 +376,6 @@ body {
 
 
     /* スライダーについて */
-
     .EditPanel2 {
         display: block;
         padding: 10px;
@@ -580,7 +412,6 @@ body {
 
 
 /* PC用、ウィンドウサイズが1024px以上のときはここを読み込む */
-
 @media screen and (min-width:1024px){
 
 
@@ -593,7 +424,6 @@ body {
 
 
     /* 地図について */
-
     .ShadowBox {
         position: relative;
         width: 70%;
@@ -620,8 +450,6 @@ body {
     
     /* パソコン版画面右側の設定パネルについて */
     /* パソコン版でだけEditPanel1表示 */
-
-
     #EditPanel_PC {
         display: block;
         width: 300px;
@@ -631,7 +459,6 @@ body {
     }
 
     /* トグルスイッチについて */
-
     .EditPanel1 h3 {
       font-size: 1.5rem;
       border-bottom: 7px double #ccc;
@@ -696,7 +523,6 @@ body {
 
 
     /* スライダーについて */
-
     .EditPanel2 {
         display: block;
         padding: 10px;
@@ -729,6 +555,11 @@ body {
         background: #8acdff; /* バーの背景色 */
         border-radius: 10px; /* バーの両端の丸み */
         border: solid 3px #dff1ff; /* バー周囲の線 */
+    }
+
+    /* お問い合わせ */
+    .Confirm {
+      display: block;
     }
 
 
