@@ -252,11 +252,6 @@ body {
         border: solid 3px #dff1ff; /* バー周囲の線 */
     }
 
-    /* お問い合わせ */
-    .Confirm {
-      display: none;
-    }
-
 
     /*  フロート時の回り込み防止のための記述 */
     .clearfix::after {
@@ -557,9 +552,5 @@ body {
         border: solid 3px #dff1ff; /* バー周囲の線 */
     }
 
-    /* お問い合わせ */
-    .Confirm {
-      display: block;
-    }
 
 
