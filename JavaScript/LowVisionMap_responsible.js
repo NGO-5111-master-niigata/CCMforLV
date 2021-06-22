@@ -27,14 +27,6 @@
 			}),
 			'bottom-right'
 		);
-
-		map.addControl(
-			new MapboxDirections({
-				accessToken: mapboxgl.accessToken
-			}),
-			'top-left'
-		);
-	
 	}
 
 
@@ -46,14 +38,6 @@
 			}),
 			'bottom-right'
 		);
-
-		map.addControl(
-			new MapboxDirections({
-				accessToken: mapboxgl.accessToken
-			}),
-			'top-left'
-		);
-	
 	}
 
 
@@ -332,5 +316,25 @@ $('.overlay').on('click',function(){
 		$('nav').removeClass('open');
 	}
 });
+
+
+/* ナビゲーション */
+/* Aに出発地、Bに目的地入力 */
+/* A、Bのアイコンはドラッグアンッドロップで場所変更可能（その際、場所は緯度経度表示になる） */
+var Navigation = new MapboxDirections({
+		accessToken: mapboxgl.accessToken,
+		language: 'ja', 
+});
+
+document.getElementById('Navigation').appendChild(Navigation.onAdd(map));
+
+
+
+
+
+
+
+
+
 
 
