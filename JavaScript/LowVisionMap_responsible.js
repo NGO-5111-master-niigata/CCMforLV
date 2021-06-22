@@ -27,6 +27,14 @@
 			}),
 			'bottom-right'
 		);
+
+		map.addControl(
+			new MapboxDirections({
+				accessToken: mapboxgl.accessToken
+			}),
+			'top-left'
+		);
+	
 	}
 
 
@@ -38,6 +46,14 @@
 			}),
 			'bottom-right'
 		);
+
+		map.addControl(
+			new MapboxDirections({
+				accessToken: mapboxgl.accessToken
+			}),
+			'top-left'
+		);
+	
 	}
 
 
