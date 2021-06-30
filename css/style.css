@@ -419,7 +419,7 @@ body {
     /* 地図について */
     .ShadowBox1 {
       position: relative;
-      width: 45%;
+      width: 70%;
       height: auto;
       float: left;
     }
@@ -445,7 +445,6 @@ body {
       width: 30%;
       height: auto;
       padding: 10px;
-      float: left;
     }
 
     .ShadowBox2::before {
@@ -469,6 +468,7 @@ body {
       width: 240px;
       height: 480px;
       padding: 10px;
+      float: left;
     }
 
     /* トグルスイッチについて */
@@ -568,6 +568,15 @@ body {
         background: #8acdff; /* バーの背景色 */
         border-radius: 10px; /* バーの両端の丸み */
         border: solid 3px #dff1ff; /* バー周囲の線 */
+    }
+
+    .EditPanel3 h3 {
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        font-size: 1.5rem;
+        border-bottom: 7px double #ccc;
+        text-align: center;
+        margin: 0.5rem auto;
+        color: black;
     }
 
 

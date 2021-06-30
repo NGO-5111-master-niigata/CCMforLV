@@ -27,6 +27,14 @@ navigator.geolocation.getCurrentPosition(success,error);
 			}),
 			'bottom-right'
 		);
+
+		map.addControl(
+			new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				mapboxgl: mapboxgl
+			}),
+			'top-left'
+		);
 	}
 
 
@@ -37,6 +45,14 @@ navigator.geolocation.getCurrentPosition(success,error);
 			new mapboxgl.NavigationControl({
 			}),
 			'bottom-right'
+		);
+
+		map.addControl(
+			new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				mapboxgl: mapboxgl
+			}),
+			'top-left'
 		);
 	}
 
