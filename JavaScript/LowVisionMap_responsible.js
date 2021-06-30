@@ -1,6 +1,6 @@
 
 /* 現在地を取得 */
-	navigator.geolocation.getCurrentPosition(success,error); 
+navigator.geolocation.getCurrentPosition(success,error); 
 
 
 /* 新宿周辺の地図読み込み */
