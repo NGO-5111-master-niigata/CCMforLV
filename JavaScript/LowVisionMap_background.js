@@ -179,136 +179,75 @@ navigator.geolocation.getCurrentPosition(success,error);
 		}
 	}
 
+
 /* 文字の大きさ調整のオプション開いてラベルを選択 */
 /* 選択したラベルの文字サイズをスライダーで調整できるようになる */
 /* if文を何度も通して条件分岐。愚直で汚いプログラムなので要改造 */
 
-/* オプションで国名のラベル選択時 */
 function ChoosingLayer(){
-
-	const EditLabel = document.getElementById("ChoosedLayer").value;
-
-	console.log(EditLabel);
-
-	if(EditLabel=="NowChoosedCountry"){
-		const elem = document.getElementById('Label-Size-Slider'); // input要素
-		const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-	
-		const rangeValue = function (elem, target) {
-			return function(evt){
+	const elem = document.getElementById('Label-Size-Slider'); // input要素
+	const target = document.getElementById('current-value'); // 埋め込む先のspan要素
+	const rangeValue = function (elem, target){
+		return function(evt){
+			const EditLabel = document.getElementById("ChoosedLayer").value;
+			target.innerHTML = elem.value;
+			/* オプションで国名のラベル選択時 */
+			if(EditLabel=="NowChoosedCountry"){
 				const tmp = document.getElementById('Label-Size-Slider').value;
 				target.innerHTML = elem.value;
 				map.setLayoutProperty("country-label",'text-size',+ tmp);
+			}	
+			/* オプションで県名のラベル選択時 */
+			else if(EditLabel=="NowChoosedState"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty("state-label",'text-size',+ tmp);
 			}
-		}
-		elem.addEventListener('input', rangeValue(elem, target));
-	}
-		/* オプションで県名のラベル選択時 */
-		if(EditLabel=="NowChoosedState"){
-			const elem = document.getElementById('Label-Size-Slider'); // input要素
-			const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-		
-			const rangeValue = function (elem, target) {
-				return function(evt){
-					const tmp = document.getElementById('Label-Size-Slider').value;
-					target.innerHTML = elem.value;
-					map.setLayoutProperty("state-label",'text-size',+ tmp);
-				}
-			}
-			elem.addEventListener('input', rangeValue(elem, target));
-		}
 			/* オプションで市町村名のラベル選択時 */
-			if(EditLabel=="NowChoosedTownAndVillage"){
-				const elem = document.getElementById('Label-Size-Slider'); // input要素
-				const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-			
-				const rangeValue = function (elem, target) {
-					return function(evt){
-						const tmp = document.getElementById('Label-Size-Slider').value;
-						target.innerHTML = elem.value;
-						map.setLayoutProperty("settlement-major-label",'text-size',+ tmp);
-						map.setLayoutProperty("settlement-subdivision-label",'text-size',+ tmp);
-						map.setLayoutProperty("settlement-minor-label",'text-size',+ tmp);	
-					}
-				}
-				elem.addEventListener('input', rangeValue(elem, target));
+			else if(EditLabel=="NowChoosedTownAndVillage"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty("settlement-major-label",'text-size',+ tmp);
+				map.setLayoutProperty("settlement-subdivision-label",'text-size',+ tmp);
+				map.setLayoutProperty("settlement-minor-label",'text-size',+ tmp);	
 			}
-				/* オプションで建物、橋のラベル選択時 */
-				if(EditLabel=="NowChoosedBuilding"){
-					const elem = document.getElementById('Label-Size-Slider'); // input要素
-					const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-				
-					const rangeValue = function (elem, target) {
-						return function(evt){
-							const tmp = document.getElementById('Label-Size-Slider').value;
-							target.innerHTML = elem.value;
-							map.setLayoutProperty("poi-label",'text-size',+ tmp);
-							map.setLayoutProperty("airport-label",'text-size',+ tmp);
-						}
-					}
-					elem.addEventListener('input', rangeValue(elem, target));
-				}
-					/* オプションで山のラベル選択時 */
-					if(EditLabel=="NowChoosedMountains"){
-						const elem = document.getElementById('Label-Size-Slider'); // input要素
-						const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-					
-						const rangeValue = function (elem, target) {
-							return function(evt){
-								const tmp = document.getElementById('Label-Size-Slider').value;
-								target.innerHTML = elem.value;
-								map.setLayoutProperty('natural-point-label','text-size',+ tmp);
-							}
-						}
-						elem.addEventListener('input', rangeValue(elem, target));
-					}
-						/* オプションで川、湖、海のラベル選択時 */
-						if(EditLabel=="NowChoosedWaters"){
-							const elem = document.getElementById('Label-Size-Slider'); // input要素
-							const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-						
-							const rangeValue = function (elem, target) {
-								return function(evt){
-									const tmp = document.getElementById('Label-Size-Slider').value;
-									target.innerHTML = elem.value;
-									map.setLayoutProperty("water-point-label",'text-size',+ tmp);
-									map.setLayoutProperty("water-line-label",'text-size',+ tmp);
-									map.setLayoutProperty("waterway-label",'text-size',+ tmp);			
-								}
-							}
-							elem.addEventListener('input', rangeValue(elem, target));
-						}
-							/* オプションで国道、高速道路、バイパスなどのラベル選択時 */
-							if(EditLabel=="NowChoosedHighway"){
-								const elem = document.getElementById('Label-Size-Slider'); // input要素
-								const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-							
-								const rangeValue = function (elem, target) {
-									return function(evt){
-										const tmp = document.getElementById('Label-Size-Slider').value;
-										target.innerHTML = elem.value;
-										map.setLayoutProperty('road-label-simple','text-size',+ tmp);
-									}
-								}
-								elem.addEventListener('input', rangeValue(elem, target));
-							}
-									/* オプションでその他道路、歩道などのラベル選択時 */
-									if(EditLabel=="NowChosedMinorRoads"){
-										const elem = document.getElementById('Label-Size-Slider'); // input要素
-										const target = document.getElementById('current-value'); // 埋め込む先のspan要素
-									
-										const rangeValue = function (elem, target) {
-											return function(evt){
-												const tmp = document.getElementById('Label-Size-Slider').value;
-												target.innerHTML = elem.value;
-												map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
-											}
-										}
-										elem.addEventListener('input', rangeValue(elem, target));
-									}
+			/* オプションで建物、橋のラベル選択時 */
+			else if(EditLabel=="NowChoosedBuilding"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty("poi-label",'text-size',+ tmp);
+				map.setLayoutProperty("airport-label",'text-size',+ tmp);
+			}
+			/* オプションで山のラベル選択時 */
+			else if(EditLabel=="NowChoosedMountains"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty('natural-point-label','text-size',+ tmp);
+			}
+			/* オプションで川、湖、海のラベル選択時 */
+			else if(EditLabel=="NowChoosedWaters"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty("water-point-label",'text-size',+ tmp);
+				map.setLayoutProperty("water-line-label",'text-size',+ tmp);
+				map.setLayoutProperty("waterway-label",'text-size',+ tmp);			
+			}
+			/* オプションで国道、高速道路、バイパスなどのラベル選択時 */
+			else if(EditLabel=="NowChoosedHighway"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty('road-label-simple','text-size',+ tmp);
+			}
+			/* オプションでその他道路、歩道などのラベル選択時 */
+			else if(EditLabel=="NowChosedMinorRoads"){
+				const tmp = document.getElementById('Label-Size-Slider').value;
+				target.innerHTML = elem.value;
+				map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
+			}
+		}
+	}
+	elem.addEventListener('input', rangeValue(elem, target));
 }
-
-
 
 
 /* ハンバーガーメニュー押したらスライドで操作パネル出現 */

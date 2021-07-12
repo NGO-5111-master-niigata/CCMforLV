@@ -71,14 +71,14 @@
 					<h3>文字の大きさ調整</h3>
 					<select id="ChoosedLayer" name="ChoosedLayer" onchange="ChoosingLayer()">
 						<option value="NotChoosed">-</option>
-						<option value="NowChoosedCountry">国名</option>
-						<option value="NowChoosedState">県名</option>
-						<option value="NowChoosedTownAndVillage">市町村名</option>
-						<option value="NowChoosedBuilding">建物、橋</option>
-						<option value="NowChoosedMountains">山</option>
-						<option value="NowChoosedWaters">川、湖、海</option>
-						<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
-						<option value="NowChosedMinorRoads">その他道路、歩道など</option>
+						<option value="NowChoosedCountry" name="NowChoosedCountry">国名</option>
+						<option value="NowChoosedState" name="NowChoosedState">県名</option>
+						<option value="NowChoosedTownAndVillage" name="NowChoosedTownAndVillage">市町村名</option>
+						<option value="NowChoosedBuilding" name="NowChoosedBuilding">建物、橋</option>
+						<option value="NowChoosedMountains" name="NowChoosedMountains">山</option>
+						<option value="NowChoosedWaters" name="NowChoosedWaters">川、湖、海</option>
+						<option value="NowChoosedHighway" name="NowChoosedHighway">国道、高速道路、バイパスなど</option>
+						<option value="NowChosedMinorRoads" name="NowChosedMinorRoads">その他道路、歩道など</option>
 					</select>
 					<div class="SizeEditSlider">
 						<input type="range" id="Label-Size-Slider" min="0" max="30" step="0.1">
@@ -150,7 +150,7 @@
 					</div>
 					<div class="EditPanel2">
 							<h3>文字の大きさ調整</h3>
-							<select id="ChoosedLayer" name="ChoosedLayer" onchange="ChoosingLayer()">
+							<select id="ChoosedLayer" name="ChoosedLayer">
 								<option value="NotChoosed">-</option>
 								<option value="NowChoosedCountry">国名</option>
 								<option value="NowChoosedState">県名</option>
