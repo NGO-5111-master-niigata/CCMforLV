@@ -191,7 +191,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 		/* 選択したラベルの文字サイズをスライダーで調整できるようになる */
 		/* if文を何度も通して条件分岐。愚直で汚いプログラムなので要改造 */
 
-		function ChoosingLayer(){
+		function ChoosingLayer_PC(){
 			const elem = document.getElementById('Label-Size-Slider_PC'); // input要素
 			const target = document.getElementById('current-value_PC'); // 埋め込む先のspan要素
 			const rangeValue = function (elem, target){
@@ -435,7 +435,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 		/* 選択したラベルの文字サイズをスライダーで調整できるようになる */
 		/* if文を何度も通して条件分岐。愚直で汚いプログラムなので要改造 */
 
-		function ChoosingLayer(){
+		function ChoosingLayer_SP(){
 			const elem = document.getElementById('Label-Size-Slider_SP'); // input要素
 			const target = document.getElementById('current-value_SP'); // 埋め込む先のspan要素
 			const rangeValue = function (elem, target){
@@ -500,16 +500,6 @@ navigator.geolocation.getCurrentPosition(success,error);
 			elem.addEventListener('input', rangeValue(elem, target));
 		}
 
-
-	/* ナビゲーション */
-		/* Aに出発地、Bに目的地入力 */
-		/* A、Bのアイコンはドラッグアンッドロップで場所変更可能（その際、場所は緯度経度表示になる） */
-		var Navigation = new MapboxDirections({
-			accessToken: mapboxgl.accessToken,
-			language: 'ja', 
-		});
-
-		document.getElementById('Navigation_SP').appendChild(Navigation.onAdd(map));
 
 /* スマートフォン用ここまで */
 

@@ -28,48 +28,48 @@
 				<h3>文字の表示/非表示</h3>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-1_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Country" onchange="toggle1()"/>
-					<label class="switch" for='setting-item-1'></label>
-					<label class="text" for='setting-item-1'>国名</label>
+					<label class="switch" for='setting-item-1_PC'></label>
+					<label class="text" for='setting-item-1_PC'>国名</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-2_PC' class="checkbox" checked="checked" name="PlaceLabel" value="State" onchange="toggle2()"/>
-					<label class="switch" for='setting-item-2'></label>
-					<label class="text" for='setting-item-2'>県名</label>
+					<label class="switch" for='setting-item-2_PC'></label>
+					<label class="text" for='setting-item-2_PC'>県名</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-3_PC' class="checkbox" checked="checked" name="PlaceLabel" value="TownsAndVillages" onchange="toggle3()"/>
-					<label class="switch" for='setting-item-3'></label>
-					<label class="text" for='setting-item-3'>市町村名</label>
+					<label class="switch" for='setting-item-3_PC'></label>
+					<label class="text" for='setting-item-3_PC'>市町村名</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-4_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Buildings" onchange="toggle4()"/>
-					<label class="switch" for='setting-item-4'></label>
-					<label class="text" for='setting-item-4'>建物、橋</label>
+					<label class="switch" for='setting-item-4_PC'></label>
+					<label class="text" for='setting-item-4_PC'>建物、橋</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-5_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Mountains" onchange="toggle5()"/>
-					<label class="switch" for='setting-item-5'></label>
-					<label class="text" for='setting-item-5'>山</label>
+					<label class="switch" for='setting-item-5_PC'></label>
+					<label class="text" for='setting-item-5_PC'>山</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-6_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Waters" onchange="toggle6()"/>
-					<label class="switch" for='setting-item-6'></label>
-					<label class="text" for='setting-item-6'>川、湖、海</label>
+					<label class="switch" for='setting-item-6_PC'></label>
+					<label class="text" for='setting-item-6_PC'>川、湖、海</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-7_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Highway" onchange="toggle7()"/>
-					<label class="switch" for='setting-item-7'></label>
-					<label class="text" for='setting-item-7'>国道、高速道路、バイパスなど</label>
+					<label class="switch" for='setting-item-7_PC'></label>
+					<label class="text" for='setting-item-7_PC'>国道、高速道路、バイパスなど</label>
 				</div>
 				<div class="item-frame">
 					<input type='checkbox' id='setting-item-8_PC' class="checkbox" checked="checked" name="PlaceLabel" value="MinorRoads" onchange="toggle8()"/>
-					<label class="switch" for='setting-item-8'></label>
-					<label class="text" for='setting-item-8'>その他道路、歩道など</label>
+					<label class="switch" for='setting-item-8_PC'></label>
+					<label class="text" for='setting-item-8_PC'>その他道路、歩道など</label>
 				</div>
 			</div>
 			<div class="EditPanel2">
 				<h3>文字の大きさ調整</h3>
-				<select id="ChoosedLayer_PC" name="ChoosedLayer" onchange="ChoosingLayer()">
+				<select id="ChoosedLayer_PC" name="ChoosedLayer_PC" onchange="ChoosingLayer_PC()">
 					<option value="NotChoosed">-</option>
 					<option value="NowChoosedCountry">国名</option>
 					<option value="NowChoosedState">県名</option>
@@ -109,48 +109,48 @@
 						<h3>文字の表示/非表示</h3>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-1_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Country" onchange="toggle1()"/>
-							<label class="switch" for='setting-item-1'></label>
-							<label class="text" for='setting-item-1'>国名</label>
+							<label class="switch" for='setting-item-1_SP'></label>
+							<label class="text" for='setting-item-1_SP'>国名</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-2_SP' class="checkbox" checked="checked" name="PlaceLabel" value="State" onchange="toggle2()"/>
-							<label class="switch" for='setting-item-2'></label>
-							<label class="text" for='setting-item-2'>県名</label>
+							<label class="switch" for='setting-item-2_SP'></label>
+							<label class="text" for='setting-item-2_SP'>県名</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-3_SP' class="checkbox" checked="checked" name="PlaceLabel" value="TownsAndVillages" onchange="toggle3()"/>
-							<label class="switch" for='setting-item-3'></label>
-							<label class="text" for='setting-item-3'>市町村名</label>
+							<label class="switch" for='setting-item-3_SP'></label>
+							<label class="text" for='setting-item-3_SP'>市町村名</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-4_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Buildings" onchange="toggle4()"/>
-							<label class="switch" for='setting-item-4'></label>
-							<label class="text" for='setting-item-4'>建物、橋</label>
+							<label class="switch" for='setting-item-4_SP'></label>
+							<label class="text" for='setting-item-4_SP'>建物、橋</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-5_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Mountains" onchange="toggle5()"/>
-							<label class="switch" for='setting-item-5'></label>
-							<label class="text" for='setting-item-5'>山</label>
+							<label class="switch" for='setting-item-5_SP'></label>
+							<label class="text" for='setting-item-5_SP'>山</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-6_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Waters" onchange="toggle6()"/>
-							<label class="switch" for='setting-item-6'></label>
-							<label class="text" for='setting-item-6'>川、湖、海</label>
+							<label class="switch" for='setting-item-6_SP'></label>
+							<label class="text" for='setting-item-6_SP'>川、湖、海</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-7_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Highway" onchange="toggle7()"/>
-							<label class="switch" for='setting-item-7'></label>
-							<label class="text" for='setting-item-7'>国道、高速道路、バイパスなど</label>
+							<label class="switch" for='setting-item-7_SP'></label>
+							<label class="text" for='setting-item-7_SP'>国道、高速道路、バイパスなど</label>
 						</div>
 						<div class="item-frame">
 							<input type='checkbox' id='setting-item-8_SP' class="checkbox" checked="checked" name="PlaceLabel" value="MinorRoads" onchange="toggle8()"/>
-							<label class="switch" for='setting-item-8'></label>
-							<label class="text" for='setting-item-8'>その他道路、歩道など</label>
+							<label class="switch" for='setting-item-8_SP'></label>
+							<label class="text" for='setting-item-8_SP'>その他道路、歩道など</label>
 						</div>
 					</div>
 					<div class="EditPanel2">
 						<h3>文字の大きさ調整</h3>
-						<select id="ChoosedLayer_SP" name="ChoosedLayer" onchange="ChoosingLayer()">
+						<select id="ChoosedLayer_SP" name="ChoosedLayer_SP" onchange="ChoosingLayer_SP()">
 							<option value="NotChoosed">-</option>
 							<option value="NowChoosedCountry">国名</option>
 							<option value="NowChoosedState">県名</option>

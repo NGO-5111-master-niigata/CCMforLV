@@ -310,7 +310,7 @@ body {
 
     /* パソコン版画面右側の設定パネルについて */
     /* パソコン版でだけEditPanel_PCを表示 */
-    #EditPanel_PC {
+    .EditPanel_PC {
       display: block;
       width: 240px;
       height: 480px;
