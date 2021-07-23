@@ -72,9 +72,14 @@ body {
 
 
     /* 設定パネル */
-      .EditPanel_PC {
+      .EditPanelPC1 {
           display: none;
       }
+
+      .EditPanelPC2 {
+        display: none;
+      }
+
 
 
     /*  ドロワーメニュー */
@@ -229,7 +234,7 @@ body {
         cursor: pointer;
       }
 
-      .EditPanel_SP .EditPanel2 .Label-Size-Slider {
+      .EditPanelSP .EditPanel2 .Label-Size-Slider {
           -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
           appearance: none;
           cursor: pointer; /* カーソルを分かりやすく */
@@ -265,6 +270,13 @@ body {
       margin: 0 auto;
     }
 
+    #wrap1{
+      width: 1050px;
+      height: 550px;
+      margin: 0 auto;
+    }
+
+
     /* 地図について */
     .ShadowBox1 {
       position: relative;
@@ -288,34 +300,13 @@ body {
     }
 
 
-    /* ナビゲーションについて */
-    .ShadowBox2 {
-      position: relative;
-      width: 30%;
-      height: auto;
-      padding: 10px;
-    }
-
-    .ShadowBox2::before {
-      content: "";
-      display: block;
-      padding-top: 40%;
-    }
-
-    .ShadowBox2 #Navigation {
-      position: absolute;
-      top: 0px;
-      left: 0px;
-      width: 100%;
-      height: 100%;
-    }
 
     /* パソコン版画面右側の設定パネルについて */
-    /* パソコン版でだけEditPanel_PCを表示 */
-    .EditPanel_PC {
+    /* パソコン版でだけEditPanelPC1を表示 */
+    .EditPanelPC1 {
       display: block;
       width: 240px;
-      height: 480px;
+      height: 550px;
       padding: 10px;
       float: left;
     }
@@ -418,6 +409,55 @@ body {
         border-radius: 10px; /* バーの両端の丸み */
         border: solid 3px #dff1ff; /* バー周囲の線 */
     }
+
+
+
+
+    #wrap2{
+      width: 1050px;
+      height: 550px;
+      margin: 0 auto;
+    }
+
+    .EditPanelPC2 {
+      display: block;
+      width: 1050px;
+      height: 250px;
+      margin: 10px auto;
+    }
+    }
+
+
+    /* ナビゲーションについて */
+    .ShadowBox2 {
+      position: relative;
+      width: 30%;
+      height: auto;
+      padding: 10px;
+    }
+
+    .ShadowBox2::before {
+      content: "";
+      display: block;
+      padding-top: 1%;
+    }
+
+    .ShadowBox2 #Navigation {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .EditPanel3 {
+      display: block;
+      width: 35%;
+      height: auto;
+      padding: 10px;
+      float: left;
+    }
+
 
     .EditPanel3 h3 {
         font-family: 'M PLUS Rounded 1c', sans-serif;

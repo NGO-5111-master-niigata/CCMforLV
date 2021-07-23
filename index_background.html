@@ -20,93 +20,98 @@
 
 	<main>
 
-		<div class="ShadowBox1">
-			<div id="map"></div>
+		<div id="wrap1" class="clearfix">
+			<div class="ShadowBox1">
+				<div id="map"></div>
+			</div>
+			<div class="EditPanelPC1">
+				<div class="EditPanel1">
+					<h3>文字の表示/非表示</h3>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-1_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Country" onchange="toggle1()"/>
+						<label class="switch" for='setting-item-1_PC'></label>
+						<label class="text" for='setting-item-1_PC'>国名</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-2_PC' class="checkbox" checked="checked" name="PlaceLabel" value="State" onchange="toggle2()"/>
+						<label class="switch" for='setting-item-2_PC'></label>
+						<label class="text" for='setting-item-2_PC'>県名</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-3_PC' class="checkbox" checked="checked" name="PlaceLabel" value="TownsAndVillages" onchange="toggle3()"/>
+						<label class="switch" for='setting-item-3_PC'></label>
+						<label class="text" for='setting-item-3_PC'>市町村名</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-4_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Buildings" onchange="toggle4()"/>
+						<label class="switch" for='setting-item-4_PC'></label>
+						<label class="text" for='setting-item-4_PC'>建物、橋</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-5_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Mountains" onchange="toggle5()"/>
+						<label class="switch" for='setting-item-5_PC'></label>
+						<label class="text" for='setting-item-5_PC'>山</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-6_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Waters" onchange="toggle6()"/>
+						<label class="switch" for='setting-item-6_PC'></label>
+						<label class="text" for='setting-item-6_PC'>川、湖、海</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-7_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Highway" onchange="toggle7()"/>
+						<label class="switch" for='setting-item-7_PC'></label>
+						<label class="text" for='setting-item-7_PC'>国道、高速道路、バイパスなど</label>
+					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-8_PC' class="checkbox" checked="checked" name="PlaceLabel" value="MinorRoads" onchange="toggle8()"/>
+						<label class="switch" for='setting-item-8_PC'></label>
+						<label class="text" for='setting-item-8_PC'>その他道路、歩道など</label>
+					</div>
+				</div>
+				<div class="EditPanel2">
+					<h3>文字の大きさ調整</h3>
+					<select id="ChoosedLayer_PC" name="ChoosedLayer_PC" onchange="ChoosingLayer_PC()">
+						<option value="NotChoosed">-</option>
+						<option value="NowChoosedCountry">国名</option>
+						<option value="NowChoosedState">県名</option>
+						<option value="NowChoosedTownAndVillage">市町村名</option>
+						<option value="NowChoosedBuilding">建物、橋</option>
+						<option value="NowChoosedMountains">山</option>
+						<option value="NowChoosedWaters">川、湖、海</option>
+						<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
+						<option value="NowChosedMinorRoads">その他道路、歩道など</option>
+					</select>
+					<div class="SizeEditSlider">
+						<input type="range" id="Label-Size-Slider_PC" min="0" max="30" step="0.1">
+						<span id="current-value_PC"></span>
+					</div>
+				</div>
+			</div>
 		</div>
-		<div class="EditPanel_PC" class="clearfix">
-			<div class="EditPanel1">
-				<h3>文字の表示/非表示</h3>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-1_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Country" onchange="toggle1()"/>
-					<label class="switch" for='setting-item-1_PC'></label>
-					<label class="text" for='setting-item-1_PC'>国名</label>
+		<div id="wrap2" class="clearfix">
+			<div class="EditPanelPC2">
+				<div class="EditPanel3">
+					<h3>経路案内</h3>
+					<div class="ShadowBox2">
+						<div id="Navigation_PC" class="Navigation"></div>
+					</div>
 				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-2_PC' class="checkbox" checked="checked" name="PlaceLabel" value="State" onchange="toggle2()"/>
-					<label class="switch" for='setting-item-2_PC'></label>
-					<label class="text" for='setting-item-2_PC'>県名</label>
-				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-3_PC' class="checkbox" checked="checked" name="PlaceLabel" value="TownsAndVillages" onchange="toggle3()"/>
-					<label class="switch" for='setting-item-3_PC'></label>
-					<label class="text" for='setting-item-3_PC'>市町村名</label>
-				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-4_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Buildings" onchange="toggle4()"/>
-					<label class="switch" for='setting-item-4_PC'></label>
-					<label class="text" for='setting-item-4_PC'>建物、橋</label>
-				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-5_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Mountains" onchange="toggle5()"/>
-					<label class="switch" for='setting-item-5_PC'></label>
-					<label class="text" for='setting-item-5_PC'>山</label>
-				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-6_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Waters" onchange="toggle6()"/>
-					<label class="switch" for='setting-item-6_PC'></label>
-					<label class="text" for='setting-item-6_PC'>川、湖、海</label>
-				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-7_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Highway" onchange="toggle7()"/>
-					<label class="switch" for='setting-item-7_PC'></label>
-					<label class="text" for='setting-item-7_PC'>国道、高速道路、バイパスなど</label>
-				</div>
-				<div class="item-frame">
-					<input type='checkbox' id='setting-item-8_PC' class="checkbox" checked="checked" name="PlaceLabel" value="MinorRoads" onchange="toggle8()"/>
-					<label class="switch" for='setting-item-8_PC'></label>
-					<label class="text" for='setting-item-8_PC'>その他道路、歩道など</label>
+				<div class="EditPanel4">
+					<h3>色の変更</h3>
+					<select id="ColoredLayer_PC" name="ColoredLayer_PC" onchange="ColoredLayer_PC()">
+						<option value="NotChoosed">-</option>
+						<option value="NowChoosedCountry">国名</option>
+						<option value="NowChoosedState">県名</option>
+						<option value="NowChoosedTownAndVillage">市町村名</option>
+						<option value="NowChoosedBuilding">建物、橋</option>
+						<option value="NowChoosedMountains">山</option>
+						<option value="NowChoosedWaters">川、湖、海</option>
+						<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
+						<option value="NowChosedMinorRoads">その他道路、歩道など</option>
+					</select>
+					<div id="swatches"></div>
 				</div>
 			</div>
-			<div class="EditPanel2">
-				<h3>文字の大きさ調整</h3>
-				<select id="ChoosedLayer_PC" name="ChoosedLayer_PC" onchange="ChoosingLayer_PC()">
-					<option value="NotChoosed">-</option>
-					<option value="NowChoosedCountry">国名</option>
-					<option value="NowChoosedState">県名</option>
-					<option value="NowChoosedTownAndVillage">市町村名</option>
-					<option value="NowChoosedBuilding">建物、橋</option>
-					<option value="NowChoosedMountains">山</option>
-					<option value="NowChoosedWaters">川、湖、海</option>
-					<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
-					<option value="NowChosedMinorRoads">その他道路、歩道など</option>
-				</select>
-				<div class="SizeEditSlider">
-					<input type="range" id="Label-Size-Slider_PC" min="0" max="30" step="0.1">
-					<span id="current-value_PC"></span>
-				</div>
-			</div>
-			<div class="EditPanel3">
-				<h3>経路案内</h3>
-				<div class="ShadowBox2">
-					<div id="Navigation_PC" class="Navigation"></div>
-				</div>
-			</div>
-			<div class="EditPanel4">
-				<h3>色の変更</h3>
-				<select id="ColoredLayer_PC" name="ColoredLayer_PC" onchange="ColoredLayer_PC_PC()">
-					<option value="NotChoosed">-</option>
-					<option value="NowChoosedCountry">国名</option>
-					<option value="NowChoosedState">県名</option>
-					<option value="NowChoosedTownAndVillage">市町村名</option>
-					<option value="NowChoosedBuilding">建物、橋</option>
-					<option value="NowChoosedMountains">山</option>
-					<option value="NowChoosedWaters">川、湖、海</option>
-					<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
-					<option value="NowChosedMinorRoads">その他道路、歩道など</option>
-				</select>
-				<div id="swatches"></div>
-			</div>
-
 		</div>
 
 					
@@ -120,7 +125,7 @@
 		</div>
 		<nav>
 			<ul>
-				<div class="EditPanel_SP">
+				<div class="EditPanelSP">
 					<div class="EditPanel1">
 						<h3>文字の表示/非表示</h3>
 						<div class="item-frame">
