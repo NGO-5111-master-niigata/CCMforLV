@@ -307,8 +307,8 @@ body {
       display: block;
       width: 240px;
       height: 550px;
-      padding: 10px;
       float: left;
+      margin: 10px 10px 10px 20px;
     }
 
     /* トグルスイッチについて */
