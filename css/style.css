@@ -307,8 +307,8 @@ body {
       display: block;
       width: 240px;
       height: 550px;
-      float: left;
       margin: 10px 10px 10px 20px;
+      float: left;
     }
 
     /* トグルスイッチについて */
@@ -415,17 +415,17 @@ body {
 
     #wrap2{
       width: 1050px;
-      height: 550px;
+      height: 300px;
       margin: 0 auto;
     }
 
-    .EditPanelPC2 {
+    .EditPanelPC2_LeftSide {
       display: block;
-      width: 1050px;
-      height: 250px;
+      width: 570px;
+      height: 300px;
       margin: 10px auto;
-    }
-    }
+      float: left;
+    }    
 
 
     /* ナビゲーションについて */
@@ -452,7 +452,7 @@ body {
 
     .EditPanel3 {
       display: block;
-      width: 35%;
+      width: 60%;
       height: auto;
       padding: 10px;
       float: left;
@@ -472,7 +472,7 @@ body {
     /* カラーパレット */
     .EditPanel4 {
       display: block;
-      width: 35%;
+      width: 40%;
       height: auto;
       padding: 10px;
       float: right;
@@ -503,4 +503,6 @@ body {
       color: black;
     }
 
+   
   }
+

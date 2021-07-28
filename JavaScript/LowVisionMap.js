@@ -268,8 +268,60 @@ navigator.geolocation.getCurrentPosition(success,error);
 		document.getElementById('Navigation_PC').appendChild(Navigation.onAdd(map));
 
 
+	/* カラーパレット */
 
+		var swatches = document.getElementById('swatches');
+		var colors = [
+			'#ffffcc',
+			'#a1dab4',
+			'#41b6c4',
+			'#2c7fb8',
+			'#253494',
+			'#fed976',
+			'#feb24c',
+			'#fd8d3c',
+			'#f03b20',
+			'#bd0026'
+		];
 
+		 
+		colors.forEach(function (color) {
+			var swatch = document.createElement('button');
+			swatch.style.backgroundColor = color;
+			swatch.addEventListener('click', function () {
+				const EditLayer = document.getElementById("ColoredLayer_PC").value;
+				/* オプションで国名のラベル選択時 */
+				if(EditLayer=="NowChoosedBackGround"){
+					map.setPaintProperty('land','background-color',color);
+					map.setPaintProperty('landuse','fill-color',color);
+				}
+				if(EditLayer=="NowChoosedBuilding"){
+					map.setPaintProperty('building','fill-color',color);
+					map.setPaintProperty('building-outline','line-color',color);
+					map.setPaintProperty('bridge-simple','line-color',color);
+					map.setPaintProperty('bridge-case-simple','line-color',color);
+					map.setPaintProperty('bridge-pedestrian','line-color',color);
+					map.setPaintProperty('bridge-steps','line-color',color);
+					map.setPaintProperty('bridge-path','line-color',color);
+				}
+				if(EditLayer=="NowChoosedWaters"){
+					map.setPaintProperty('water','fill-color',color);
+					map.setPaintProperty('waterway','line-color',color);
+				}
+				if(EditLayer=="NowChoosedHighway"){
+					map.setPaintProperty('road-simple','line-color',color);
+				}
+				if(EditLayer=="NowChoosedMinorRoads"){
+					map.setPaintProperty('road-pedestrian','line-color',color);
+					map.setPaintProperty('road-steps','line-color',color);
+					map.setPaintProperty('road-path','line-color',color);
+					map.setPaintProperty('tunnel-pedestrian','line-color',color);
+					map.setPaintProperty('tunnel-steps','line-color',color);
+					map.setPaintProperty('tunnel-path','line-color',color);
+				}
+			});
+			swatches.appendChild(swatch);
+		});
 
 
 
@@ -277,8 +329,12 @@ navigator.geolocation.getCurrentPosition(success,error);
 /* PC用ここまで */
 
 
-/* スマートフォン用 */
 
+
+
+
+
+/* スマートフォン用 */
 
 
 	/* ハンバーガーメニュー押したらスライドで操作パネル出現 */
