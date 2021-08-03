@@ -270,7 +270,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 
 	/* カラーパレット */
 
-		var swatches = document.getElementById('swatches');
+		var swatches_PC = document.getElementById('swatches_PC');
 		var colors = [
 			'#ffffcc',
 			'#a1dab4',
@@ -320,7 +320,7 @@ navigator.geolocation.getCurrentPosition(success,error);
 					map.setPaintProperty('tunnel-path','line-color',color);
 				}
 			});
-			swatches.appendChild(swatch);
+			swatches_PC.appendChild(swatch);
 		});
 
 
@@ -459,31 +459,31 @@ navigator.geolocation.getCurrentPosition(success,error);
 
 		/* 国道、高速道路の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
-		flag7 = true;
-		function toggle7(){
-			flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
-			document.getElementById("setting-item-7_SP").value = flag7; /* ラベルの変更 */
-			if(flag7==true){
-				map.setLayoutProperty("road-label-simple",'text-size',30);
+			flag7 = true;
+			function toggle7(){
+				flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
+				document.getElementById("setting-item-7_SP").value = flag7; /* ラベルの変更 */
+				if(flag7==true){
+					map.setLayoutProperty("road-label-simple",'text-size',30);
+				}
+				else{
+					map.setLayoutProperty("road-label-simple",'text-size',0);
+				}
 			}
-			else{
-				map.setLayoutProperty("road-label-simple",'text-size',0);
-			}
-		}
 
 		/* 細い道路、歩道の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
-		flag8 = true;
-		function toggle8(){
-			flag8 = !flag8; /* trueとfalseの切り替え ! 否定演算子 */
-			document.getElementById("setting-item-8_SP").value = flag8; /* ラベルの変更 */
-			if(flag8==true){
-				map.setLayoutProperty("path-pedestrian-label",'text-size',30);
+			flag8 = true;
+			function toggle8(){
+				flag8 = !flag8; /* trueとfalseの切り替え ! 否定演算子 */
+				document.getElementById("setting-item-8_SP").value = flag8; /* ラベルの変更 */
+				if(flag8==true){
+					map.setLayoutProperty("path-pedestrian-label",'text-size',30);
+				}
+				else{
+					map.setLayoutProperty("path-pedestrian-label",'text-size',0);
+				}
 			}
-			else{
-				map.setLayoutProperty("path-pedestrian-label",'text-size',0);
-			}
-		}
 
 
 	/* 文字サイズ変更スライダー */
@@ -555,6 +555,65 @@ navigator.geolocation.getCurrentPosition(success,error);
 			}
 			elem.addEventListener('input', rangeValue(elem, target));
 		}
+
+
+	/* カラーパレット */
+
+		var swatches = document.getElementById('swatches_SP');
+		var colors = [
+			'#ffffcc',
+			'#a1dab4',
+			'#41b6c4',
+			'#2c7fb8',
+			'#253494',
+			'#fed976',
+			'#feb24c',
+			'#fd8d3c',
+			'#f03b20',
+			'#bd0026'
+		];
+
+		
+		colors.forEach(function (color) {
+			var swatch = document.createElement('button');
+			swatch.style.backgroundColor = color;
+			swatch.addEventListener('click', function () {
+				const EditLayer = document.getElementById("ColoredLayer_SP").value;
+				/* オプションで国名のラベル選択時 */
+				if(EditLayer=="NowChoosedBackGround"){
+					map.setPaintProperty('land','background-color',color);
+					map.setPaintProperty('landuse','fill-color',color);
+				}
+				if(EditLayer=="NowChoosedBuilding"){
+					map.setPaintProperty('building','fill-color',color);
+					map.setPaintProperty('building-outline','line-color',color);
+					map.setPaintProperty('bridge-simple','line-color',color);
+					map.setPaintProperty('bridge-case-simple','line-color',color);
+					map.setPaintProperty('bridge-pedestrian','line-color',color);
+					map.setPaintProperty('bridge-steps','line-color',color);
+					map.setPaintProperty('bridge-path','line-color',color);
+				}
+				if(EditLayer=="NowChoosedWaters"){
+					map.setPaintProperty('water','fill-color',color);
+					map.setPaintProperty('waterway','line-color',color);
+				}
+				if(EditLayer=="NowChoosedHighway"){
+					map.setPaintProperty('road-simple','line-color',color);
+				}
+				if(EditLayer=="NowChoosedMinorRoads"){
+					map.setPaintProperty('road-pedestrian','line-color',color);
+					map.setPaintProperty('road-steps','line-color',color);
+					map.setPaintProperty('road-path','line-color',color);
+					map.setPaintProperty('tunnel-pedestrian','line-color',color);
+					map.setPaintProperty('tunnel-steps','line-color',color);
+					map.setPaintProperty('tunnel-path','line-color',color);
+				}
+			});
+			swatches_SP.appendChild(swatch);
+		});
+
+
+
 
 
 /* スマートフォン用ここまで */
