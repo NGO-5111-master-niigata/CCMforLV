@@ -260,16 +260,15 @@ navigator.geolocation.getCurrentPosition(success,error);
 	/* ナビゲーション */
 		/* Aに出発地、Bに目的地入力 */
 		/* A、Bのアイコンはドラッグアンッドロップで場所変更可能（その際、場所は緯度経度表示になる） */
+
 		var Navigation = new MapboxDirections({
 			accessToken: mapboxgl.accessToken,
 			language: 'ja', 
 		});
-
-		document.getElementById('Navigation_PC').appendChild(Navigation.onAdd(map));
+		document.getElementById('Navigation').appendChild(Navigation.onAdd(map));
 
 
 	/* カラーパレット */
-
 		var swatches_PC = document.getElementById('swatches_PC');
 		var colors = [
 			'#ffffcc',
@@ -322,6 +321,17 @@ navigator.geolocation.getCurrentPosition(success,error);
 			});
 			swatches_PC.appendChild(swatch);
 		});
+
+
+
+
+
+
+
+
+
+
+
 
 
 
