@@ -164,7 +164,7 @@ body {
       }
       
       nav {
-          width: 340px;
+          width: 250px;
           height: 100%;
           padding-top: 100px;
           background-color: rgb(16, 69, 153, 0.8);
@@ -172,7 +172,7 @@ body {
           top: 0;
           right: 0;
           z-index: 10;
-          transform: translate(340px);
+          transform: translate(250px);
           transition: all .5s;
           overflow-y: scroll;
       }
@@ -507,6 +507,7 @@ body {
         }
 
         .ShadowBox2 #Navigation {
+            display: block;
             position: absolute;
             top: 0px;
             left: 0px;
