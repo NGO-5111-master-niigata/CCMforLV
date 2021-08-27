@@ -67,6 +67,11 @@
 						<label class="switch" for='setting-item-8_PC'></label>
 						<label class="text" for='setting-item-8_PC'>その他道路、歩道など</label>
 					</div>
+					<div class="item-frame">
+						<input type='checkbox' id='setting-item-9_PC' class="checkbox" checked="checked" name="PlaceLabel" value="MinorTransit" onchange="toggle9()"/>
+						<label class="switch" for='setting-item-9_PC'></label>
+						<label class="text" for='setting-item-9_PC'>公共交通機関（バス、電車）など</label>
+					</div>
 				</div>
 				<div class="EditPanel2">
 					<h3>文字の大きさ調整</h3>
@@ -79,7 +84,8 @@
 						<option value="NowChoosedMountains">山</option>
 						<option value="NowChoosedWaters">川、湖、海</option>
 						<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
-						<option value="NowChosedMinorRoads">その他道路、歩道など</option>
+						<option value="NowChoosedMinorRoads">その他道路、歩道など</option>
+						<option value="NowChoosedTransit">公共交通機関（バス、電車）など</option>
 					</select>
 					<div class="SizeEditSlider">
 						<input type="range" id="Label-Size-Slider_PC" min="0" max="30" step="0.1">
@@ -165,6 +171,11 @@
 							<label class="switch" for='setting-item-8_SP'></label>
 							<label class="text" for='setting-item-8_SP'>その他道路、歩道など</label>
 						</div>
+						<div class="item-frame">
+							<input type='checkbox' id='setting-item-9_SP' class="checkbox" checked="checked" name="PlaceLabel" value="MinorTransit" onchange="toggle9()"/>
+							<label class="switch" for='setting-item-9_SP'></label>
+							<label class="text" for='setting-item-9_SP'>公共交通機関（バス、電車）など</label>
+						</div>	
 					</div>
 					<div class="EditPanel2">
 						<h3>文字の大きさ調整</h3>
@@ -177,7 +188,8 @@
 							<option value="NowChoosedMountains">山</option>
 							<option value="NowChoosedWaters">川、湖、海</option>
 							<option value="NowChoosedHighway">国道、高速道路、バイパスなど</option>
-							<option value="NowChosedMinorRoads">その他道路、歩道など</option>
+							<option value="NowChoosedMinorRoads">その他道路、歩道など</option>
+							<option value="NowChoosedTransit">公共交通機関（バス、電車）など</option>
 						</select>
 						<div class="SizeEditSlider">
 							<input type="range" id="Label-Size-Slider_SP" min="0" max="30" step="0.1">

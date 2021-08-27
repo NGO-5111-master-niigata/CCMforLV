@@ -1,63 +1,71 @@
 
 /* 共通設定 */
 
-/* 現在地を取得 */
-navigator.geolocation.getCurrentPosition(success,error); 
+	/* 現在地を取得 */
+	navigator.geolocation.getCurrentPosition(success,error); 
 
-	/* 新宿周辺の地図読み込み */
-		mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
-		var map = new mapboxgl.Map({
-			container: 'map',
-			style: 'mapbox://styles/ngo5111/ckmyhpfws07pd17ryugc8nw0v',
-			localIdeographFontFamily: false,
-			center: [139.70 , 35.68] ,
-			zoom:15.5
-		});
+		/* 新宿周辺の地図読み込み */
+			mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
+			var map = new mapboxgl.Map({
+				container: 'map',
+				style: 'mapbox://styles/ngo5111/cksh619bj4hed18qxa47sjw39',
+				localIdeographFontFamily: false,
+				center: [139.70 , 35.68] ,
+				zoom:15.5
+			});
 
-	/* 取得に成功した場合の関数 */
-		function success(position){
-			/* 現在地周辺地図表示しながらコントロールボタン追加 */
-			var com = position.coords;
-			var comlng = com.longitude ;
-			var comlat = com.latitude ;
-			map.setCenter([+ comlng , + comlat]);
+		/* 取得に成功した場合の関数 */
+			function success(position){
+				/* 現在地周辺地図表示しながらコントロールボタン追加 */
+				var com = position.coords;
+				var comlng = com.longitude ;
+				var comlat = com.latitude ;
+				map.setCenter([+ comlng , + comlat]);
 
-			map.addControl(
-				new mapboxgl.NavigationControl({
-				}),
-				'bottom-right'
-			);
+				map.addControl(
+					new mapboxgl.NavigationControl({
+					}),
+					'bottom-right'
+				);
 
-			map.addControl(
-				new MapboxGeocoder({
-					accessToken: mapboxgl.accessToken,
-					mapboxgl: mapboxgl
-				}),
-				'top-left'
-			);
-		}
+				map.addControl(
+					new MapboxGeocoder({
+						accessToken: mapboxgl.accessToken,
+						mapboxgl: mapboxgl
+					}),
+					'top-left'
+				);
+			}
 
 
-	/* 取得に失敗した場合の関数 */
-		function error(err){
-			/* 新宿周辺地図表示しながらコントロールボタン追加 */
-			map.addControl(
-				new mapboxgl.NavigationControl({
-				}),
-				'bottom-right'
-			);
+		/* 取得に失敗した場合の関数 */
+			function error(err){
+				/* 新宿周辺地図表示しながらコントロールボタン追加 */
+				map.addControl(
+					new mapboxgl.NavigationControl({
+					}),
+					'bottom-right'
+				);
 
-			/* 新宿周辺地図表示しながらナビゲーション追加 */
-			map.addControl(
-				new MapboxGeocoder({
-					accessToken: mapboxgl.accessToken,
-					mapboxgl: mapboxgl
-				}),
-				'top-left'
-			);
-		}
+				/* 新宿周辺地図表示しながらナビゲーション追加 */
+				map.addControl(
+					new MapboxGeocoder({
+						accessToken: mapboxgl.accessToken,
+						mapboxgl: mapboxgl
+					}),
+					'top-left'
+				);
+			}
+
+
+		/* Google Geocoding */
+
+		
 
 /* 共通設定ここまで */
+
+
+
 
 
 /* PC用 */
@@ -133,9 +141,11 @@ navigator.geolocation.getCurrentPosition(success,error);
 			document.getElementById("setting-item-5_PC").value = flag5; /* ラベルの変更 */
 			if(flag5==true){
 				map.setLayoutProperty("natural-point-label",'text-size',30);
+				map.setLayoutProperty("natural-line-label",'text-size',30);
 			}
 			else{
 				map.setLayoutProperty("natural-point-label",'text-size',0);
+				map.setLayoutProperty("natural-line-label",'text-size',0);
 			}
 		}
 
@@ -164,10 +174,16 @@ navigator.geolocation.getCurrentPosition(success,error);
 			flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
 			document.getElementById("setting-item-7_PC").value = flag7; /* ラベルの変更 */
 			if(flag7==true){
-				map.setLayoutProperty("road-label-simple",'text-size',30);
+				map.setLayoutProperty("road-label",'text-size',30);
+				map.setLayoutProperty("road-exit-label",'text-size',30);
+				map.setLayoutProperty("road-number-shield",'text-size',30);
+				map.setLayoutProperty("road-intersection",'text-size',30);
 			}
 			else{
-				map.setLayoutProperty("road-label-simple",'text-size',0);
+				map.setLayoutProperty("road-label",'text-size',0);
+				map.setLayoutProperty("road-exit-label",'text-size',0);
+				map.setLayoutProperty("road-number-shield",'text-size',0);
+				map.setLayoutProperty("road-intersection",'text-size',0);
 			}
 		}
 
@@ -184,6 +200,21 @@ navigator.geolocation.getCurrentPosition(success,error);
 				map.setLayoutProperty("path-pedestrian-label",'text-size',0);
 			}
 		}
+
+		/* 公共交通機関（バス、電車）などの表示/非表示制御 */
+		/* スイッチの初期状態定義。判定時に使用 */
+		flag9 = true;
+		function toggle9(){
+			flag9 = !flag9; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-9_PC").value = flag9; /* ラベルの変更 */
+			if(flag9==true){
+				map.setLayoutProperty("transit-label",'text-size',30);
+			}
+			else{
+				map.setLayoutProperty("transit-label",'text-size',0);
+			}
+		}
+
 
 
 	/* 文字サイズ変更スライダー */
@@ -246,10 +277,16 @@ navigator.geolocation.getCurrentPosition(success,error);
 						map.setLayoutProperty('road-label-simple','text-size',+ tmp);
 					}
 					/* オプションでその他道路、歩道などのラベル選択時 */
-					else if(EditLabel=="NowChosedMinorRoads"){
+					else if(EditLabel=="NowChoosedMinorRoads"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
+					}
+					/* オプションで公共交通機関（バス、電車）などのラベル選択時 */
+					else if(EditLabel=="NowChoosedTransit"){
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
+						target.innerHTML = elem.value;
+						map.setLayoutProperty('transit-label','text-size',+ tmp);
 					}
 				}
 			}
@@ -323,19 +360,6 @@ navigator.geolocation.getCurrentPosition(success,error);
 		});
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PC用ここまで */
 
 
@@ -345,7 +369,6 @@ navigator.geolocation.getCurrentPosition(success,error);
 
 
 /* スマートフォン用 */
-
 
 	/* ハンバーガーメニュー押したらスライドで操作パネル出現 */
 	$('.menu-trigger').on('click',function(){
@@ -495,6 +518,21 @@ navigator.geolocation.getCurrentPosition(success,error);
 				}
 			}
 
+		/* 公共交通機関（バス、電車）などの表示/非表示制御 */
+		/* スイッチの初期状態定義。判定時に使用 */
+		flag9 = true;
+		function toggle9(){
+			flag9 = !flag9; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-9_SP").value = flag9; /* ラベルの変更 */
+			if(flag9==true){
+				map.setLayoutProperty("transit-label",'text-size',30);
+			}
+			else{
+				map.setLayoutProperty("transit-label",'text-size',0);
+			}
+		}
+
+
 
 	/* 文字サイズ変更スライダー */
 		/* 文字の大きさ調整のオプション開いてラベルを選択 */
@@ -556,10 +594,16 @@ navigator.geolocation.getCurrentPosition(success,error);
 						map.setLayoutProperty('road-label-simple','text-size',+ tmp);
 					}
 					/* オプションでその他道路、歩道などのラベル選択時 */
-					else if(EditLabel=="NowChosedMinorRoads"){
+					else if(EditLabel=="NowChooedMinorRoads"){
 						const tmp = document.getElementById('Label-Size-Slider_SP').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
+					}
+					/* オプションで公共交通機関（バス、電車）などのラベル選択時 */
+					else if(EditLabel=="NowChoosedTransit"){
+						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						target.innerHTML = elem.value;
+						map.setLayoutProperty('transit-label','text-size',+ tmp);
 					}
 				}
 			}
