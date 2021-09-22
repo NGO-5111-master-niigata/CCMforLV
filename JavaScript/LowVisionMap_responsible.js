@@ -8,7 +8,7 @@
 			mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
 			var map = new mapboxgl.Map({
 				container: 'map',
-				style: 'mapbox://styles/ngo5111/cksh619bj4hed18qxa47sjw39',
+				style: 'mapbox://styles/ngo5111/cktnvy8b00odd17p4ked5sf77',
 				localIdeographFontFamily: false,
 				center: [139.70 , 35.68] ,
 				zoom:15.5
@@ -65,10 +65,150 @@
 /* 共通設定ここまで */
 
 
-
-
-
 /* PC用 */
+	/* トグルスイッチ */
+		/* 国道、高速道路の表示/非表示制御 */
+		/* スイッチの初期状態定義。判定時に使用 */
+		flag10 = true;
+		function toggle10(){
+			flag10 = !flag10; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-10_PC").value = flag10; /* ラベルの変更 */
+			if(flag10==true){
+				map.setLayoutProperty("road-motorway-trunk",'visibility','visible');
+				map.setLayoutProperty("road-motorway-trunk-case",'visibility','visible');
+				map.setLayoutProperty("bridge-motorway-trunk",'visibility','visible');
+				map.setLayoutProperty("bridge-motorway-trunk-2-case",'visibility','visible');
+				map.setLayoutProperty("bridge-motorway-trunk-2",'visibility','visible');
+				map.setLayoutProperty("bridge-motorway-trunk-case",'visibility','visible');
+				map.setLayoutProperty("tunnel-motorway-trunk",'visibility','visible');
+				map.setLayoutProperty("tunnel-motorway-trunk-case",'visibility','visible');
+			}
+			else{
+				map.setLayoutProperty("road-motorway-trunk",'visibility','none');
+				map.setLayoutProperty("road-motorway-trunk-case",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk-2-case",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk-2",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk-case",'visibility','none');
+				map.setLayoutProperty("tunnel-motorway-trunk",'visibility','none');
+				map.setLayoutProperty("tunnel-motorway-trunk-case",'visibility','none');
+			}
+		}
+
+		/* 地方道路の表示/非表示制御 */
+		/* スイッチの初期状態定義。判定時に使用 */
+		flag11 = true;
+		function toggle11(){
+			flag11 = !flag11; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-11_PC").value = flag11; /* ラベルの変更 */
+			if(flag11==true){
+				map.setLayoutProperty("road-primary",'visibility','visible');
+				map.setLayoutProperty("road-primary-case",'visibility','visible');
+				map.setLayoutProperty("road-secondary-tertiary",'visibility','visible');
+				map.setLayoutProperty("road-secondary-tertiary-case",'visibility','visible');
+				map.setLayoutProperty("bridge-primary-secondary-tertiary",'visibility','visible');
+				map.setLayoutProperty("bridge-primary-secondary-tertiary-case",'visibility','visible');
+				map.setLayoutProperty("road-major-link",'visibility','visible');
+				map.setLayoutProperty("road-major-link-case",'visibility','visible');
+				map.setLayoutProperty("bridge-major-link",'visibility','visible');
+				map.setLayoutProperty("bridge-major-link-case",'visibility','visible');
+				map.setLayoutProperty("bridge-major-link-2",'visibility','visible');
+				map.setLayoutProperty("bridge-major-link-2-case",'visibility','visible');
+				map.setLayoutProperty("tunnel-primary-secondary-tertiary",'visibility','visible');
+				map.setLayoutProperty("tunnel-primary-secondary-tertiary-case",'visibility','visible');
+			}
+			else{
+				map.setLayoutProperty("road-motorway-trunk",'visibility','none');
+				map.setLayoutProperty("road-motorway-trunk-case",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk-2-case",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk-2",'visibility','none');
+				map.setLayoutProperty("bridge-motorway-trunk-case",'visibility','none');
+				map.setLayoutProperty("bridge-primary-secondary-tertiary",'visibility','none');
+				map.setLayoutProperty("bridge-primary-secondary-tertiary-case",'visibility','none');
+				map.setLayoutProperty("road-major-link",'visibility','none');
+				map.setLayoutProperty("road-major-link-case",'visibility','none');
+				map.setLayoutProperty("bridge-major-link",'visibility','none');
+				map.setLayoutProperty("bridge-major-link-case",'visibility','none');
+				map.setLayoutProperty("bridge-major-link-2",'visibility','none');
+				map.setLayoutProperty("bridge-major-link-2-case",'visibility','none');
+				map.setLayoutProperty("tunnel-primary-secondary-tertiary",'visibility','none');
+				map.setLayoutProperty("tunnel-primary-secondary-tertiary-case",'visibility','none');
+			}
+		}
+
+		/* その他の道路の表示/非表示制御 */
+		/* スイッチの初期状態定義。判定時に使用 */
+		flag12 = true;
+		function toggle12(){
+			flag12 = !flag12; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-12_PC").value = flag12; /* ラベルの変更 */
+			if(flag12==true){
+				map.setLayoutProperty("road-street",'visibility','visible');
+				map.setLayoutProperty("road-street-case",'visibility','visible');
+				map.setLayoutProperty("road-minor",'visibility','visible');
+				map.setLayoutProperty("road-minor-case",'visibility','visible');
+				map.setLayoutProperty("road-minor-low",'visibility','visible');
+				map.setLayoutProperty("road-construction",'visibility','visible');
+				map.setLayoutProperty("road-path",'visibility','visible');
+				map.setLayoutProperty("road-path-bg",'visibility','visible');
+				map.setLayoutProperty("bridge-street-minor-case",'visibility','visible');
+				map.setLayoutProperty("bridge-street-minor-low",'visibility','visible');
+				map.setLayoutProperty("bridge-construction",'visibility','visible');
+				map.setLayoutProperty("bridge-path",'visibility','visible');
+				map.setLayoutProperty("bridge-path-bg",'visibility','visible');
+				map.setLayoutProperty("tunnel-street-minor",'visibility','visible');
+				map.setLayoutProperty("tunnel-street-minor-case",'visibility','visible');
+				map.setLayoutProperty("tunnel-street-minor-low",'visibility','visible');
+			}
+			else{
+				map.setLayoutProperty("road-street",'visibility','none');
+				map.setLayoutProperty("road-street-case",'visibility','none');
+				map.setLayoutProperty("road-minor",'visibility','none');
+				map.setLayoutProperty("road-minor-case",'visibility','none');
+				map.setLayoutProperty("road-minor-low",'visibility','none');
+				map.setLayoutProperty("road-construction",'visibility','none');
+				map.setLayoutProperty("road-path",'visibility','none');
+				map.setLayoutProperty("road-path-bg",'visibility','none');
+				map.setLayoutProperty("bridge-street-minor-case",'visibility','none');
+				map.setLayoutProperty("bridge-street-minor-low",'visibility','none');
+				map.setLayoutProperty("bridge-construction",'visibility','none');
+				map.setLayoutProperty("bridge-path",'visibility','none');
+				map.setLayoutProperty("bridge-path-bg",'visibility','none');
+				map.setLayoutProperty("tunnel-street-minor",'visibility','none');
+				map.setLayoutProperty("tunnel-street-minor-case",'visibility','none');
+				map.setLayoutProperty("tunnel-street-minor-low",'visibility','none');
+			}
+		}
+
+		/* 歩道の表示/非表示制御 */
+		/* スイッチの初期状態定義。判定時に使用 */
+		flag13 = true;
+		function toggle13(){
+			flag13 = !flag13; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-13_PC").value = flag13; /* ラベルの変更 */
+			if(flag13==true){
+				map.setLayoutProperty("road-pedestrian",'visibility','visible');
+				map.setLayoutProperty("road-pedestrian-case",'visibility','visible');
+				map.setLayoutProperty("road-steps",'visibility','visible');
+				map.setLayoutProperty("road-steps-bg",'visibility','visible');
+				map.setLayoutProperty("bridge-pedestrian",'visibility','none');
+				map.setLayoutProperty("bridge-pedestrian-case",'visibility','none');
+				map.setLayoutProperty("bridge-steps",'visibility','none');
+				map.setLayoutProperty("bridge-steps-bg",'visibility','none');
+			}
+			else{
+				map.setLayoutProperty("road-pedestrian",'visibility','none');
+				map.setLayoutProperty("road-pedestrian-case",'visibility','none');
+				map.setLayoutProperty("road-steps",'visibility','none');
+				map.setLayoutProperty("road-steps-bg",'visibility','none');
+				map.setLayoutProperty("bridge-pedestrian",'visibility','none');
+				map.setLayoutProperty("bridge-pedestrian-case",'visibility','none');
+				map.setLayoutProperty("bridge-steps",'visibility','none');
+				map.setLayoutProperty("bridge-steps-bg",'visibility','none');
+			}
+		}
+
 
 	/* トグルスイッチ */
 		/* 国名の表示/非表示制御 */
@@ -151,21 +291,21 @@
 
 		/* 川、湖、海の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
-			flag6 = true;
-			function toggle6(){
-				flag6 = !flag6; /* trueとfalseの切り替え ! 否定演算子 */
-				document.getElementById("setting-item-6_PC").value = flag6; /* ラベルの変更 */
-				if(flag6==true){
-					map.setLayoutProperty("water-point-label",'text-size',30);
-					map.setLayoutProperty("water-line-label",'text-size',30);
-					map.setLayoutProperty("waterway-label",'text-size',30);
-				}
-				else{
-					map.setLayoutProperty("water-point-label",'text-size',0);
-					map.setLayoutProperty("water-line-label",'text-size',0);
-					map.setLayoutProperty("waterway-label",'text-size',0);
-				}
+		flag6 = true;
+		function toggle6(){
+			flag6 = !flag6; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-6_PC").value = flag6; /* ラベルの変更 */
+			if(flag6==true){
+				map.setLayoutProperty("water-point-label",'text-size',30);
+				map.setLayoutProperty("water-line-label",'text-size',30);
+				map.setLayoutProperty("waterway-label",'text-size',30);
 			}
+			else{
+				map.setLayoutProperty("water-point-label",'text-size',0);
+				map.setLayoutProperty("water-line-label",'text-size',0);
+				map.setLayoutProperty("waterway-label",'text-size',0);
+			}
+		}
 
 		/* 国道、高速道路の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
@@ -308,16 +448,18 @@
 	/* カラーパレット */
 		var swatches_PC = document.getElementById('swatches_PC');
 		var colors = [
-			'#ffffcc',
-			'#a1dab4',
-			'#41b6c4',
-			'#2c7fb8',
-			'#253494',
-			'#fed976',
-			'#feb24c',
-			'#fd8d3c',
-			'#f03b20',
-			'#bd0026'
+			'#ff4b00',
+			'#005aff',
+			'#fff100',
+			'#f6aa00',
+			'#03af7a',
+			'#990099',
+			'#ffcabf',
+			'#d8f255',
+			'#bfe4ff',
+			'#000000',
+			'#84919e',
+			'#ffffff',
 		];
 
 		 
@@ -358,7 +500,6 @@
 			});
 			swatches_PC.appendChild(swatch);
 		});
-
 
 /* PC用ここまで */
 
@@ -474,49 +615,55 @@
 
 		/* 川、湖、海の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
-			flag6 = true;
-			function toggle6(){
-				flag6 = !flag6; /* trueとfalseの切り替え ! 否定演算子 */
-				document.getElementById("setting-item-6_SP").value = flag6; /* ラベルの変更 */
-				if(flag6==true){
-					map.setLayoutProperty("water-point-label",'text-size',30);
-					map.setLayoutProperty("water-line-label",'text-size',30);
-					map.setLayoutProperty("waterway-label",'text-size',30);
-				}
-				else{
-					map.setLayoutProperty("water-point-label",'text-size',0);
-					map.setLayoutProperty("water-line-label",'text-size',0);
-					map.setLayoutProperty("waterway-label",'text-size',0);
-				}
+		flag6 = true;
+		function toggle6(){
+			flag6 = !flag6; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-6_SP").value = flag6; /* ラベルの変更 */
+			if(flag6==true){
+				map.setLayoutProperty("water-point-label",'text-size',30);
+				map.setLayoutProperty("water-line-label",'text-size',30);
+				map.setLayoutProperty("waterway-label",'text-size',30);
 			}
+			else{
+				map.setLayoutProperty("water-point-label",'text-size',0);
+				map.setLayoutProperty("water-line-label",'text-size',0);
+				map.setLayoutProperty("waterway-label",'text-size',0);
+			}
+		}
 
 		/* 国道、高速道路の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
-			flag7 = true;
-			function toggle7(){
-				flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
-				document.getElementById("setting-item-7_SP").value = flag7; /* ラベルの変更 */
-				if(flag7==true){
-					map.setLayoutProperty("road-label-simple",'text-size',30);
-				}
-				else{
-					map.setLayoutProperty("road-label-simple",'text-size',0);
-				}
+		flag7 = true;
+		function toggle7(){
+			flag7 = !flag7; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-7_SP").value = flag7; /* ラベルの変更 */
+			if(flag7==true){
+				map.setLayoutProperty("road-label",'text-size',30);
+				map.setLayoutProperty("road-exit-label",'text-size',30);
+				map.setLayoutProperty("road-number-shield",'text-size',30);
+				map.setLayoutProperty("road-intersection",'text-size',30);
 			}
+			else{
+				map.setLayoutProperty("road-label",'text-size',0);
+				map.setLayoutProperty("road-exit-label",'text-size',0);
+				map.setLayoutProperty("road-number-shield",'text-size',0);
+				map.setLayoutProperty("road-intersection",'text-size',0);
+			}
+		}
 
 		/* 細い道路、歩道の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
-			flag8 = true;
-			function toggle8(){
-				flag8 = !flag8; /* trueとfalseの切り替え ! 否定演算子 */
-				document.getElementById("setting-item-8_SP").value = flag8; /* ラベルの変更 */
-				if(flag8==true){
-					map.setLayoutProperty("path-pedestrian-label",'text-size',30);
-				}
-				else{
-					map.setLayoutProperty("path-pedestrian-label",'text-size',0);
-				}
+		flag8 = true;
+		function toggle8(){
+			flag8 = !flag8; /* trueとfalseの切り替え ! 否定演算子 */
+			document.getElementById("setting-item-8_SP").value = flag8; /* ラベルの変更 */
+			if(flag8==true){
+				map.setLayoutProperty("path-pedestrian-label",'text-size',30);
 			}
+			else{
+				map.setLayoutProperty("path-pedestrian-label",'text-size',0);
+			}
+		}
 
 		/* 公共交通機関（バス、電車）などの表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
@@ -612,19 +759,20 @@
 
 
 	/* カラーパレット */
-
-		var swatches = document.getElementById('swatches_SP');
+		var swatches_PC = document.getElementById('swatches_PC');
 		var colors = [
-			'#ffffcc',
-			'#a1dab4',
-			'#41b6c4',
-			'#2c7fb8',
-			'#253494',
-			'#fed976',
-			'#feb24c',
-			'#fd8d3c',
-			'#f03b20',
-			'#bd0026'
+			'#ff4b00',
+			'#005aff',
+			'#fff100',
+			'#f6aa00',
+			'#03af7a',
+			'#990099',
+			'#ffcabf',
+			'#d8f255',
+			'#bfe4ff',
+			'#000000',
+			'#84919e',
+			'#ffffff',
 		];
 
 		
