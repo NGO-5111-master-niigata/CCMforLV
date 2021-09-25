@@ -1,7 +1,7 @@
 
 @charset "utf-8"
 body {
-    margin:0 ;
+     margin:0 ;
     padding: 0 ;
     overscroll-behavior: none;
 }
@@ -9,427 +9,323 @@ body {
 
 /*  全環境に共通の設定（モバイルファースト） */
 
-    /*  地図 */
-      #map{
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-      }
-
-      .map-overlay {
-          font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-          position: absolute;
-          width: 200px;
-          top: 0;
-          left: 0;
-          padding: 10px;
-      }
-          
-      .map-overlay .map-overlay-inner {
-          background-color: #fff;
-          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-          border-radius: 3px;
-          padding: 10px;
-          margin-bottom: 10px;
-      }
-          
-      .map-overlay-inner fieldset {
-          border: none;
-          padding: 0;
-          margin: 0 0 10px;
-      }
-          
-      .map-overlay-inner fieldset:last-child {
-          margin: 0;
-      }
-          
-      .map-overlay-inner select {
-          width: 100%;
-      }
-          
-      .map-overlay-inner label {
-          display: block;
-          font-weight: bold;
-          margin: 0 0 5px;
-      }
-          
-      .map-overlay-inner button {
-          display: inline-block;
-          width: 36px;
-          height: 20px;
-          border: none;
-          cursor: pointer;
-      }
-          
-      .map-overlay-inner button:focus {
-        outline: none;
-      }
-          
-      .map-overlay-inner button:hover {
-          box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-      }
-
-
-    /* パソコン用設定パネルの非表示 */
-      .EditPanelPC1 {
-        display: none;
-      }
-
-      .EditPanelPC2_Leftside {
-        display: none;
-      }
-
-      #Navigation {
-        display: none;
-      }
-
-
-    /*  ドロワーメニュー */
-      .overlay {
-          content: "";
-          display: block;
-          width: 0;
-          height: 0;
-          background-color: rgba(0, 0, 0, 0.5);
-          position: absolute;
-          top: 0;
-          left: 0;
-          z-index: 2;
-          opacity: 0;
-          transition: opacity .5s;
-      }
-
-      .overlay.open {
-          width: 100%;
-          height: 100%;
-          opacity: 1;
-      }
-
-      .menu-trigger {
-          display: inline-block;
-          width: 36px;
-          height: 28px;
-          vertical-align: middle;
-          cursor: pointer;
-          position: fixed;
-          top: 30px;
-          right: 30px;
-          z-index: 100;
-          transform: translateX(0);
-          transition: transform .5s;
-      }
-
-      .menu-trigger.active {
-          transform: translateX(-250px);
-      }
-
-      .menu-trigger span {
-          display: inline-block;
-          box-sizing: border-box;
-          position: absolute;
-          left: 0;
-          width: 100%;
-          height: 4px;
-          background-color: rgb(255, 255, 255);
-      }
-
-      .menu-trigger.active span {
-          background-color: #fff;
-      }
-
-      .menu-trigger span:nth-of-type(1) {
-          top: 0;
-      }
-
-      .menu-trigger.active span:nth-of-type(1) {
-          transform: translateY(12px) rotate(-45deg);
-      }
-
-      .menu-trigger span:nth-of-type(2) {
-          top: 12px;
-      }
-
-      .menu-trigger.active span:nth-of-type(2) {
-          opacity: 0;
-      }
-
-      .menu-trigger span:nth-of-type(3) {
-          bottom: 0;
-      }
-
-      .menu-trigger.active span:nth-of-type(3) {
-          transform: translateY(-12px) rotate(45deg);
-      }
-      
-      nav {
-          width: 250px;
-          height: 100%;
-          padding-top: 100px;
-          background-color: rgba(49, 49, 49, 0.8);
-          position: fixed;
-          top: 0;
-          right: 0;
-          z-index: 10;
-          transform: translate(250px);
-          transition: all .5s;
-          overflow-y: scroll;
-      }
-
-      nav.open {
-          transform: translateZ(0);
-      }
-      
-      nav li {
-          color: #fff;
-          text-align: center;
-          padding: 10px 0;
-      }
-      
-      * {
-          box-sizing: border-box;
-      }
-
-      nav .ul {
-          list-style: none;
-          height: 100%;
-          overflow: auto;
-          -webkit-overflow-scrolling: touch;
-      }
-
-    /*  リセットCSS（ulの左40pxをキャンセル） */
-      ul {
-          list-style-type:none;
-          margin-block-start: 0em;
-          margin-block-end: 0em;
-          padding-inline-start: 0px;
-      }
-  
-      .EditPanelSP {
-           width: 230px;
-           height: 1000px;
-          margin: 10px 10px;
-      }
-
-
-      /* 道路、線路の表示/非表示チェックボックス */
-        .EditPanel5 h3 {
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 2rem auto;
-            color: white;
-        }
-
-        .EditPanel5 .item-frame {
-            margin: 1rem auto;
-        }
-
-        .EditPanel5 .text {
-            vertical-align: middle;
-            color: white;
-        }
-
-        .EditPanel5 label {
-            cursor: pointer;
-        }
-
-
-
-
-
-      /* 文字表示/非表示チェックボックス */
-        .EditPanel1 h3 {
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 2rem auto;
-            color: white;
-        }
-
-        .EditPanel1 .item-frame {
-            margin: 1rem auto;
-        }
-
-        .EditPanel1 .text {
-            vertical-align: middle;
-            color: white;
-        }
-
-        .EditPanel1 label {
-            cursor: pointer;
-        }
-
-      /* 文字サイズ変更スライダー */
-        .EditPanel2 h3 {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 2rem auto;
-            color: white;
-        }
-
-        .EditPanel2 .text {
-            vertical-align: middle;
-        }
-    
-        .EditPanel2 label {
-            cursor: pointer;
-        }
-
-        .EditPanelSP .EditPanel2 .Label-Size-Slider {
-            -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
-            appearance: none;
-            cursor: pointer; /* カーソルを分かりやすく */
-            outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
-            height: 14px; /* バーの高さ */
-            width: 100%; /* バーの幅 */
-            background: #8acdff; /* バーの背景色 */
-            border-radius: 10px; /* バーの両端の丸み */
-            border: solid 3px #dff1ff; /* バー周囲の線 */
-        }
-
-        #current-value_SP{
-          color: white;
-        }
-
-        .EditPanel2 .text {
-            vertical-align: middle;
-        }
-    
-        .EditPanel2 label {
-            cursor: pointer;
-        }
-
-
-      /* カラーパレット */
-        .EditPanel4 {
+    /*  フロート時の回り込み防止のための記述 */
+        .clearfix::after {
+            content: "";
             display: block;
-            width: 210px;
-            height: auto;
+            clear: both;
+        }
+
+    /*  地図 */
+        #map{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-overlay {
+            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+            position: absolute;
+            width: 200px;
+            top: 0;
+            left: 0;
             padding: 10px;
         }
-
-        .EditPanel4 button {
+          
+        .map-overlay .map-overlay-inner {
+            background-color: #fff;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            border-radius: 3px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+          
+        .map-overlay-inner fieldset {
+            border: none;
+            padding: 0;
+            margin: 0 0 10px;
+        }
+          
+        .map-overlay-inner fieldset:last-child {
+            margin: 0;
+        }
+          
+        .map-overlay-inner select {
+            width: 100%;
+        }
+          
+        .map-overlay-inner label {
+            display: block;
+            font-weight: bold;
+            margin: 0 0 5px;
+        }
+          
+        .map-overlay-inner button {
             display: inline-block;
-            width: 45px;
-            height: 40px;
-            border: 1px solid;
+            width: 36px;
+            height: 20px;
+            border: none;
             cursor: pointer;
         }
-        
-        .EditPanel4 button:focus {
+          
+        .map-overlay-inner button:focus {
             outline: none;
         }
-        
-        .EditPanel4 button:hover {
+          
+        .map-overlay-inner button:hover {
             box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
         }
 
-        .EditPanel4 h3 {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 0.5rem auto;
-            color: white;
+
+    /* パソコン用設定パネルの非表示 */
+        .EditPanelPC1 {
+            display: none;
+        }
+
+        .EditPanelPC2_Leftside {
+            display: none;
+        }
+
+        #Navigation {
+            display: none;
         }
 
 
-
-
-
-
-
-
-
-
-
-
-        .selectdiv {
-            position: relative;
-         }
-          
-          /* IE11 hide native button (thanks Matt!) */
-          select::-ms-expand {
-          display: none;
-          }
-          
-          .selectdiv:after {
-            content: '<>';
-            font: 17px "Consolas", monospace;
-            color: #333;
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            right: 11px;
-            /*Adjust for position however you want*/
-            
-            top: 18px;
-            padding: 0 0 2px;
-            border-bottom: 1px solid #999;
-            /*left line */
-            
-            position: absolute;
-            pointer-events: none;
-          }
-          
-          .selectdiv select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            /* Add some styling */
-            
+    /*  ドロワーメニュー */
+        .overlay {
+            content: "";
             display: block;
+            width: 0;
+            height: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity .5s;
+        }
+
+        .overlay.open {
             width: 100%;
-            max-width: 360px;
-            height: 50px;
-            float: right;
-            margin: 5px 0px;
-            padding: 0px 24px;
-            font-size: 16px;
-            line-height: 1.75;
-            color: #333;
-            background-color: #ffffff;
-            background-image: none;
-            border: 1px solid #cccccc;
-            -ms-word-break: normal;
-            word-break: normal;
-          }
+            height: 100%;
+            opacity: 1;
+        }
 
+        .menu-trigger {
+            display: inline-block;
+            width: 36px;
+            height: 28px;
+            vertical-align: middle;
+            cursor: pointer;
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 100;
+            transform: translateX(0);
+            transition: transform .5s;
+        }
 
+        .menu-trigger.active {
+            transform: translateX(-250px);
+        }
 
+        .menu-trigger span {
+            display: inline-block;
+            box-sizing: border-box;
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgb(255, 255, 255);
+        }
 
+        .menu-trigger.active span {
+            background-color: #fff;
+        }
 
+        .menu-trigger span:nth-of-type(1) {
+            top: 0;
+        }
 
+        .menu-trigger.active span:nth-of-type(1) {
+            transform: translateY(12px) rotate(-45deg);
+        }
 
+        .menu-trigger span:nth-of-type(2) {
+            top: 12px;
+        }
 
+        .menu-trigger.active span:nth-of-type(2) {
+            opacity: 0;
+        }
 
+        .menu-trigger span:nth-of-type(3) {
+            bottom: 0;
+        }
 
+        .menu-trigger.active span:nth-of-type(3) {
+            transform: translateY(-12px) rotate(45deg);
+        }
+      
+        nav {
+            width: 250px;
+            height: 100%;
+            padding-top: 100px;
+            background-color: rgba(49, 49, 49, 0.8);
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: 10;
+            transform: translate(250px);
+            transition: all .5s;
+            overflow-y: scroll;
+        }
 
+        nav.open {
+            transform: translateZ(0);
+        }
+      
+        nav li {
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+      
+        * {
+            box-sizing: border-box;
+        }
 
+        nav .ul {
+            list-style: none;
+            height: 100%;
+            overflow: auto;
+            -webkit-overflow-scrolling: touch;
+        }
 
+    /*  リセットCSS（ulの左40pxをキャンセル） */
+        ul {
+            list-style-type:none;
+            margin-block-start: 0em;
+            margin-block-end: 0em;
+            padding-inline-start: 0px;
+        }
 
+        /* ドロワーメニュー内の設定パネル */
+            .EditPanelSP {
+                width: 230px;
+                height: 1000px;
+                margin: 10px 10px;
+            }
 
+                h3 {
+                    font-size: 1.5rem;
+                    border-bottom: 7px double #ccc;
+                    text-align: center;
+                    margin: 2rem auto;
+                    color: white;
+                }
 
+                .EditPanelSp .text {
+                    vertical-align: middle;
+                    color: white;
+                }
 
+                .EditPanelSP label {
+                    cursor: pointer;
+                    color: white;
+                }
 
+            /* 道路、線路の表示/非表示チェックボックス */
+            /* 文字表示/非表示チェックボックス */
+                .EditPanelSP .item-frame {
+                    margin: 1rem auto;
+                }
 
+            /* 文字サイズ変更スライダー */
+                .EditPanelSP .EditPanel2 .Label-Size-Slider {
+                    -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
+                    appearance: none;
+                    cursor: pointer; /* カーソルを分かりやすく */
+                    outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
+                    height: 14px; /* バーの高さ */
+                    width: 100%; /* バーの幅 */
+                    background: #8acdff; /* バーの背景色 */
+                    border-radius: 10px; /* バーの両端の丸み */
+                    border: solid 3px #dff1ff; /* バー周囲の線 */
+                }
 
+            /* カラーパレット */
+                .EditPanel4 {
+                    display: block;
+                    width: 210px;
+                    height: auto;
+                    padding: 10px;
+                }
 
+                .EditPanel4 button {
+                    display: inline-block;
+                    width: 45px;
+                    height: 40px;
+                    border: 1px solid;
+                    cursor: pointer;
+                }
+                
+                .EditPanel4 button:focus {
+                    outline: none;
+                }
+                
+                .EditPanel4 button:hover {
+                    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+                }
 
-
-
-
-    /*  フロート時の回り込み防止のための記述 */
-      .clearfix::after {
-          content: "";
-          display: block;
-          clear: both;
-      }
+            /* プルダウンメニュー（スマホ版） */
+                .selectdiv {
+                    position: relative;
+                }
+                
+                select::-ms-expand {
+                    display: none;
+                }
+                
+                .selectdiv:after {
+                    content: '<>';
+                    font: 17px "Consolas", monospace;
+                    color: #333;
+                    -webkit-transform: rotate(90deg);
+                    -moz-transform: rotate(90deg);
+                    -ms-transform: rotate(90deg);
+                    transform: rotate(90deg);
+                    right: 11px;
+                    top: 18px;
+                    padding: 0 0 2px;
+                    border-bottom: 1px solid #999;            
+                    position: absolute;
+                    pointer-events: none;
+                }
+                
+                .selectdiv select {
+                    -webkit-appearance: none;
+                    -moz-appearance: none;
+                    appearance: none;
+                    display: block;
+                    width: 100%;
+                    max-width: 360px;
+                    height: 50px;
+                    float: right;
+                    margin: 5px 0px;
+                    padding: 0px 24px;
+                    font-size: 16px;
+                    line-height: 1.75;
+                    color: #333;
+                    background-color: #ffffff;
+                    background-image: none;
+                    border: 1px solid #cccccc;
+                    -ms-word-break: normal;
+                    word-break: normal;
+                }
 
 
 /* タブレット用、ウィンドウサイズが600px以上のときはここを読み込む */
@@ -442,132 +338,129 @@ body {
 /* PC用、ウィンドウサイズが1024px以上のときはここを読み込む */
 @media screen and (min-width:1024px){
 
-    main{
-        width: 1150px;
-        height: 570px;
-        margin: 0 auto;
-    }
-
-    #wrap1{
-        width: 1150px;
-        height: 570px;
-        margin: 0 auto;
-    }
-
-
-    /* 地図について */
-      .ShadowBox1 {
-          position: relative;
-          width: 60%;
-          height: auto;
-          margin: 30px 0 0 0;
-          float: left;
-      }
-
-      .ShadowBox1::before {
-          content: "";
-          display: block;
-          padding-top: 75%;
-      }
-
-      .ShadowBox1 #map {
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
+    /* パソコン版画面上半分 */
+        main{
+            width: 1200px;
             height: 100%;
-      }
+            margin: 0 auto;
+            background-color: darkslategray;
+        }
 
+        #wrap1{
+            width: 1150px;
+            height: 570px;
+            margin: 0 auto;
+        }
 
+        /* 地図 */
+            .ShadowBox1 {
+                position: relative;
+                width: 60%;
+                height: auto;
+                margin: 30px 0 0 0;
+                float: left;
+            }
 
-    /* パソコン版画面右側の設定パネルについて */
-      .EditPanelPC1 {
-          display: block;
-          width: 400px;
-          height: 550px;
-          margin: 10px 10px 10px 20px;
-          float: left;
-      }
+            .ShadowBox1::before {
+                content: "";
+                display: block;
+                padding-top: 75%;
+            }
 
-    .EditPanel1-1 {
-        display: block;
-        width: 190px;
-        height: 220px;
-        margin: 10px;
-        float: left;
-    }
+            .ShadowBox1 #map {
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                width: 100%;
+                height: 100%;
+            }
 
-    .EditPanel1-2 {
-        display: block;
-        width: 190px;
-        height: 220px;
-        margin: 10px;
-    }
+    /* パソコン版画面右側の設定パネル */
+        .EditPanelPC1 {
+            display: block;
+            width: 400px;
+            height: 550px;
+            margin: 10px 10px 10px 20px;
+            float: left;
+        }
 
+        .EditPanel1-1 {
+            display: block;
+            width: 190px;
+            height: 220px;
+            margin: 10px;
+            float: left;
+        }
 
+        .EditPanel1-2 {
+            display: block;
+            width: 190px;
+            height: 220px;
+            margin: 10px;
+        }
 
-    /* トグルスイッチについて */
-    .EditPanel5 h3 {
-        font-size: 1.5rem;
-        border-bottom: 7px double #ccc;
-        text-align: center;
-        margin: 0.5rem auto;
-        color: black;
-    }
+        /* トグルスイッチ */
+            .EditPanel5 h3 {
+                font-size: 1.5rem;
+                border-bottom: 7px double #ccc;
+                text-align: center;
+                margin: 0.5rem auto;
+                color: black;
+            }
 
-    .EditPanel5 .item-frame {
-        margin: 0.5rem auto;
-    }
-  
-    .EditPanel5 .text {
-        vertical-align: middle;
-        color: black;
-    }
-  
-    .EditPanel5 label {
-        cursor: pointer;
-    }
-  
-    .EditPanel5 .switch {
-        position: relative;
-    }
-  
-    .EditPanel5 .switch:before, .EditPanel5 .switch:after {
-        content: "";
-        vertical-align: middle;
-        display: inline-block;
-    }
-  
-    .EditPanel5 .switch:before {
-        width: 2em;
-        height: 1em;
-        border: 2px solid #c4c9ff;
-        border-radius: 32px;
-        background: #999;
-    }
-  
-    .EditPanel5 .switch:after {
-        position: relative;
-        width: 1em;
-        height: 1em;
-        background: #c4c9ff;
-        border-radius: 50%;
-        left: -2.2em;
-    }
-  
-    .EditPanel5 input { 
-        display: none;
-    }
-  
-    .EditPanel5 input:checked ~ .switch:before {
-        background: #00b715;
-        border-color: #84ff92;
-    }
-    
-    .EditPanel5 input:checked ~ .switch:after {
-        background: #84ff92;
-        left: -1.1em;
-    }
+            .EditPanel5 .item-frame {
+                margin: 0.5rem auto;
+            }
+        
+            .EditPanel5 .text {
+                vertical-align: middle;
+                color: black;
+            }
+        
+            .EditPanel5 label {
+                cursor: pointer;
+            }
+        
+            .EditPanel5 .switch {
+                position: relative;
+            }
+        
+            .EditPanel5 .switch:before, .EditPanel5 .switch:after {
+                content: "";
+                vertical-align: middle;
+                display: inline-block;
+            }
+        
+            .EditPanel5 .switch:before {
+                width: 2em;
+                height: 1em;
+                border: 2px solid #c4c9ff;
+                border-radius: 32px;
+                background: #999;
+            }
+        
+            .EditPanel5 .switch:after {
+                position: relative;
+                width: 1em;
+                height: 1em;
+                background: #c4c9ff;
+                border-radius: 50%;
+                left: -2.2em;
+            }
+        
+            .EditPanel5 input { 
+                display: none;
+            }
+        
+            .EditPanel5 input:checked ~ .switch:before {
+                background: #00b715;
+                border-color: #84ff92;
+            }
+            
+            .EditPanel5 input:checked ~ .switch:after {
+                background: #84ff92;
+                left: -1.1em;
+            }
 
 
     .EditPanel5 {
