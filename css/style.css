@@ -1,8 +1,8 @@
 
 @charset "utf-8"
 body {
-     margin:0 ;
-    padding: 0 ;
+    margin: 0;
+    padding: 0;
     overscroll-behavior: none;
 }
 
@@ -216,24 +216,26 @@ body {
         /* ドロワーメニュー内の設定パネル */
             .EditPanelSP {
                 width: 230px;
-                height: 1000px;
+                height: 100%;
                 margin: 10px 10px;
             }
 
                 h3 {
-                    font-size: 1.5rem;
+                    font-size: 2rem;
                     border-bottom: 7px double #ccc;
                     text-align: center;
-                    margin: 2rem auto;
+                    margin: 10px 5px;
                     color: white;
                 }
 
                 .EditPanelSp .text {
                     vertical-align: middle;
                     color: white;
+
                 }
 
                 .EditPanelSP label {
+                    font-size: 1.3rem;
                     cursor: pointer;
                     color: white;
                 }
@@ -245,12 +247,12 @@ body {
                 }
 
             /* 文字サイズ変更スライダー */
-                .EditPanelSP .EditPanel2 .Label-Size-Slider {
+                .EditPanelSP .EditPanel2 #Label-Size-Slider_SP {
                     -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
                     appearance: none;
                     cursor: pointer; /* カーソルを分かりやすく */
                     outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
-                    height: 14px; /* バーの高さ */
+                    height: 17px; /* バーの高さ */
                     width: 100%; /* バーの幅 */
                     background: #8acdff; /* バーの背景色 */
                     border-radius: 10px; /* バーの両端の丸み */
@@ -315,21 +317,40 @@ body {
                     max-width: 360px;
                     height: 50px;
                     float: right;
-                    margin: 5px 0px;
+                    margin: 5px 0 15px 0;
                     padding: 0px 24px;
                     font-size: 16px;
                     line-height: 1.75;
-                    color: #333;
-                    background-color: #ffffff;
+                    color: #ffffff;
+                    background-color: #000000;
                     background-image: none;
                     border: 1px solid #cccccc;
                     -ms-word-break: normal;
                     word-break: normal;
                 }
 
+                .EditPanel2 span {
+                    color: white;
+                    font-size: 25px;
+                }
+
+
 
 /* タブレット用、ウィンドウサイズが600px以上のときはここを読み込む */
 @media screen and (min-width:480px){
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
@@ -338,14 +359,123 @@ body {
 /* PC用、ウィンドウサイズが1024px以上のときはここを読み込む */
 @media screen and (min-width:1024px){
 
-    /* パソコン版画面上半分 */
-        main{
-            width: 1200px;
-            height: 100%;
-            margin: 0 auto;
-            background-color: darkslategray;
+    main{
+        width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        background-color: darkslategray;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+        border-bottom: 7px double #ccc;
+        text-align: center;
+        margin: 0.5rem auto;
+        color: white;
+    }
+
+/* オプションのデザイン */
+    .selectdiv_PC {
+        position: relative;
+     }
+      
+    select::-ms-expand {
+        display: none;
+    }
+      
+    .selectdiv_PC:after {
+        content: '<>';
+        font: 17px "Consolas", monospace;
+        color: #333;
+        -webkit-transform: rotate(90deg);
+        -moz-transform: rotate(90deg);
+        -ms-transform: rotate(90deg);
+        transform: rotate(90deg);
+        right: 11px;
+        top: 18px;
+        padding: 0 0 2px;
+        border-bottom: 1px solid #999;        
+        position: absolute;
+        pointer-events: none;
+    }
+      
+    .selectdiv_PC select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        display: block;
+        width: 100%;
+        max-width: 360px;
+        height: 50px;
+        float: right;
+        margin: 5px 0 15px 0;
+        padding: 0px 24px;
+        font-size: 16px;
+        line-height: 1.75;
+        color: #ffffff;
+        background-color: #000000;
+        background-image: none;
+        border: 1px solid #cccccc;
+        -ms-word-break: normal;
+        word-break: normal;
+      }
+
+    /* トグルスイッチ */
+        .EditPanelPC1 .item-frame {
+            margin: 0.5rem auto;
+        }
+    
+        .EditPanelPC1 .text {
+            vertical-align: middle;
+            color: white;
+        }
+    
+        .EditPanelPC1 label {
+            cursor: pointer;
+        }
+    
+        .EditPanelPC1 .switch {
+            position: relative;
+        }
+    
+        .EditPanelPC1 .switch:before, .EditPanelPC1 .switch:after {
+            content: "";
+            vertical-align: middle;
+            display: inline-block;
+        }
+    
+        .EditPanelPC1 .switch:before {
+            width: 2em;
+            height: 1em;
+            border: 2px solid #c4c9ff;
+            border-radius: 32px;
+            background: #999;
+        }
+    
+        .EditPanelPC1 .switch:after {
+            position: relative;
+            width: 1em;
+            height: 1em;
+            background: #c4c9ff;
+            border-radius: 50%;
+            left: -2.2em;
+        }
+    
+        .EditPanelPC1 input { 
+            display: none;
+        }
+    
+        .EditPanelPC1 input:checked ~ .switch:before {
+            background: #00b715;
+            border-color: #84ff92;
+        }
+        
+        .EditPanelPC1 input:checked ~ .switch:after {
+            background: #84ff92;
+            left: -1.1em;
         }
 
+    /* パソコン版画面上半分 */
         #wrap1{
             width: 1150px;
             height: 570px;
@@ -375,403 +505,167 @@ body {
                 height: 100%;
             }
 
-    /* パソコン版画面右側の設定パネル */
-        .EditPanelPC1 {
-            display: block;
-            width: 400px;
-            height: 550px;
-            margin: 10px 10px 10px 20px;
-            float: left;
-        }
-
-        .EditPanel1-1 {
-            display: block;
-            width: 190px;
-            height: 220px;
-            margin: 10px;
-            float: left;
-        }
-
-        .EditPanel1-2 {
-            display: block;
-            width: 190px;
-            height: 220px;
-            margin: 10px;
-        }
-
-        /* トグルスイッチ */
-            .EditPanel5 h3 {
-                font-size: 1.5rem;
-                border-bottom: 7px double #ccc;
-                text-align: center;
-                margin: 0.5rem auto;
-                color: black;
+        /* パソコン版画面右側の設定パネル */
+            .EditPanelPC1 {
+                display: block;
+                width: 400px;
+                height: 550px;
+                margin: 10px 10px 10px 20px;
+                float: left;
             }
 
-            .EditPanel5 .item-frame {
-                margin: 0.5rem auto;
-            }
-        
-            .EditPanel5 .text {
-                vertical-align: middle;
-                color: black;
-            }
-        
-            .EditPanel5 label {
-                cursor: pointer;
-            }
-        
-            .EditPanel5 .switch {
-                position: relative;
-            }
-        
-            .EditPanel5 .switch:before, .EditPanel5 .switch:after {
-                content: "";
-                vertical-align: middle;
-                display: inline-block;
-            }
-        
-            .EditPanel5 .switch:before {
-                width: 2em;
-                height: 1em;
-                border: 2px solid #c4c9ff;
-                border-radius: 32px;
-                background: #999;
-            }
-        
-            .EditPanel5 .switch:after {
-                position: relative;
-                width: 1em;
-                height: 1em;
-                background: #c4c9ff;
-                border-radius: 50%;
-                left: -2.2em;
-            }
-        
-            .EditPanel5 input { 
-                display: none;
-            }
-        
-            .EditPanel5 input:checked ~ .switch:before {
-                background: #00b715;
-                border-color: #84ff92;
-            }
+
+            /* 道路、線路の表示/非表示チェックボックス */
+            /* 文字表示/非表示チェックボックス */
+                .EditPanel5 {
+                    display: block;
+                    width: 400px;
+                    height: 150px;
+                }
             
-            .EditPanel5 input:checked ~ .switch:after {
-                background: #84ff92;
-                left: -1.1em;
-            }
+                    .EditPanel5-1 {
+                        display: block;
+                        width: 45%;
+                        height: 80px;
+                        margin: 10px;
+                        float: left;
+                    }
+                
+                    .EditPanel5-2 {
+                        display: block;
+                        width: 45%;
+                        height: 80px;
+                        margin: 10px;
+                        float: right;
+                    }
+
+                .EditPanel1 {
+                    display: block;
+                    width: 400px;
+                    height: 220px;
+                }
+
+                    .EditPanel1-1 {
+                        display: block;
+                        width: 45%;
+                        height: 150px;
+                        margin: 10px;
+                        float: left;
+                    }
+                
+                    .EditPanel1-2 {
+                        display: block;
+                        width: 45%;
+                        height: 150px;
+                        margin: 10px;
+                        float: right;
+                    }
+            
+            /* 文字の大きさ調整スライダー */
+                .EditPanel2 {
+                    display: block;
+                    padding: 10px;
+                }
+
+                .EditPanel2 .text {
+                    vertical-align: middle;
+                }
+                
+                .EditPanel2 label {
+                    cursor: pointer;
+                }
+
+                .EditPanel2 input { 
+                    display: block;
+                }
+
+                .EditPanel2 #Label-Size-Slider_PC {
+                    -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
+                    appearance: none;
+                    cursor: pointer; /* カーソルを分かりやすく */
+                    outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
+                    height: 25px; /* バーの高さ */
+                    width: 80%; /* バーの幅 */
+                    background: #8acdff; /* バーの背景色 */
+                    border-radius: 10px; /* バーの両端の丸み */
+                    border: solid 5px #dff1ff; /* バー周囲の線 */
+                }
+
+                .EditPanel2 span {
+                    color: white;
+                }
 
 
-    .EditPanel5 {
-        display: block;
-        width: 400px;
-        height: 150px;
-    }
+    /* パソコン版画面半分 */
+        #wrap2{
+            width: 1150px;
+            height: 300px;
+            margin: 0 auto;
+        }
 
+            .EditPanelPC2_LeftSide {
+                display: block;
+                width: 600px;
+                height: 300px;
+                margin: 10px auto;
+                float: left;
+            }    
 
-    .EditPanel5-1 {
-        display: block;
-        width: 45%;
-        height: 80px;
-        margin: 10px;
-        float: left;
-    }
+            /* ナビゲーション */
+                .ShadowBox2 {
+                    position: relative;
+                    width: 30%;
+                    height: auto;
+                    padding: 10px;
+                }
 
+                .ShadowBox2::before {
+                    content: "";
+                    display: block;
+                    padding-top: 1%;
+                }
 
-    .EditPanel5-2 {
-        display: block;
-        width: 45%;
-        height: 80px;
-        margin: 10px;
-        float: right;
-    }
+                .ShadowBox2 #Navigation {
+                    display: block;
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 100%;
+                    height: 100%;
+                }
 
-
-
-
-    /* トグルスイッチについて */
-      .EditPanel1 h3 {
-          font-size: 1.5rem;
-          border-bottom: 7px double #ccc;
-          text-align: center;
-          margin: 0.5rem auto;
-          color: black;
-      }
+                .EditPanel3 {
+                    display: block;
+                    width: 55%;
+                    height: auto;
+                    padding: 10px;
+                    float: left;
+                }
   
-      .EditPanel1 .item-frame {
-          margin: 0.5rem auto;
-      }
-    
-      .EditPanel1 .text {
-          vertical-align: middle;
-          color: black;
-      }
-    
-      .EditPanel1 label {
-          cursor: pointer;
-      }
-    
-      .EditPanel1 .switch {
-          position: relative;
-      }
-    
-      .EditPanel1 .switch:before, .EditPanel1 .switch:after {
-          content: "";
-          vertical-align: middle;
-          display: inline-block;
-      }
-    
-      .EditPanel1 .switch:before {
-          width: 2em;
-          height: 1em;
-          border: 2px solid #c4c9ff;
-          border-radius: 32px;
-          background: #999;
-      }
-    
-      .EditPanel1 .switch:after {
-          position: relative;
-          width: 1em;
-          height: 1em;
-          background: #c4c9ff;
-          border-radius: 50%;
-          left: -2.2em;
-      }
-    
-      .EditPanel1 input { 
-          display: none;
-      }
-    
-      .EditPanel1 input:checked ~ .switch:before {
-          background: #00b715;
-          border-color: #84ff92;
-      }
-      
-      .EditPanel1 input:checked ~ .switch:after {
-          background: #84ff92;
-          left: -1.1em;
-      }
+            /* カラーパレット */
+                .EditPanel4 {
+                    display: block;
+                    width: 45%;
+                    height: auto;
+                    padding: 10px;
+                    float: right;
+                }
 
-    .EditPanel1 {
-        display: block;
-        width: 400px;
-        height: 220px;
-    }
-
-    .EditPanel1-1 {
-        display: block;
-        width: 45%;
-        height: 150px;
-        margin: 10px;
-        float: left;
-    }
-
-    .EditPanel1-2 {
-        display: block;
-        width: 45%;
-        height: 150px;
-        margin: 10px;
-        float: right;
-    }
-
-
-
-
-      /* スライダーについて */
-        .EditPanel2 {
-            display: block;
-            padding: 10px;
-        }
-
-        .EditPanel2 h3 {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 0.5rem auto;
-            color: black;
-        }
-
-        .EditPanel2 .text {
-            vertical-align: middle;
-        }
-        
-        .EditPanel2 label {
-            cursor: pointer;
-        }
-
-        .EditPanel2 .Label-Size-Slider {
-            -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
-            appearance: none;
-            cursor: pointer; /* カーソルを分かりやすく */
-            outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
-            height: 14px; /* バーの高さ */
-            width: 100%; /* バーの幅 */
-            background: #8acdff; /* バーの背景色 */
-            border-radius: 10px; /* バーの両端の丸み */
-            border: solid 3px #dff1ff; /* バー周囲の線 */
-        }
-
-
-
-
-      #wrap2{
-          width: 1050px;
-          height: 300px;
-          margin: 0 auto;
-      }
-
-      .EditPanelPC2_LeftSide {
-          display: block;
-          width: 570px;
-          height: 300px;
-          margin: 10px auto;
-          float: left;
-      }    
-
-
-      /* ナビゲーション */
-        .ShadowBox2 {
-            position: relative;
-            width: 30%;
-            height: auto;
-            padding: 10px;
-        }
-
-        .ShadowBox2::before {
-            content: "";
-            display: block;
-            padding-top: 1%;
-        }
-
-        .ShadowBox2 #Navigation {
-            display: block;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            height: 100%;
-        }
-
-        .EditPanel3 {
-            display: block;
-            width: 60%;
-            height: auto;
-            padding: 10px;
-            float: left;
-        }
-
-
-        .EditPanel3 h3 {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 0.5rem auto;
-            color: black;
-        }
-  
-      /* カラーパレット */
-        .EditPanel4 {
-            display: block;
-            width: 40%;
-            height: auto;
-            padding: 10px;
-            float: right;
-        }
-
-        .EditPanel4 button {
-            display: inline-block;
-            width: 50px;
-            height: 40px;
-            border: 2px solid;
-            cursor: pointer;
-        }
-        
-        .EditPanel4 button:focus {
-            outline: none;
-        }
-        
-        .EditPanel4 button:hover {
-            box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-        }
-
-        .EditPanel4 h3 {
-            font-family: 'M PLUS Rounded 1c', sans-serif;
-            font-size: 1.5rem;
-            border-bottom: 7px double #ccc;
-            text-align: center;
-            margin: 0.5rem auto;
-            color: black;
-        }
-
-
-
-
-        .selectdiv_PC {
-            position: relative;
-         }
-          
-          /* IE11 hide native button (thanks Matt!) */
-          select::-ms-expand {
-          display: none;
-          }
-          
-          .selectdiv_PC:after {
-            content: '<>';
-            font: 17px "Consolas", monospace;
-            color: #333;
-            -webkit-transform: rotate(90deg);
-            -moz-transform: rotate(90deg);
-            -ms-transform: rotate(90deg);
-            transform: rotate(90deg);
-            right: 11px;
-            /*Adjust for position however you want*/
-            
-            top: 18px;
-            padding: 0 0 2px;
-            border-bottom: 1px solid #999;
-            /*left line */
-            
-            position: absolute;
-            pointer-events: none;
-          }
-          
-          .selectdiv_PC select {
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-            /* Add some styling */
-            
-            display: block;
-            width: 100%;
-            max-width: 360px;
-            height: 50px;
-            float: right;
-            margin: 5px 0px;
-            padding: 0px 24px;
-            font-size: 16px;
-            line-height: 1.75;
-            color: #333;
-            background-color: #ffffff;
-            background-image: none;
-            border: 1px solid #cccccc;
-            -ms-word-break: normal;
-            word-break: normal;
-          }
-
-
-
-
-
-
-
-
-
-
-
-
+                .EditPanel4 button {
+                    display: inline-block;
+                    width: 60px;
+                    height: 40px;
+                    border: 2px solid;
+                    cursor: pointer;
+                }
+                
+                .EditPanel4 button:focus {
+                    outline: none;
+                }
+                
+                .EditPanel4 button:hover {
+                    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+                }
 
   }
 
