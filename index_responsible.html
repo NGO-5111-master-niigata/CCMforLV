@@ -23,6 +23,8 @@
 			<div class="ShadowBox1">
 				<div id="map"></div>
 			</div>
+
+			
 			<div class="EditPanelPC1" class="clearfix">
 				<div class="EditPanel5" >
 					<h3>道路、線路の表示/非表示</h3>
@@ -111,7 +113,9 @@
 					</div>
 					<div class="SizeEditSlider">
 						<input type="range" id="Label-Size-Slider_PC" min="0" max="30" step="0.1">
-						<span id="current-value_PC"></span>
+						<span>文字の大きさ： </span>
+						<span id="current-value_PC"> - </span>
+						<span> px</span>
 					</div>
 				</div>
 			</div>
@@ -139,7 +143,16 @@
 					<div id="swatches_PC"></div>
 				</div>
 			</div>
-		</div>					
+			<div class="EditPanelPC2_RightSide">
+				<div class="EditPanel6">
+					<h3>検索ボックス</h3>
+					<div id="geocoder" class="geocoder"></div>
+				</div>
+			</div>
+		</div>	
+		
+
+
 	</main>
 
 
