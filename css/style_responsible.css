@@ -386,7 +386,7 @@ body {
     .selectdiv_PC:after {
         content: '<>';
         font: 17px "Consolas", monospace;
-        color: #333;
+        color: #ffffff;
         -webkit-transform: rotate(90deg);
         -moz-transform: rotate(90deg);
         -ms-transform: rotate(90deg);
@@ -411,6 +411,7 @@ body {
         margin: 5px 0 15px 0;
         padding: 0px 24px;
         font-size: 16px;
+        font-weight: bold;
         line-height: 1.75;
         color: #ffffff;
         background-color: #000000;
