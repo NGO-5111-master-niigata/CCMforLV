@@ -78,6 +78,15 @@ body {
             box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
         }
 
+        /* 検索ボックス */
+        .geocoder {
+            position: absolute;
+            width: 60%;
+            left: -8%;
+            bottom: 90%;
+        }
+
+
 
     /* パソコン用設定パネルの非表示 */
         .EditPanelPC1 {
@@ -676,6 +685,7 @@ body {
                  float: right;
             }    
 
+            /* 検索ボックス */
                 .EditPanel6 {
                     display: block;
                     width: 400px;
