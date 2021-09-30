@@ -10,252 +10,250 @@ body {
 /*  全環境に共通の設定（モバイルファースト） */
 
     /*  フロート時の回り込み防止のための記述 */
-        .clearfix::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
+    .clearfix::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
 
     /*  地図 */
-        #map{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+    #map{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
 
-        .map-overlay {
-            font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            position: absolute;
-            width: 200px;
-            top: 0;
-            left: 0;
-            padding: 10px;
-        }
+    .map-overlay {
+        font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+        position: absolute;
+        width: 200px;
+        top: 0;
+        left: 0;
+        padding: 10px;
+    }
           
-        .map-overlay .map-overlay-inner {
-            background-color: #fff;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            border-radius: 3px;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
+    .map-overlay .map-overlay-inner {
+        background-color: #fff;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
           
-        .map-overlay-inner fieldset {
-            border: none;
-            padding: 0;
-            margin: 0 0 10px;
-        }
+    .map-overlay-inner fieldset {
+        border: none;
+         padding: 0;
+        margin: 0 0 10px;
+    }
           
-        .map-overlay-inner fieldset:last-child {
-            margin: 0;
-        }
+    .map-overlay-inner fieldset:last-child {
+        margin: 0;
+    }
           
-        .map-overlay-inner select {
-            width: 100%;
-        }
+    .map-overlay-inner select {
+        width: 100%;
+    }
           
-        .map-overlay-inner label {
-            display: block;
-            font-weight: bold;
-            margin: 0 0 5px;
-        }
+    .map-overlay-inner label {
+        display: block;
+        font-weight: bold;
+        margin: 0 0 5px;
+    }
           
-        .map-overlay-inner button {
-            display: inline-block;
-            width: 36px;
-            height: 20px;
-            border: none;
-            cursor: pointer;
-        }
+    .map-overlay-inner button {
+        display: inline-block;
+        width: 36px;
+        height: 20px;
+        border: none;
+        cursor: pointer;
+    }
           
-        .map-overlay-inner button:focus {
-            outline: none;
-        }
+    .map-overlay-inner button:focus {
+        outline: none;
+    }
           
-        .map-overlay-inner button:hover {
-            box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-        }
+    .map-overlay-inner button:hover {
+        box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+    }
 
-        /* 検索ボックス */
-        .geocoder {
-            position: absolute;
-            width: 60%;
-            left: -8%;
-            bottom: 90%;
-        }
-
-
+    /* 検索ボックス */
+    .geocoder {
+        position: absolute;
+        width: 60%;
+        left: -8%;
+        bottom: 90%;
+    }
 
     /* パソコン用設定パネルの非表示 */
-        .EditPanelPC1 {
-            display: none;
-        }
+    .EditPanelPC1 {
+        display: none;
+    }
 
-        .EditPanelPC2_Leftside {
-            display: none;
-        }
+    .EditPanelPC2_Leftside {
+        display: none;
+    }
 
-        #Navigation {
-            display: none;
-        }
-
+    #Navigation {
+        display: none;
+    }
 
     /*  ドロワーメニュー */
-        .overlay {
-            content: "";
-            display: block;
-            width: 0;
-            height: 0;
-            background-color: rgba(0, 0, 0, 0.5);
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 2;
-            opacity: 0;
-            transition: opacity .5s;
-        }
+    .overlay {
+        content: "";
+        display: block;
+        width: 0;
+        height: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        opacity: 0;
+        transition: opacity .5s;
+    }
 
-        .overlay.open {
-            width: 100%;
-            height: 100%;
-            opacity: 1;
-        }
+    .overlay.open {
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+    }
 
-        .menu-trigger {
-            display: inline-block;
-            width: 36px;
-            height: 28px;
-            vertical-align: middle;
-            cursor: pointer;
-            position: fixed;
-            top: 30px;
-            right: 30px;
-            z-index: 100;
-            transform: translateX(0);
-            transition: transform .5s;
-        }
+    .menu-trigger {
+        display: inline-block;
+        width: 36px;
+        height: 28px;
+        vertical-align: middle;
+        cursor: pointer;
+        position: fixed;
+        top: 30px;
+        right: 30px;
+        z-index: 100;
+        transform: translateX(0);
+        transition: transform .5s;
+    }
 
-        .menu-trigger.active {
-            transform: translateX(-250px);
-        }
+    .menu-trigger.active {
+        transform: translateX(-250px);
+    }
 
-        .menu-trigger span {
-            display: inline-block;
-            box-sizing: border-box;
-            position: absolute;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: rgb(255, 255, 255);
-        }
+    .menu-trigger span {
+        display: inline-block;
+        box-sizing: border-box;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: rgb(255, 255, 255);
+    }
 
-        .menu-trigger.active span {
-            background-color: #fff;
-        }
+    .menu-trigger.active span {
+        background-color: #fff;
+    }
 
-        .menu-trigger span:nth-of-type(1) {
-            top: 0;
-        }
+    .menu-trigger span:nth-of-type(1) {
+        top: 0;
+    }
 
-        .menu-trigger.active span:nth-of-type(1) {
-            transform: translateY(12px) rotate(-45deg);
-        }
+    .menu-trigger.active span:nth-of-type(1) {
+        transform: translateY(12px) rotate(-45deg);
+    }
 
-        .menu-trigger span:nth-of-type(2) {
-            top: 12px;
-        }
+    .menu-trigger span:nth-of-type(2) {
+        top: 12px;
+    }
 
-        .menu-trigger.active span:nth-of-type(2) {
-            opacity: 0;
-        }
+    .menu-trigger.active span:nth-of-type(2) {
+        opacity: 0;
+    }
 
-        .menu-trigger span:nth-of-type(3) {
-            bottom: 0;
-        }
+    .menu-trigger span:nth-of-type(3) {
+        bottom: 0;
+    }
 
-        .menu-trigger.active span:nth-of-type(3) {
-            transform: translateY(-12px) rotate(45deg);
-        }
+    .menu-trigger.active span:nth-of-type(3) {
+        transform: translateY(-12px) rotate(45deg);
+    }
       
-        nav {
-            width: 250px;
-            height: 100%;
-            padding-top: 100px;
-            background-color: rgba(49, 49, 49, 0.8);
-            position: fixed;
-            top: 0;
-            right: 0;
-            z-index: 10;
-            transform: translate(250px);
-            transition: all .5s;
-            overflow-y: scroll;
-        }
+    nav {
+        width: 250px;
+        height: 100%;
+        padding-top: 100px;
+        background-color: rgba(49, 49, 49, 0.8);
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 10;
+        transform: translate(250px);
+        transition: all .5s;
+        overflow-y: scroll;
+    }
+
+    /*  リセットCSS（ulの左40pxをキャンセル） */
+    ul {
+        list-style-type:none;
+        margin-block-start: 0em;
+        margin-block-end: 0em;
+        padding-inline-start: 0px;
+    }
+
 
         nav.open {
             transform: translateZ(0);
         }
-      
+        
         nav li {
             color: #fff;
             text-align: center;
             padding: 10px 0;
         }
-      
+        
         * {
             box-sizing: border-box;
         }
 
         nav .ul {
-            list-style: none;
-            height: 100%;
-            overflow: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-    /*  リセットCSS（ulの左40pxをキャンセル） */
-        ul {
-            list-style-type:none;
-            margin-block-start: 0em;
-            margin-block-end: 0em;
-            padding-inline-start: 0px;
-        }
-
-        /* ドロワーメニュー内の設定パネル */
-            .EditPanelSP {
-                width: 230px;
+                list-style: none;
                 height: 100%;
-                margin: 10px 10px;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch;
             }
 
-                h3 {
-                    font-size: 2rem;
-                    border-bottom: 7px double #ccc;
-                    text-align: center;
-                    margin: 10px 5px;
-                    color: white;
-                }
 
-                .EditPanelSp .text {
-                    vertical-align: middle;
-                    color: white;
+        /* ドロワーメニュー内の設定パネル */
+        .EditPanelSP {
+            width: 230px;
+            height: 100%;
+            margin: 10px 10px;
+        }
 
-                }
+            h3 {
+                font-size: 2rem;
+                border-bottom: 7px double #ccc;
+                text-align: center;
+                margin: 10px 5px;
+                color: white;
+            }
 
-                .EditPanelSP label {
-                    font-size: 1.3rem;
-                    cursor: pointer;
-                    color: white;
-                }
+            .EditPanelSp .text {
+                vertical-align: middle;
+                color: white;
+            }
+
+            .EditPanelSP label {
+                font-size: 1.3rem;
+                cursor: pointer;
+                color: white;
+            }
 
             /* 道路、線路の表示/非表示チェックボックス */
             /* 文字表示/非表示チェックボックス */
-                .EditPanelSP .item-frame {
-                    margin: 1rem auto;
-                }
+            .EditPanelSP .item-frame {
+                margin: 1rem auto;
+            }
 
-            /* 文字サイズ変更スライダー */
+                /* 文字サイズ変更スライダー */
                 .EditPanelSP .EditPanel2 #Label-Size-Slider_SP {
                     -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
                     appearance: none;
@@ -268,7 +266,12 @@ body {
                     border: solid 3px #dff1ff; /* バー周囲の線 */
                 }
 
-            /* カラーパレット */
+                .EditPanel2 span {
+                    color: white;
+                    font-size: 25px;
+                }
+
+                /* カラーパレット */
                 .EditPanel4 {
                     display: block;
                     width: 210px;
@@ -276,31 +279,31 @@ body {
                     padding: 10px;
                 }
 
-                .EditPanel4 button {
-                    display: inline-block;
-                    width: 45px;
-                    height: 40px;
-                    border: 1px solid;
-                    cursor: pointer;
-                }
-                
-                .EditPanel4 button:focus {
-                    outline: none;
-                }
-                
-                .EditPanel4 button:hover {
-                    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-                }
+                    .EditPanel4 button {
+                        display: inline-block;
+                        width: 45px;
+                        height: 40px;
+                        border: 1px solid;
+                        cursor: pointer;
+                    }
+                    
+                    .EditPanel4 button:focus {
+                        outline: none;
+                    }
+                    
+                    .EditPanel4 button:hover {
+                        box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+                    }
 
-            /* プルダウンメニュー（スマホ版） */
+                /* プルダウンメニュー（スマホ版） */
                 .selectdiv {
                     position: relative;
                 }
-                
+                    
                 select::-ms-expand {
                     display: none;
                 }
-                
+                    
                 .selectdiv:after {
                     content: '<>';
                     font: 17px "Consolas", monospace;
@@ -316,7 +319,7 @@ body {
                     position: absolute;
                     pointer-events: none;
                 }
-                
+                    
                 .selectdiv select {
                     -webkit-appearance: none;
                     -moz-appearance: none;
@@ -338,28 +341,9 @@ body {
                     word-break: normal;
                 }
 
-                .EditPanel2 span {
-                    color: white;
-                    font-size: 25px;
-                }
-
-
 
 /* タブレット用、ウィンドウサイズが600px以上のときはここを読み込む */
 @media screen and (min-width:480px){
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 
@@ -383,7 +367,7 @@ body {
         color: white;
     }
 
-/* オプションのデザイン */
+    /* オプションのデザイン */
     .selectdiv_PC {
         position: relative;
      }
@@ -428,71 +412,71 @@ body {
         border: 1px solid #cccccc;
         -ms-word-break: normal;
         word-break: normal;
-      }
+    }
 
     /* トグルスイッチ */
-        .EditPanelPC1 .item-frame {
-            margin: 0.5rem auto;
-        }
+    .EditPanelPC1 .item-frame {
+        margin: 0.5rem auto;
+    }
     
-        .EditPanelPC1 .text {
-            vertical-align: middle;
-            color: white;
-        }
+    .EditPanelPC1 .text {
+        vertical-align: middle;
+        color: white;
+    }
     
-        .EditPanelPC1 label {
-            cursor: pointer;
-        }
+    .EditPanelPC1 label {
+        cursor: pointer;
+    }
     
-        .EditPanelPC1 .switch {
-            position: relative;
-        }
+    .EditPanelPC1 .switch {
+        position: relative;
+    }
     
-        .EditPanelPC1 .switch:before, .EditPanelPC1 .switch:after {
-            content: "";
-            vertical-align: middle;
-            display: inline-block;
-        }
+    .EditPanelPC1 .switch:before, .EditPanelPC1 .switch:after {
+        content: "";
+        vertical-align: middle;
+        display: inline-block;
+    }
     
-        .EditPanelPC1 .switch:before {
-            width: 2em;
-            height: 1em;
-            border: 2px solid #c4c9ff;
-            border-radius: 32px;
-            background: #999;
-        }
+    .EditPanelPC1 .switch:before {
+        width: 2em;
+        height: 1em;
+        border: 2px solid #c4c9ff;
+        border-radius: 32px;
+        background: #999;
+    }
     
-        .EditPanelPC1 .switch:after {
-            position: relative;
-            width: 1em;
-            height: 1em;
-            background: #c4c9ff;
-            border-radius: 50%;
-            left: -2.2em;
-        }
+    .EditPanelPC1 .switch:after {
+        position: relative;
+        width: 1em;
+        height: 1em;
+        background: #c4c9ff;
+        border-radius: 50%;
+        left: -2.2em;
+    }
     
-        .EditPanelPC1 input { 
-            display: none;
-        }
+    .EditPanelPC1 input { 
+        display: none;
+    }
     
-        .EditPanelPC1 input:checked ~ .switch:before {
-            background: #00b715;
-            border-color: #84ff92;
-        }
+    .EditPanelPC1 input:checked ~ .switch:before {
+        background: #00b715;
+        border-color: #84ff92;
+    }
         
-        .EditPanelPC1 input:checked ~ .switch:after {
-            background: #84ff92;
-            left: -1.1em;
-        }
+    .EditPanelPC1 input:checked ~ .switch:after {
+        background: #84ff92;
+        left: -1.1em;
+    }
 
-    /* パソコン版画面上半分 */
+        /* パソコン版画面上半分 */
         #wrap1{
             width: 1150px;
             height: 570px;
             margin: 0 auto;
         }
 
-        /* 地図 */
+            /* 地図 */
             .ShadowBox1 {
                 position: relative;
                 width: 60%;
@@ -515,7 +499,7 @@ body {
                 height: 100%;
             }
 
-        /* パソコン版画面右側の設定パネル */
+            /* パソコン版画面右側の設定パネル */
             .EditPanelPC1 {
                 display: block;
                 width: 400px;
@@ -524,9 +508,7 @@ body {
                 float: left;
             }
 
-
-            /* 道路、線路の表示/非表示チェックボックス */
-            /* 文字表示/非表示チェックボックス */
+                /* 道路、線路の表示/非表示切り替えトグルスイッチ */
                 .EditPanel5 {
                     display: block;
                     width: 400px;
@@ -549,6 +531,7 @@ body {
                         float: right;
                     }
 
+                /* 文字の表示/非表示切り替えトグルスイッチ */
                 .EditPanel1 {
                     display: block;
                     width: 400px;
@@ -571,48 +554,49 @@ body {
                         float: right;
                     }
             
-            /* 文字の大きさ調整スライダー */
+                /* 文字の大きさ調整スライダー */
                 .EditPanel2 {
                     display: block;
                     padding: 10px;
                 }
 
-                .EditPanel2 .text {
-                    vertical-align: middle;
-                }
-                
-                .EditPanel2 label {
-                    cursor: pointer;
-                }
+                    .EditPanel2 .text {
+                        vertical-align: middle;
+                    }
+                    
+                    .EditPanel2 label {
+                        cursor: pointer;
+                    }
 
-                .EditPanel2 input { 
-                    display: block;
-                }
+                    .EditPanel2 input { 
+                        display: block;
+                    }
 
-                .EditPanel2 #Label-Size-Slider_PC {
-                    -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
-                    appearance: none;
-                    cursor: pointer; /* カーソルを分かりやすく */
-                    outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
-                    height: 25px; /* バーの高さ */
-                    width: 80%; /* バーの幅 */
-                    background: #8acdff; /* バーの背景色 */
-                    border-radius: 10px; /* バーの両端の丸み */
-                    border: solid 5px #dff1ff; /* バー周囲の線 */
-                }
+                    .EditPanel2 #Label-Size-Slider_PC {
+                        -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
+                        appearance: none;
+                        cursor: pointer; /* カーソルを分かりやすく */
+                        outline: none; /* スライダーのアウトラインは見た目がキツイので消す */
+                        height: 25px; /* バーの高さ */
+                        width: 80%; /* バーの幅 */
+                        background: #8acdff; /* バーの背景色 */
+                        border-radius: 10px; /* バーの両端の丸み */
+                        border: solid 5px #dff1ff; /* バー周囲の線 */
+                    }
 
-                .EditPanel2 span {
-                    color: white;
-                }
+                    .EditPanel2 span {
+                        color: white;
+                    }
 
 
-    /* パソコン版画面下半分 */
+        /* パソコン版画面下半分 */
         #wrap2{
             width: 1150px;
             height: 300px;
             margin: 0 auto;
         }
 
+            /* パソコン版画面下半分の左側 */
             .EditPanelPC2_LeftSide {
                 display: block;
                 width: 600px;
@@ -621,7 +605,7 @@ body {
                 float: left;
             }    
 
-            /* ナビゲーション */
+                /* ナビゲーション */
                 .ShadowBox2 {
                     position: relative;
                     width: 30%;
@@ -652,7 +636,7 @@ body {
                     float: left;
                 }
 
-            /* カラーパレット */
+                /* カラーパレット */
                 .EditPanel4 {
                     display: block;
                     width: 45%;
@@ -661,22 +645,23 @@ body {
                     float: right;
                 }
 
-                .EditPanel4 button {
-                    display: inline-block;
-                    width: 60px;
-                    height: 40px;
-                    border: 2px solid;
-                    cursor: pointer;
-                }
-                
-                .EditPanel4 button:focus {
-                    outline: none;
-                }
-                
-                .EditPanel4 button:hover {
-                    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
-                }
+                    .EditPanel4 button {
+                        display: inline-block;
+                        width: 60px;
+                        height: 40px;
+                        border: 2px solid;
+                        cursor: pointer;
+                    }
+                    
+                    .EditPanel4 button:focus {
+                        outline: none;
+                    }
+                    
+                    .EditPanel4 button:hover {
+                        box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+                    }
 
+            /* パソコン版画面下半分の右側 */
             .EditPanelPC2_RightSide {
                 display: block;
                  width: 550px;
@@ -685,7 +670,7 @@ body {
                  float: right;
             }    
 
-            /* 検索ボックス */
+                /* 検索ボックス */
                 .EditPanel6 {
                     display: block;
                     width: 400px;
