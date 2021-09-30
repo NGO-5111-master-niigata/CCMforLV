@@ -683,13 +683,12 @@ body {
                     padding: 10px;
                 }
 
-                    .Editpanel6 .geocoder {
+                    .geocoder {
                         position: absolute;
                         z-index: 1;
-                        width: 50%;
+                        width: 36%;
                         left: 50%;
-                        margin-left: -25%;
-                        top: 10px;
+                        margin-left: 5%;
                     }
 
   }
