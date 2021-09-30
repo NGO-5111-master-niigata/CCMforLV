@@ -4,68 +4,65 @@
 	/* 現在地を取得 */
 	navigator.geolocation.getCurrentPosition(success,error); 
 
-		/* 新宿周辺の地図読み込み */
-			mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
-			var map = new mapboxgl.Map({
-				container: 'map',
-				style: 'mapbox://styles/ngo5111/cktnvy8b00odd17p4ked5sf77',
-				localIdeographFontFamily: false,
-				center: [139.70 , 35.68] ,
-				zoom:15.5
-			});
+	/* 新宿周辺の地図読み込み */
+	mapboxgl.accessToken = 'pk.eyJ1IjoibmdvNTExMSIsImEiOiJjanh6Z3l6cmIwMG9tM21uNGtuNnB0NXM2In0.IwFlVev1tMBm-gy5zWiS9Q';
+	var map = new mapboxgl.Map({
+		container: 'map',
+		style: 'mapbox://styles/ngo5111/cktnvy8b00odd17p4ked5sf77',
+		localIdeographFontFamily: false,
+		center: [139.70 , 35.68] ,
+		zoom:15.5
+	});
 
-		/* 取得に成功した場合の関数 */
-			function success(position){
-				/* 現在地周辺地図表示しながらコントロールボタン追加 */
-				var com = position.coords;
-				var comlng = com.longitude ;
-				var comlat = com.latitude ;
-				map.setCenter([+ comlng , + comlat]);
+	/* 取得に成功した場合の関数 */
+	function success(position){
+		/* 現在地周辺地図表示しながらコントロールボタン追加 */
+		var com = position.coords;
+		var comlng = com.longitude ;
+		var comlat = com.latitude ;
+		map.setCenter([+ comlng , + comlat]);
+		map.addControl(
+			new mapboxgl.NavigationControl({
+			}),
+			'bottom-right'
+		);
+		/* 検索ボックス表示 */
+		const geocoder = new MapboxGeocoder({
+			accessToken: mapboxgl.accessToken,
+			mapboxgl: mapboxgl
+		});
+		document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+	}
 
-				map.addControl(
-					new mapboxgl.NavigationControl({
-					}),
-					'bottom-right'
-				);
-
-				map.addControl(
-					new MapboxGeocoder({
-						accessToken: mapboxgl.accessToken,
-						mapboxgl: mapboxgl
-					}),
-					'top-left'
-				);
-			}
-
-
-		/* 取得に失敗した場合の関数 */
-			function error(err){
-				/* 新宿周辺地図表示しながらコントロールボタン追加 */
-				map.addControl(
-					new mapboxgl.NavigationControl({
-					}),
-					'bottom-right'
-				);
-
-				/* 新宿周辺地図表示しながらナビゲーション追加 */
-				map.addControl(
-					new MapboxGeocoder({
-						accessToken: mapboxgl.accessToken,
-						mapboxgl: mapboxgl
-					}),
-					'top-left'
-				);
-			}
-
-
-		/* Google Geocoding */
-
+	/* 取得に失敗した場合の関数 */
+	function error(err){
+		/* 新宿周辺地図表示しながらコントロールボタン追加 */
+		map.addControl(
+			new mapboxgl.NavigationControl({
+			}),
+			'bottom-right'
+		);
+		/* ナビゲーション追加 */
+		map.addControl(
+			new MapboxGeocoder({
+				accessToken: mapboxgl.accessToken,
+				mapboxgl: mapboxgl
+			}),
+			'top-left'
+		);
+		/* 検索ボックス表示 */
+		const geocoder = new MapboxGeocoder({
+			accessToken: mapboxgl.accessToken,
+			mapboxgl: mapboxgl
+		});
+		document.getElementById('geocoder').appendChild(geocoder.onAdd(map));
+	}
 		
-
 /* 共通設定ここまで */
 
 
 /* PC用 */
+	/* 道路、線路の表示/非表示制御 */
 	/* トグルスイッチ */
 		/* 国道、高速道路の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
@@ -209,7 +206,7 @@
 			}
 		}
 
-
+	/* 文字の表示/非表示制御 */
 	/* トグルスイッチ */
 		/* 国名の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
@@ -357,11 +354,9 @@
 
 
 
-	/* 文字サイズ変更スライダー */
-		/* 文字の大きさ調整のオプション開いてラベルを選択 */
+	/* 文字の大きさ調整 */
+		/* セレクトボックス開いて大きさ変更するラベルを選択 */
 		/* 選択したラベルの文字サイズをスライダーで調整できるようになる */
-		/* if文を何度も通して条件分岐。愚直で汚いプログラムなので要改造 */
-
 		function ChoosingLayer_PC(){
 			const elem = document.getElementById('Label-Size-Slider_PC'); // input要素
 			const target = document.getElementById('current-value_PC'); // 埋め込む先のspan要素
@@ -434,7 +429,7 @@
 		}
 
 
-	/* ナビゲーション */
+	/* 経路案内 */
 		/* Aに出発地、Bに目的地入力 */
 		/* A、Bのアイコンはドラッグアンッドロップで場所変更可能（その際、場所は緯度経度表示になる） */
 
@@ -505,10 +500,6 @@
 
 
 
-
-
-
-
 /* スマートフォン用 */
 
 	/* ハンバーガーメニュー押したらスライドで操作パネル出現 */
@@ -532,8 +523,6 @@
 			$('nav').removeClass('open');
 		}
 	});
-
-
 
 
 	/* トグルスイッチ */
@@ -813,10 +802,6 @@
 			});
 			swatches_SP.appendChild(swatch);
 		});
-
-
-
-
 
 /* スマートフォン用ここまで */
 
