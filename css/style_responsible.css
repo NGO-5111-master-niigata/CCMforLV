@@ -684,12 +684,12 @@ body {
                 }
 
                     .geocoder {
-                        position: absolute;
+                        position: relative;
                         z-index: 1;
-                        width: 36%;
-                        left: 50%;
+                        width: 34%;
+                        left: 46%;
                         margin-left: 5%;
-                        bottom: 30%;
+                        bottom: 78%;
                     }
 
   }
