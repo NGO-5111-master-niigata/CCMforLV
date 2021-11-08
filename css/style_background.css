@@ -16,83 +16,81 @@ body {
 
 /*  全環境に共通の設定（モバイルファースト） */
 
-/*  Checkbox本体を隠す */
-input[type="checkbox"] {
-    display: none;
-}
+/*  トグルスイッチ */
+    /*  Checkbox本体を隠す */
+    input[type="checkbox"] {
+        display: none;
+    }
 
-/*  基本設定 */
-input[type="checkbox"] + label.check {
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    width: 60px;
-    height: 30px;
-    color: #969696;
-    border: 1px solid #a3a3a3;
-    border-radius: 3px;
-    background-color: #ffffff;
-}
+    /*  基本設定 */
+    input[type="checkbox"] + label.check {
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        width: 60px;
+        height: 30px;
+        color: #969696;
+        border: 1px solid #a3a3a3;
+        border-radius: 3px;
+        background-color: #ffffff;
+    }
 
-/*  チェック時の基本設定 */
-input[type="checkbox"]:checked + label.check {
-    border: 1px solid #226fff;
-    background-color: #226fff;
-}
+    /*  チェック時の基本設定 */
+    input[type="checkbox"]:checked + label.check {
+        border: 1px solid #226fff;
+        background-color: #226fff;
+    }
 
-/*  擬似要素(OFF文字) */
-input[type="checkbox"] + label.check::before {
-    content: "OFF";
-    position: absolute;
-    top: 4px;
-    left: auto;
-    right: 6px;
-    color: #000000;
-}
+    /*  擬似要素(OFF文字) */
+    input[type="checkbox"] + label.check::before {
+        content: "OFF";
+        position: absolute;
+        top: 4px;
+        left: auto;
+        right: 6px;
+        color: #000000;
+    }
 
-/*  チェック時の擬似要素(ON文字) */
-input[type="checkbox"]:checked + label.check::before {
-    content: "ON";
-    position: absolute;
-    left: 6px;
-    right: auto;
-    color: #ffffff;
-}
+    /*  チェック時の擬似要素(ON文字) */
+    input[type="checkbox"]:checked + label.check::before {
+        content: "ON";
+        position: absolute;
+        left: 6px;
+        right: auto;
+        color: #ffffff;
+    }
 
-/*  トグル部品 */
-input[type="checkbox"] + label.check > div {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 12px;
-    height: 22px;
-    border: 1px solid #a3a3a3;
-    border-radius: 3px;
-    background-color: #ffffff;
-    transition: 0.2s;
-}
+    /*  トグル部品 */
+    input[type="checkbox"] + label.check > div {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 12px;
+        height: 22px;
+        border: 1px solid #a3a3a3;
+        border-radius: 3px;
+        background-color: #ffffff;
+        transition: 0.2s;
+    }
 
-/*  チェック時のトグル部品 */
-input[type="checkbox"]:checked + label.check > div {
-    border: 1px solid transparent;
-    left: 44px;
-}
-.ToggleSwich {
-    margin: 0.5rem auto;
-}
+    /*  チェック時のトグル部品 */
+    input[type="checkbox"]:checked + label.check > div {
+        border: 1px solid transparent;
+        left: 44px;
+    }
+    .ToggleSwich {
+        margin: 0.5rem auto;
+    }
 
-.ToggleSwich .text {
-    vertical-align: 50%;
-    color: white;
-    font-size: 16px;
-}
+    .ToggleSwich .text {
+        vertical-align: 50%;
+        color: white;
+        font-size: 16px;
+    }
 
-.ToggleSwich label {
-    cursor: pointer;
-}
-
-
-
+    .ToggleSwich label {
+        cursor: pointer;
+    }
 
 
     /*  フロート時の回り込み防止のための記述 */
