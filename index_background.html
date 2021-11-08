@@ -9,7 +9,7 @@
 	<link href="https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css" rel="stylesheet" />
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.min.js"></script>
 	<link href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.5.1/mapbox-gl-geocoder.css" rel="stylesheet" type="text/css"/>
-	<link href="css/style_responsible.css" rel="stylesheet" charset="utf-8"/>
+	<link href="css/style_background.css" rel="stylesheet" charset="utf-8"/>
 	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap" rel="stylesheet">
 	<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.0/mapbox-gl-directions.js"></script>
@@ -23,76 +23,76 @@
 				<div id="map"></div>
 			</div>
 			<div class="EditPanelPC1" class="clearfix">
-				<div class="EditPanel5" >
+				<div class="EditPanel1" >
 					<h3>道路、線路の表示/非表示</h3>
-					<div class="EditPanel5-1">
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-10_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle10()"/>
-							<label class="switch" for='setting-item-10_PC'></label>
-							<label class="text" for='setting-item-10_PC'> 国道、高速道路</label>
-						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-11_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle11()"/>
-							<label class="switch" for='setting-item-11_PC'></label>
-							<label class="text" for='setting-item-11_PC'>地方道路</label>
-						</div>
-					</div>
-					<div class="EditPanel5-2">
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-12_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle12()"/>
-							<label class="switch" for='setting-item-12_PC'></label>
-							<label class="text" for='setting-item-12_PC'>その他の道路</label>
-						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-13_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle13()"/>
-							<label class="switch" for='setting-item-13_PC'></label>
-							<label class="text" for='setting-item-13_PC'>歩道</label>
-						</div>
-					</div>
-				</div>
-				<div class="EditPanel1">
-					<h3>文字の表示/非表示</h3>
 					<div class="EditPanel1-1">
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-1_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Country" onchange="toggle1()"/>
-							<label class="switch" for='setting-item-1_PC'></label>
-							<label class="text" for='setting-item-1_PC'>国名</label>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="motorway_PC" checked="checked" name="layer" value="motorway_PC" onchange="toggle1()"/>
+							<label class="check" for="motorway_PC"><div></div></label>
+							<label class="text" for="motorway_PC">国道、高速道路</label>
 						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-2_PC' class="checkbox" checked="checked" name="PlaceLabel" value="State" onchange="toggle2()"/>
-							<label class="switch" for='setting-item-2_PC'></label>
-							<label class="text" for='setting-item-2_PC'>県名</label>
-						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-3_PC' class="checkbox" checked="checked" name="PlaceLabel" value="TownsAndVillages" onchange="toggle3()"/>
-							<label class="switch" for='setting-item-3_PC'></label>
-							<label class="text" for='setting-item-3_PC'>市町村名</label>
-						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-4_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Buildings" onchange="toggle4()"/>
-							<label class="switch" for='setting-item-4_PC'></label>
-							<label class="text" for='setting-item-4_PC'>建物、橋</label>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="road_PC" checked="checked" name="layer" value="road_PC" onchange="toggle2()"/>
+							<label class="check" for="road_PC"><div></div></label>
+							<label class="text" for="road_PC">地方道路</label>
 						</div>
 					</div>
 					<div class="EditPanel1-2">
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-5_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Mountains" onchange="toggle5()"/>
-							<label class="switch" for='setting-item-5_PC'></label>
-							<label class="text" for='setting-item-5_PC'>山</label>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="road-minor_PC" checked="checked" name="layer" value="road-minor_PC" onchange="toggle3()"/>
+							<label class="check" for="road-minor_PC"><div></div></label>
+							<label class="text" for="road-minor_PC">その他の道路</label>
 						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-6_PC' class="checkbox" checked="checked" name="PlaceLabel" value="Waters" onchange="toggle6()"/>
-							<label class="switch" for='setting-item-6_PC'></label>
-							<label class="text" for='setting-item-6_PC'>川、湖、海</label>
-						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-9_PC' class="checkbox" checked="checked" name="PlaceLabel" value="MinorTransit" onchange="toggle9()"/>
-							<label class="switch" for='setting-item-9_PC'></label>
-							<label class="text" for='setting-item-9_PC'>公共交通機関（バス、電車）など</label>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="road-pedestrian_PC" checked="checked" name="layer" value="road-pedestrian_PC" onchange="toggle4()"/>
+							<label class="check" for="road-pedestrian_PC"><div></div></label>
+							<label class="text" for="road-pedestrian_PC">歩道</label>
 						</div>
 					</div>
 				</div>
 				<div class="EditPanel2">
+					<h3>文字の表示/非表示</h3>
+					<div class="EditPanel2-1">
+						<div class="ToggleSwich">
+							<input type="checkbox" id="country_PC" checked="checked" name="layer" value="country_PC" onchange="toggle5()"/>
+							<label class="check" for="country_PC"><div></div></label>
+							<label class="text" for="country_PC">国名</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="state_PC" checked="checked" name="layer" value="state_PC" onchange="toggle6()"/>
+							<label class="check" for="state_PC"><div></div></label>
+							<label class="text" for="state_PC">県名</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="TownsAndVillages_PC" checked="checked" name="layer" value="TownsAndVillages_PC" onchange="toggle7()"/>
+							<label class="check" for="TownsAndVillages_PC"><div></div></label>
+							<label class="text" for="TownsAndVillages_PC">市町村名</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Buildings_PC" checked="checked" name="layer" value="Buildings_PC" onchange="toggle8()"/>
+							<label class="check" for="Buildings_PC"><div></div></label>
+							<label class="text" for="Buildings_PC">建物、橋</label>
+						</div>
+					</div>
+					<div class="EditPanel2-2">
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Mountains_PC" checked="checked" name="layer" value="Mountains_PC" onchange="toggle9()"/>
+							<label class="check" for="Mountains_PC"><div></div></label>
+							<label class="text" for="Mountains_PC">山</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Waters_PC" checked="checked" name="layer" value="state_PC" onchange="toggle10()"/>
+							<label class="check" for="Waters_PC"><div></div></label>
+							<label class="text" for="Waters_PC">水域</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Transit_PC" checked="checked" name="layer" value="Transit_PC" onchange="toggle11()"/>
+							<label class="check" for="Transit_PC"><div></div></label>
+							<label class="text" for="Transit_PC">公共交通機関（バス、電車）など</label>
+						</div>
+					</div>
+				</div>
+				<div class="EditPanel3">
 					<h3>文字の大きさ調整</h3>
 					<div class="selectdiv_PC">
 						<select id="ChoosedLayer_PC" name="ChoosedLayer_PC" onchange="ChoosingLayer_PC()">
@@ -119,13 +119,13 @@
 		</div>
 		<div id="wrap2" class="clearfix">
 			<div class="EditPanelPC2_LeftSide">
-				<div class="EditPanel3">
+				<div class="EditPanel4">
 					<h3>経路案内</h3>
 					<div class="ShadowBox2">
 						<div id="Navigation" class="Navigation"></div>
 					</div>
 				</div>
-				<div class="EditPanel4">
+				<div class="EditPanel5">
 						<h3>色の変更</h3>
 						<div class="selectdiv_PC">
 							<select id="ColoredLayer_PC" name="ColoredLayer_PC">
@@ -159,72 +159,73 @@
 	<nav>
 		<ul>
 			<div class="EditPanelSP">
-				<div class="EditPanel5" >
+				<div class="EditPanel1" >
 					<h3>道路、線路の表示/非表示</h3>
-					<div class="EditPanel5-1">
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-10_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle10()"/>
-							<label class="switch" for='setting-item-10_PC'></label>
-							<label class="text" for='setting-item-10_PC'> 国道、高速道路</label>
+					<div class="EditPanel1-1">
+						<div class="ToggleSwich">
+							<input type="checkbox" id="motorway_SP" checked="checked" name="layer" value="motorway_SP" onchange="toggle1()"/>
+							<label class="check" for="motorway_SP"><div></div></label>
+							<label class="text" for="motorway_SP">国道、高速道路</label>
 						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-11_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle11()"/>
-							<label class="switch" for='setting-item-11_PC'></label>
-							<label class="text" for='setting-item-11_PC'>地方道路</label>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="road_SP" checked="checked" name="layer" value="road_SP" onchange="toggle2()"/>
+							<label class="check" for="road_SP"><div></div></label>
+							<label class="text" for="road_SP">地方道路</label>
+						</div>
+					<div class="EditPanel1-2">
+						<div class="ToggleSwich">
+							<input type="checkbox" id="road-minor_SP" checked="checked" name="layer" value="road-minor_SP" onchange="toggle3()"/>
+							<label class="check" for="road-minor_SP"><div></div></label>
+							<label class="text" for="road-minor_SP">その他の道路</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="road-pedestrian_SP" checked="checked" name="layer" value="road-pedestrian_SP" onchange="toggle4()"/>
+							<label class="check" for="road-pedestrian_SP"><div></div></label>
+							<label class="text" for="road-pedestrian_SP">歩道</label>
 						</div>
 					</div>
-					<div class="EditPanel5-2">
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-12_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle12()"/>
-							<label class="switch" for='setting-item-12_PC'></label>
-							<label class="text" for='setting-item-12_PC'>その他の道路</label>
-						</div>
-						<div class="item-frame">
-							<input type='checkbox' id='setting-item-13_PC' class="checkbox" checked="checked" name="layer" value="line" onchange="toggle13()"/>
-							<label class="switch" for='setting-item-13_PC'></label>
-							<label class="text" for='setting-item-13_PC'>歩道</label>
-						</div>
-					</div>
-				</div>
-				<div class="EditPanel1">
-					<h3>文字の表示/非表示</h3>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-1_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Country" onchange="toggle1()"/>
-						<label class="switch" for='setting-item-1_SP'></label>
-						<label class="text" for='setting-item-1_SP'>国名</label>
-					</div>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-2_SP' class="checkbox" checked="checked" name="PlaceLabel" value="State" onchange="toggle2()"/>
-						<label class="switch" for='setting-item-2_SP'></label>
-						<label class="text" for='setting-item-2_SP'>県名</label>
-					</div>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-3_SP' class="checkbox" checked="checked" name="PlaceLabel" value="TownsAndVillages" onchange="toggle3()"/>
-						<label class="switch" for='setting-item-3_SP'></label>
-						<label class="text" for='setting-item-3_SP'>市町村名</label>
-					</div>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-4_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Buildings" onchange="toggle4()"/>
-						<label class="switch" for='setting-item-4_SP'></label>
-						<label class="text" for='setting-item-4_SP'>建物、橋</label>
-					</div>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-5_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Mountains" onchange="toggle5()"/>
-						<label class="switch" for='setting-item-5_SP'></label>
-						<label class="text" for='setting-item-5_SP'>山</label>
-					</div>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-6_SP' class="checkbox" checked="checked" name="PlaceLabel" value="Waters" onchange="toggle6()"/>
-						<label class="switch" for='setting-item-6_SP'></label>
-						<label class="text" for='setting-item-6_SP'>川、湖、海</label>
-					</div>
-					<div class="item-frame">
-						<input type='checkbox' id='setting-item-9_SP' class="checkbox" checked="checked" name="PlaceLabel" value="MinorTransit" onchange="toggle9()"/>
-						<label class="switch" for='setting-item-9_SP'></label>
-						<label class="text" for='setting-item-9_SP'>公共交通機関（バス、電車）など</label>
-					</div>	
 				</div>
 				<div class="EditPanel2">
+					<div class="EditPanel2-1">
+						<div class="ToggleSwich">
+							<input type="checkbox" id="country_SP" checked="checked" name="layer" value="country_SP" onchange="toggle5()"/>
+							<label class="check" for="country_SP"><div></div></label>
+							<label class="text" for="country_SP">国名</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="state_SP" checked="checked" name="layer" value="state_SP" onchange="toggle6()"/>
+							<label class="check" for="state_SP"><div></div></label>
+							<label class="text" for="state_SP">県名</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="TownsAndVillages_SP" checked="checked" name="layer" value="TownsAndVillages_SP" onchange="toggle7()"/>
+							<label class="check" for="TownsAndVillages_SP"><div></div></label>
+							<label class="text" for="TownsAndVillages_SP">市町村名</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Buildings_SP" checked="checked" name="layer" value="Buildings_SP" onchange="toggle8()"/>
+							<label class="check" for="Buildings_SP"><div></div></label>
+							<label class="text" for="Buildings_SP">建物、橋</label>
+						</div>
+					</div>
+					<div class="EditPanel2-2">
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Mountains_SP" checked="checked" name="layer" value="Mountains_SP" onchange="toggle9()"/>
+							<label class="check" for="Mountains_SP"><div></div></label>
+							<label class="text" for="Mountains_SP">山</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Waters_SP" checked="checked" name="layer" value="state_SP" onchange="toggle10()"/>
+							<label class="check" for="Waters_SP"><div></div></label>
+							<label class="text" for="Waters_SP">水域</label>
+						</div>
+						<div class="ToggleSwich">
+							<input type="checkbox" id="Transit_SP" checked="checked" name="layer" value="Transit_SP" onchange="toggle11()"/>
+							<label class="check" for="Transit_SP"><div></div></label>
+							<label class="text" for="Transit_SP">公共交通機関（バス、電車）など</label>
+						</div>
+					</div>				</div>
+				<div class="EditPanel3">
 					<h3>文字の大きさ調整</h3>
 					<div class="selectdiv">
 						<select id="ChoosedLayer_SP" name="ChoosedLayer_SP" onchange="ChoosingLayer_SP()">
@@ -247,7 +248,7 @@
 						<span> px</span>
 					</div>
 				</div>
-				<div class="EditPanel4">
+				<div class="EditPanel5">
 					<h3>色の変更</h3>
 					<div class="selectdiv">
 						<select id="ColoredLayer_SP" name="ColoredLayer_SP">
@@ -266,7 +267,7 @@
 	</nav>
 	<div class="overlay"></div>
 
-	<script src='JavaScript/LowVisionMap_responsible.js'></script>
+	<script src='JavaScript/LowVisionMap_background.js'></script>
 
 </body>
 

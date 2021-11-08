@@ -16,6 +16,85 @@ body {
 
 /*  全環境に共通の設定（モバイルファースト） */
 
+/*  Checkbox本体を隠す */
+input[type="checkbox"] {
+    display: none;
+}
+
+/*  基本設定 */
+input[type="checkbox"] + label.check {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
+    color: #969696;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    background-color: #ffffff;
+}
+
+/*  チェック時の基本設定 */
+input[type="checkbox"]:checked + label.check {
+    border: 1px solid #226fff;
+    background-color: #226fff;
+}
+
+/*  擬似要素(OFF文字) */
+input[type="checkbox"] + label.check::before {
+    content: "OFF";
+    position: absolute;
+    top: 4px;
+    left: auto;
+    right: 6px;
+    color: #000000;
+}
+
+/*  チェック時の擬似要素(ON文字) */
+input[type="checkbox"]:checked + label.check::before {
+    content: "ON";
+    position: absolute;
+    left: 6px;
+    right: auto;
+    color: #ffffff;
+}
+
+/*  トグル部品 */
+input[type="checkbox"] + label.check > div {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 22px;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    background-color: #ffffff;
+    transition: 0.2s;
+}
+
+/*  チェック時のトグル部品 */
+input[type="checkbox"]:checked + label.check > div {
+    border: 1px solid transparent;
+    left: 44px;
+}
+.ToggleSwich {
+    margin: 0.5rem auto;
+}
+
+.ToggleSwich .text {
+    vertical-align: 50%;
+    color: white;
+    font-size: 16px;
+}
+
+.ToggleSwich label {
+    cursor: pointer;
+}
+
+
+
+
+
     /*  フロート時の回り込み防止のための記述 */
     .clearfix::after {
         content: "";
@@ -258,14 +337,8 @@ body {
                 color: white;
             }
 
-            /* 道路、線路の表示/非表示チェックボックス */
-            /* 文字表示/非表示チェックボックス */
-            .EditPanelSP .item-frame {
-                margin: 1rem auto;
-            }
-
                 /* 文字サイズ変更スライダー */
-                .EditPanelSP .EditPanel2 #Label-Size-Slider_SP {
+                .EditPanelSP .EditPanel3 #Label-Size-Slider_SP {
                     -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
                     appearance: none;
                     cursor: pointer; /* カーソルを分かりやすく */
@@ -277,20 +350,20 @@ body {
                     border: solid 3px #dff1ff; /* バー周囲の線 */
                 }
 
-                .EditPanel2 span {
+                .EditPanel3 span {
                     color: white;
                     font-size: 25px;
                 }
 
                 /* カラーパレット */
-                .EditPanel4 {
+                .EditPanel5 {
                     display: block;
                     width: 210px;
                     height: auto;
                     padding: 10px;
                 }
 
-                    .EditPanel4 button {
+                    .EditPanel5 button {
                         display: inline-block;
                         width: 45px;
                         height: 40px;
@@ -298,11 +371,11 @@ body {
                         cursor: pointer;
                     }
                     
-                    .EditPanel4 button:focus {
+                    .EditPanel5 button:focus {
                         outline: none;
                     }
                     
-                    .EditPanel4 button:hover {
+                    .EditPanel5 button:hover {
                         box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
                     }
 
@@ -425,60 +498,6 @@ body {
         word-break: normal;
     }
 
-    /* トグルスイッチ */
-    .EditPanelPC1 .item-frame {
-        margin: 0.5rem auto;
-    }
-    
-    .EditPanelPC1 .text {
-        vertical-align: middle;
-        color: white;
-    }
-    
-    .EditPanelPC1 label {
-        cursor: pointer;
-    }
-    
-    .EditPanelPC1 .switch {
-        position: relative;
-    }
-    
-    .EditPanelPC1 .switch:before, .EditPanelPC1 .switch:after {
-        content: "";
-        vertical-align: middle;
-        display: inline-block;
-    }
-    
-    .EditPanelPC1 .switch:before {
-        width: 2em;
-        height: 1em;
-        border: 2px solid #c4c9ff;
-        border-radius: 32px;
-        background: #999;
-    }
-    
-    .EditPanelPC1 .switch:after {
-        position: relative;
-        width: 1em;
-        height: 1em;
-        background: #c4c9ff;
-        border-radius: 50%;
-        left: -2.2em;
-    }
-    
-    .EditPanelPC1 input { 
-        display: none;
-    }
-    
-    .EditPanelPC1 input:checked ~ .switch:before {
-        background: #00b715;
-        border-color: #84ff92;
-    }
-        
-    .EditPanelPC1 input:checked ~ .switch:after {
-        background: #84ff92;
-        left: -1.1em;
-    }
 
         /* パソコン版画面上半分 */
         #wrap1{
@@ -520,13 +539,13 @@ body {
             }
 
                 /* 道路、線路の表示/非表示切り替えトグルスイッチ */
-                .EditPanel5 {
+                .EditPanel1 {
                     display: block;
                     width: 400px;
-                    height: 130px;
+                    height: 140px;
                 }
             
-                    .EditPanel5-1 {
+                    .EditPanel1-1 {
                         display: block;
                         width: 45%;
                         height: 80px;
@@ -534,7 +553,7 @@ body {
                         float: left;
                     }
                 
-                    .EditPanel5-2 {
+                    .EditPanel1-2 {
                         display: block;
                         width: 45%;
                         height: 80px;
@@ -543,21 +562,21 @@ body {
                     }
 
                 /* 文字の表示/非表示切り替えトグルスイッチ */
-                .EditPanel1 {
+                .EditPanel2 {
                     display: block;
                     width: 400px;
-                    height: 200px;
+                    height: 215px;
                 }
 
-                    .EditPanel1-1 {
+                    .EditPanel2-1 {
                         display: block;
                         width: 45%;
-                        height: 140px;
+                        height: 160px;
                         margin: 5px;
                         float: left;
                     }
                 
-                    .EditPanel1-2 {
+                    .EditPanel2-2 {
                         display: block;
                         width: 45%;
                         height: 140px;
@@ -566,24 +585,24 @@ body {
                     }
             
                 /* 文字の大きさ調整スライダー */
-                .EditPanel2 {
+                .EditPanel3 {
                     display: block;
                     padding: 10px;
                 }
 
-                    .EditPanel2 .text {
+                    .EditPanel3 .text {
                         vertical-align: middle;
                     }
                     
-                    .EditPanel2 label {
+                    .EditPanel3 label {
                         cursor: pointer;
                     }
 
-                    .EditPanel2 input { 
+                    .EditPanel3 input { 
                         display: block;
                     }
 
-                    .EditPanel2 #Label-Size-Slider_PC {
+                    .EditPanel3 #Label-Size-Slider_PC {
                         -webkit-appearance: none; /* 🚩これ無しだとスタイルがほぼ全く反映されないので注意 */
                         appearance: none;
                         cursor: pointer; /* カーソルを分かりやすく */
@@ -595,7 +614,7 @@ body {
                         border: solid 5px #dff1ff; /* バー周囲の線 */
                     }
 
-                    .EditPanel2 span {
+                    .EditPanel3 span {
                         color: white;
                     }
 
@@ -616,7 +635,7 @@ body {
                 float: left;
             }    
 
-                /* ナビゲーション */
+                /* 経路案内 */
                 .ShadowBox2 {
                     position: relative;
                     width: 30%;
@@ -639,7 +658,7 @@ body {
                     height: 100%;
                 }
 
-                .EditPanel3 {
+                .EditPanel4 {
                     display: block;
                     width: 55%;
                     height: auto;
@@ -648,7 +667,7 @@ body {
                 }
 
                 /* カラーパレット */
-                .EditPanel4 {
+                .EditPanel5 {
                     display: block;
                     width: 45%;
                     height: auto;
@@ -656,7 +675,7 @@ body {
                     float: right;
                 }
 
-                    .EditPanel4 button {
+                    .EditPanel5 button {
                         display: inline-block;
                         width: 60px;
                         height: 40px;
@@ -664,11 +683,11 @@ body {
                         cursor: pointer;
                     }
                     
-                    .EditPanel4 button:focus {
+                    .EditPanel5 button:focus {
                         outline: none;
                     }
                     
-                    .EditPanel4 button:hover {
+                    .EditPanel5 button:hover {
                         box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
                     }
 
