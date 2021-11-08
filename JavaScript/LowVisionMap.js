@@ -62,7 +62,6 @@
 
 
 /* PC用 */
-	/* 道路、線路の表示/非表示制御 */
 	/* トグルスイッチ */
 		/* 国道、高速道路の表示/非表示制御 */
 		/* スイッチの初期状態定義。判定時に使用 */
@@ -115,12 +114,10 @@
 				map.setLayoutProperty("tunnel-primary-secondary-tertiary-case",'visibility','visible');
 			}
 			else{
-				map.setLayoutProperty("road-motorway-trunk",'visibility','none');
-				map.setLayoutProperty("road-motorway-trunk-case",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk-2-case",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk-2",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk-case",'visibility','none');
+				map.setLayoutProperty("road-primary",'visibility','none');
+				map.setLayoutProperty("road-primary-case",'visibility','none');
+				map.setLayoutProperty("road-secondary-tertiary",'visibility','none');
+				map.setLayoutProperty("road-secondary-tertiary-case",'visibility','none');
 				map.setLayoutProperty("bridge-primary-secondary-tertiary",'visibility','none');
 				map.setLayoutProperty("bridge-primary-secondary-tertiary-case",'visibility','none');
 				map.setLayoutProperty("road-major-link",'visibility','none');
@@ -330,19 +327,19 @@
 				return function(evt){
 					const EditLabel = document.getElementById("ChoosedLayer_PC").value;
 					target.innerHTML = elem.value;
-					/* オプションで国名のラベル選択時 */
+					/* 国名選択時 */
 					if(EditLabel=="NowChoosedCountry"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("country-label",'text-size',+ tmp);
 					}	
-					/* オプションで県名のラベル選択時 */
+					/* 県名選択時 */
 					else if(EditLabel=="NowChoosedState"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("state-label",'text-size',+ tmp);
 					}
-					/* オプションで市町村名のラベル選択時 */
+					/* 市町村名選択時 */
 					else if(EditLabel=="NowChoosedTownAndVillage"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
@@ -350,20 +347,20 @@
 						map.setLayoutProperty("settlement-subdivision-label",'text-size',+ tmp);
 						map.setLayoutProperty("settlement-minor-label",'text-size',+ tmp);	
 					}
-					/* オプションで建物、橋のラベル選択時 */
+					/* 建物、橋選択時 */
 					else if(EditLabel=="NowChoosedBuilding"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("poi-label",'text-size',+ tmp);
 						map.setLayoutProperty("airport-label",'text-size',+ tmp);
 					}
-					/* オプションで山のラベル選択時 */
+					/* 山選択時 */
 					else if(EditLabel=="NowChoosedMountains"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty('natural-point-label','text-size',+ tmp);
 					}
-					/* オプションで川、湖、海のラベル選択時 */
+					/* 水域選択時 */
 					else if(EditLabel=="NowChoosedWaters"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
@@ -371,11 +368,12 @@
 						map.setLayoutProperty("water-line-label",'text-size',+ tmp);
 						map.setLayoutProperty("waterway-label",'text-size',+ tmp);			
 					}
-					/* オプションで国道、高速道路、バイパスなどのラベル選択時 */
+					/* 道路、交差点選択時 */
 					else if(EditLabel=="NowChoosedHighway"){
 						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
-						map.setLayoutProperty('road-label-simple','text-size',+ tmp);
+						map.setLayoutProperty('road-label','text-size',+ tmp);
+						map.setLayoutProperty('road-intersection','text-size',+ tmp);
 					}
 					/* オプションでその他道路、歩道などのラベル選択時 */
 					else if(EditLabel=="NowChoosedMinorRoads"){
@@ -423,17 +421,75 @@
 			'#ffffff',
 		];
 
-		 
 		colors.forEach(function (color) {
 			var swatch = document.createElement('button');
 			swatch.style.backgroundColor = color;
 			swatch.addEventListener('click', function () {
 				const EditLayer = document.getElementById("ColoredLayer_PC").value;
-				/* オプションで国名のラベル選択時 */
+				/* 国道、高速道路選択時 */
+				if(EditLayer=="NowChoosedMotorway"){
+					map.setPaintProperty("road-motorway-trunk",'line-color',color);
+					map.setPaintProperty("road-motorway-trunk-case",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk-2-case",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk-2",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk-case",'line-color',color);
+					map.setPaintProperty("tunnel-motorway-trunk",'line-color',color);
+					map.setPaintProperty("tunnel-motorway-trunk-case",'line-color',color);
+				}
+				/* 地方道路選択時 */
+				if(EditLayer=="NowChoosedRoad"){
+					map.setPaintProperty("road-primary",'line-color',color);
+					map.setPaintProperty("road-primary-case",'line-color',color);
+					map.setPaintProperty("road-secondary-tertiary",'line-color',color);
+					map.setPaintProperty("road-secondary-tertiary-case",'line-color',color);
+					map.setPaintProperty("bridge-primary-secondary-tertiary",'line-color',color);
+					map.setPaintProperty("bridge-primary-secondary-tertiary-case",'line-color',color);
+					map.setPaintProperty("road-major-link",'line-color',color);
+					map.setPaintProperty("road-major-link-case",'line-color',color);
+					map.setPaintProperty("bridge-major-link",'line-colory',color);
+					map.setPaintProperty("bridge-major-link-case",'line-color',color);
+					map.setPaintProperty("bridge-major-link-2",'line-color',color);
+					map.setPaintProperty("bridge-major-link-2-case",'line-color',color);
+					map.setPaintProperty("tunnel-primary-secondary-tertiary",'line-color',color);
+					map.setPaintProperty("tunnel-primary-secondary-tertiary-case",'line-color',color);
+				}
+				/* その他道路選択時 */
+				if(EditLayer=="NowChoosedMinorRoad"){
+					map.setPaintProperty("road-street",'line-color',color);
+					map.setPaintProperty("road-street-case",'line-color',color);
+					map.setPaintProperty("road-minor",'line-color',color);
+					map.setPaintProperty("road-minor-case",'line-color',color);
+					map.setPaintProperty("road-minor-low",'line-color',color);
+					map.setPaintProperty("road-construction",'line-color',color);
+					map.setPaintProperty("road-path",'line-color',color);
+					map.setPaintProperty("road-path-bg",'line-color',color);
+					map.setPaintProperty("bridge-street-minor-case",'line-color',color);
+					map.setPaintProperty("bridge-street-minor-low",'line-color',color);
+					map.setPaintProperty("bridge-construction",'line-color',color);
+					map.setPaintProperty("bridge-path",'line-color',color);
+					map.setPaintProperty("bridge-path-bg",'line-color',color);
+					map.setPaintProperty("tunnel-street-minor",'line-color',color);
+					map.setPaintProperty("tunnel-street-minor-case",'line-color',color);
+					map.setPaintProperty("tunnel-street-minor-low",'line-color',color);
+				}
+				/* 歩道選択時 */
+				if(EditLayer=="NowChoosedRoadPedestrian"){
+					map.setPaintProperty("road-pedestrian",'line-color',color);
+					map.setPaintProperty("road-pedestrian-case",'line-color',color);
+					map.setPaintProperty("road-steps",'line-color',color);
+					map.setPaintProperty("road-steps-bg",'line-color',color);
+					map.setPaintProperty("bridge-pedestrian",'line-color',color);
+					map.setPaintProperty("bridge-pedestrian-case",'line-color',color);
+					map.setPaintProperty("bridge-steps",'line-color',color);
+					map.setPaintProperty("bridge-steps-bg",'line-color',color);
+				}
+				/* 背景の土地選択時 */
 				if(EditLayer=="NowChoosedBackGround"){
 					map.setPaintProperty('land','background-color',color);
 					map.setPaintProperty('landuse','fill-color',color);
 				}
+				/* 建物、橋選択時 */
 				if(EditLayer=="NowChoosedBuilding"){
 					map.setPaintProperty('building','fill-color',color);
 					map.setPaintProperty('building-outline','line-color',color);
@@ -443,20 +499,10 @@
 					map.setPaintProperty('bridge-steps','line-color',color);
 					map.setPaintProperty('bridge-path','line-color',color);
 				}
+				/* 水域選択時 */
 				if(EditLayer=="NowChoosedWaters"){
 					map.setPaintProperty('water','fill-color',color);
 					map.setPaintProperty('waterway','line-color',color);
-				}
-				if(EditLayer=="NowChoosedHighway"){
-					map.setPaintProperty('road-simple','line-color',color);
-				}
-				if(EditLayer=="NowChoosedMinorRoads"){
-					map.setPaintProperty('road-pedestrian','line-color',color);
-					map.setPaintProperty('road-steps','line-color',color);
-					map.setPaintProperty('road-path','line-color',color);
-					map.setPaintProperty('tunnel-pedestrian','line-color',color);
-					map.setPaintProperty('tunnel-steps','line-color',color);
-					map.setPaintProperty('tunnel-path','line-color',color);
 				}
 			});
 			swatches_PC.appendChild(swatch);
@@ -544,12 +590,10 @@
 				map.setLayoutProperty("tunnel-primary-secondary-tertiary-case",'visibility','visible');
 			}
 			else{
-				map.setLayoutProperty("road-motorway-trunk",'visibility','none');
-				map.setLayoutProperty("road-motorway-trunk-case",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk-2-case",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk-2",'visibility','none');
-				map.setLayoutProperty("bridge-motorway-trunk-case",'visibility','none');
+				map.setLayoutProperty("road-primary",'visibility','none');
+				map.setLayoutProperty("road-primary-case",'visibility','none');
+				map.setLayoutProperty("road-secondary-tertiary",'visibility','none');
+				map.setLayoutProperty("road-secondary-tertiary-case",'visibility','none');
 				map.setLayoutProperty("bridge-primary-secondary-tertiary",'visibility','none');
 				map.setLayoutProperty("bridge-primary-secondary-tertiary-case",'visibility','none');
 				map.setLayoutProperty("road-major-link",'visibility','none');
@@ -761,62 +805,63 @@
 				return function(evt){
 					const EditLabel = document.getElementById("ChoosedLayer_SP").value;
 					target.innerHTML = elem.value;
-					/* オプションで国名のラベル選択時 */
+					/* 国名選択時 */
 					if(EditLabel=="NowChoosedCountry"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("country-label",'text-size',+ tmp);
 					}	
-					/* オプションで県名のラベル選択時 */
+					/* 県名選択時 */
 					else if(EditLabel=="NowChoosedState"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("state-label",'text-size',+ tmp);
 					}
-					/* オプションで市町村名のラベル選択時 */
+					/* 市町村名選択時 */
 					else if(EditLabel=="NowChoosedTownAndVillage"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("settlement-major-label",'text-size',+ tmp);
 						map.setLayoutProperty("settlement-subdivision-label",'text-size',+ tmp);
 						map.setLayoutProperty("settlement-minor-label",'text-size',+ tmp);	
 					}
-					/* オプションで建物、橋のラベル選択時 */
+					/* 建物、橋選択時 */
 					else if(EditLabel=="NowChoosedBuilding"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("poi-label",'text-size',+ tmp);
 						map.setLayoutProperty("airport-label",'text-size',+ tmp);
 					}
-					/* オプションで山のラベル選択時 */
+					/* 山選択時 */
 					else if(EditLabel=="NowChoosedMountains"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty('natural-point-label','text-size',+ tmp);
 					}
-					/* オプションで川、湖、海のラベル選択時 */
+					/* 水域選択時 */
 					else if(EditLabel=="NowChoosedWaters"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty("water-point-label",'text-size',+ tmp);
 						map.setLayoutProperty("water-line-label",'text-size',+ tmp);
 						map.setLayoutProperty("waterway-label",'text-size',+ tmp);			
 					}
-					/* オプションで国道、高速道路、バイパスなどのラベル選択時 */
+					/* 道路、交差点選択時 */
 					else if(EditLabel=="NowChoosedHighway"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
-						map.setLayoutProperty('road-label-simple','text-size',+ tmp);
+						map.setLayoutProperty('road-label','text-size',+ tmp);
+						map.setLayoutProperty('road-intersection','text-size',+ tmp);
 					}
 					/* オプションでその他道路、歩道などのラベル選択時 */
-					else if(EditLabel=="NowChooedMinorRoads"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+					else if(EditLabel=="NowChoosedMinorRoads"){
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty('path-pedestrian-label','text-size',+ tmp);
 					}
 					/* オプションで公共交通機関（バス、電車）などのラベル選択時 */
 					else if(EditLabel=="NowChoosedTransit"){
-						const tmp = document.getElementById('Label-Size-Slider_SP').value;
+						const tmp = document.getElementById('Label-Size-Slider_PC').value;
 						target.innerHTML = elem.value;
 						map.setLayoutProperty('transit-label','text-size',+ tmp);
 					}
@@ -827,7 +872,7 @@
 
 
 	/* カラーパレット */
-		var swatches_PC = document.getElementById('swatches_PC');
+		var swatches_SP = document.getElementById('swatches_SP');
 		var colors = [
 			'#ff4b00',
 			'#005aff',
@@ -842,18 +887,76 @@
 			'#84919e',
 			'#ffffff',
 		];
-
 		
 		colors.forEach(function (color) {
 			var swatch = document.createElement('button');
 			swatch.style.backgroundColor = color;
 			swatch.addEventListener('click', function () {
 				const EditLayer = document.getElementById("ColoredLayer_SP").value;
-				/* オプションで国名のラベル選択時 */
+				/* 国道、高速道路選択時 */
+				if(EditLayer=="NowChoosedMotorway"){
+					map.setPaintProperty("road-motorway-trunk",'line-color',color);
+					map.setPaintProperty("road-motorway-trunk-case",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk-2-case",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk-2",'line-color',color);
+					map.setPaintProperty("bridge-motorway-trunk-case",'line-color',color);
+					map.setPaintProperty("tunnel-motorway-trunk",'line-color',color);
+					map.setPaintProperty("tunnel-motorway-trunk-case",'line-color',color);
+				}
+				/* 地方道路選択時 */
+				if(EditLayer=="NowChoosedRoad"){
+					map.setPaintProperty("road-primary",'line-color',color);
+					map.setPaintProperty("road-primary-case",'line-color',color);
+					map.setPaintProperty("road-secondary-tertiary",'line-color',color);
+					map.setPaintProperty("road-secondary-tertiary-case",'line-color',color);
+					map.setPaintProperty("bridge-primary-secondary-tertiary",'line-color',color);
+					map.setPaintProperty("bridge-primary-secondary-tertiary-case",'line-color',color);
+					map.setPaintProperty("road-major-link",'line-color',color);
+					map.setPaintProperty("road-major-link-case",'line-color',color);
+					map.setPaintProperty("bridge-major-link",'line-colory',color);
+					map.setPaintProperty("bridge-major-link-case",'line-color',color);
+					map.setPaintProperty("bridge-major-link-2",'line-color',color);
+					map.setPaintProperty("bridge-major-link-2-case",'line-color',color);
+					map.setPaintProperty("tunnel-primary-secondary-tertiary",'line-color',color);
+					map.setPaintProperty("tunnel-primary-secondary-tertiary-case",'line-color',color);
+				}
+				/* その他道路選択時 */
+				if(EditLayer=="NowChoosedMinorRoad"){
+					map.setPaintProperty("road-street",'line-color',color);
+					map.setPaintProperty("road-street-case",'line-color',color);
+					map.setPaintProperty("road-minor",'line-color',color);
+					map.setPaintProperty("road-minor-case",'line-color',color);
+					map.setPaintProperty("road-minor-low",'line-color',color);
+					map.setPaintProperty("road-construction",'line-color',color);
+					map.setPaintProperty("road-path",'line-color',color);
+					map.setPaintProperty("road-path-bg",'line-color',color);
+					map.setPaintProperty("bridge-street-minor-case",'line-color',color);
+					map.setPaintProperty("bridge-street-minor-low",'line-color',color);
+					map.setPaintProperty("bridge-construction",'line-color',color);
+					map.setPaintProperty("bridge-path",'line-color',color);
+					map.setPaintProperty("bridge-path-bg",'line-color',color);
+					map.setPaintProperty("tunnel-street-minor",'line-color',color);
+					map.setPaintProperty("tunnel-street-minor-case",'line-color',color);
+					map.setPaintProperty("tunnel-street-minor-low",'line-color',color);
+				}
+				/* 歩道選択時 */
+				if(EditLayer=="NowChoosedRoadPedestrian"){
+					map.setPaintProperty("road-pedestrian",'line-color',color);
+					map.setPaintProperty("road-pedestrian-case",'line-color',color);
+					map.setPaintProperty("road-steps",'line-color',color);
+					map.setPaintProperty("road-steps-bg",'line-color',color);
+					map.setPaintProperty("bridge-pedestrian",'line-color',color);
+					map.setPaintProperty("bridge-pedestrian-case",'line-color',color);
+					map.setPaintProperty("bridge-steps",'line-color',color);
+					map.setPaintProperty("bridge-steps-bg",'line-color',color);
+				}
+				/* 背景の土地選択時 */
 				if(EditLayer=="NowChoosedBackGround"){
 					map.setPaintProperty('land','background-color',color);
 					map.setPaintProperty('landuse','fill-color',color);
 				}
+				/* 建物、橋選択時 */
 				if(EditLayer=="NowChoosedBuilding"){
 					map.setPaintProperty('building','fill-color',color);
 					map.setPaintProperty('building-outline','line-color',color);
@@ -863,20 +966,10 @@
 					map.setPaintProperty('bridge-steps','line-color',color);
 					map.setPaintProperty('bridge-path','line-color',color);
 				}
+				/* 水域選択時 */
 				if(EditLayer=="NowChoosedWaters"){
 					map.setPaintProperty('water','fill-color',color);
 					map.setPaintProperty('waterway','line-color',color);
-				}
-				if(EditLayer=="NowChoosedHighway"){
-					map.setPaintProperty('road-simple','line-color',color);
-				}
-				if(EditLayer=="NowChoosedMinorRoads"){
-					map.setPaintProperty('road-pedestrian','line-color',color);
-					map.setPaintProperty('road-steps','line-color',color);
-					map.setPaintProperty('road-path','line-color',color);
-					map.setPaintProperty('tunnel-pedestrian','line-color',color);
-					map.setPaintProperty('tunnel-steps','line-color',color);
-					map.setPaintProperty('tunnel-path','line-color',color);
 				}
 			});
 			swatches_SP.appendChild(swatch);
